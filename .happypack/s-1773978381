@@ -1,0 +1,30 @@
+Duplicate declaration "CREATE_USER_SUCCESS"
+
+   5 | const CREATE_USER = 'api/users/CREATE_USER'
+   6 | const CREATE_USER_SUCCESS = 'api/users/CREATE_USER_SUCCESS'
+>  7 | const CREATE_USER_SUCCESS = 'api/users/CREATE_USER_SUCCESS'
+     |       ^
+   8 | 
+   9 | const initialState = {
+  10 |   getUsers: {
+
+BabelLoaderError: Duplicate declaration "CREATE_USER_SUCCESS"
+
+   5 | const CREATE_USER = 'api/users/CREATE_USER'
+   6 | const CREATE_USER_SUCCESS = 'api/users/CREATE_USER_SUCCESS'
+>  7 | const CREATE_USER_SUCCESS = 'api/users/CREATE_USER_SUCCESS'
+     |       ^
+   8 | 
+   9 | const initialState = {
+  10 |   getUsers: {
+
+    at transpile (/Users/kecupochren/Code/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/kecupochren/Code/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/kecupochren/Code/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

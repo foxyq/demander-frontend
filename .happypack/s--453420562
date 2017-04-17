@@ -1,0 +1,193 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+exports.default = reducer;
+exports.getCompanies = getCompanies;
+exports.getCompany = getCompany;
+exports.createUser = createUser;
+exports.editUser = editUser;
+exports.deleteUser = deleteUser;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var GET_COMPANIES = 'api/companies/GET_COMPANIES';
+var GET_COMPANIES_SUCCESS = 'api/companies/GET_COMPANIES_SUCCESS';
+var GET_COMPANIES_FAIL = 'api/companies/GET_COMPANIES_FAIL';
+
+var GET_COMPANY = 'api/companies/GET_COMPANY';
+var GET_COMPANY_SUCCESS = 'api/companies/GET_COMPANY_SUCCESS';
+var GET_COMPANY_FAIL = 'api/companies/GET_COMPANY_FAIL';
+
+var CREATE_COMPANY = 'api/companies/CREATE_COMPANY';
+var CREATE_COMPANY_SUCCESS = 'api/companies/CREATE_COMPANY_SUCCESS';
+var CREATE_COMPANY_FAIL = 'api/companies/CREATE_COMPANY_FAIL';
+
+var EDIT_COMPANY = 'api/companies/EDIT_COMPANY';
+var EDIT_COMPANY_SUCCESS = 'api/companies/EDIT_COMPANY_SUCCESS';
+var EDIT_COMPANY_FAIL = 'api/companies/EDIT_COMPANY_FAIL';
+
+var DELETE_COMPANY = 'api/companies/DELETE_COMPANY';
+var DELETE_COMPANY_SUCCESS = 'api/companies/DELETE_COMPANY_SUCCESS';
+var DELETE_COMPANY_FAIL = 'api/companies/DELETE_COMPANY_FAIL';
+
+var initialState = {
+  getCompanies: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: []
+  },
+  getCompany: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: null
+  },
+  editCompany: {
+    success: false,
+    isLoading: false,
+    error: null
+  },
+  createCompany: {
+    success: false,
+    isLoading: false,
+    error: null
+  }
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    // ------------------------------------
+    // GET ALL COMPANIES
+    // ------------------------------------
+    case GET_COMPANIES:
+      return (0, _extends3.default)({}, state, {
+        getCompanies: (0, _extends3.default)({}, state.getCompanies, {
+          isLoading: true,
+          data: []
+        })
+      });
+    case GET_COMPANIES_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getCompanies: (0, _extends3.default)({}, state.getCompanies, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_COMPANIES_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getCompanies: (0, _extends3.default)({}, state.getCompanies, {
+          isLoading: false,
+          error: 'ERR GET_COMPANIES'
+        })
+      });
+    // ------------------------------------
+    // GET COMPANY
+    // ------------------------------------
+    case GET_COMPANY:
+      return (0, _extends3.default)({}, state, {
+        getCompany: (0, _extends3.default)({}, state.getCompany, {
+          isLoading: true,
+          data: null
+        })
+      });
+    case GET_COMPANY_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getCompany: (0, _extends3.default)({}, state.getCompany, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_COMPANY_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getCompany: (0, _extends3.default)({}, state.getCompany, {
+          isLoading: false,
+          error: 'ERR GET_COMPANY'
+        })
+      });
+    // ------------------------------------
+    // CREATE COMPANY
+    // ------------------------------------
+    case CREATE_COMPANY:
+      return (0, _extends3.default)({}, state, {
+        createCompany: (0, _extends3.default)({}, state.createCompany, {
+          isSubmitting: true
+        })
+      });
+
+    case CREATE_COMPANY_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        createCompany: (0, _extends3.default)({}, state.createCompany, {
+          isSubmitting: false,
+          success: true
+        })
+      });
+
+    case CREATE_COMPANY_FAIL:
+      return (0, _extends3.default)({}, state, {
+        createCompany: (0, _extends3.default)({}, state.createCompany, {
+          isSubmitting: false,
+          error: 'ERR POST CREATE_COMPANY'
+        })
+      });
+    default:
+      return state;
+  }
+}
+
+function getCompanies() {
+  return {
+    types: [GET_COMPANIES, GET_COMPANIES_SUCCESS, GET_COMPANIES_FAIL],
+    promise: function promise(client) {
+      return client.get('api/companies');
+    }
+  };
+}
+
+function getCompany(id) {
+  return {
+    types: [GET_COMPANY, GET_COMPANY_SUCCESS, GET_COMPANY_FAIL],
+    promise: function promise(client) {
+      return client.get('api/companies/' + id);
+    }
+  };
+}
+
+function createUser(data) {
+  return {
+    types: [CREATE_COMPANY, CREATE_COMPANY_SUCCESS, CREATE_COMPANY_FAIL],
+    promise: function promise(client) {
+      return client.post('api/companies', { data: data });
+    }
+  };
+}
+
+function editUser(data, userId) {
+  return {
+    types: [EDIT_COMPANY, EDIT_COMPANY_SUCCESS, EDIT_COMPANY_FAIL],
+    promise: function promise(client) {
+      return client.put('api/companies/' + userId, { data: data });
+    }
+  };
+}
+
+function deleteUser(userId) {
+  return {
+    types: [DELETE_COMPANY, DELETE_COMPANY_SUCCESS, DELETE_COMPANY_FAIL],
+    promise: function promise(client) {
+      return client.del('api/companies/' + userId);
+    }
+  };
+}

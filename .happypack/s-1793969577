@@ -1,0 +1,30 @@
+Duplicate declaration "stateToProps"
+
+   8 | })
+   9 | 
+> 10 | const stateToProps = state => {
+     |       ^
+  11 |   return {
+  12 |     users: state.api.users.getUsers.data
+  13 |   }
+
+BabelLoaderError: Duplicate declaration "stateToProps"
+
+   8 | })
+   9 | 
+> 10 | const stateToProps = state => {
+     |       ^
+  11 |   return {
+  12 |     users: state.api.users.getUsers.data
+  13 |   }
+
+    at transpile (/Users/kecupochren/Code/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/kecupochren/Code/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/kecupochren/Code/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/kecupochren/Code/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

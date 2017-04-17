@@ -1,0 +1,21 @@
+SyntaxError: Unexpected token, expected , (18:4)
+
+  16 |     // deleteCompany: PropTypes.func.isRequired,
+  17 |     isLoading: PropTypes.boolean
+> 18 |     companies: PropTypes.array,
+     |     ^
+  19 |   }
+  20 | 
+  21 |   componentDidMount() {
+
+Error
+    at transpile (/Users/foxyq/Downloads/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Downloads/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Downloads/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Downloads/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Downloads/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Downloads/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Downloads/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Downloads/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Downloads/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Downloads/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

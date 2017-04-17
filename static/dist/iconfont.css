@@ -1,0 +1,22 @@
+@font-face {
+	font-family: "iconfont";
+	src: url("/dist/iconfont/iconfont.eot?#iefix") format("embedded-opentype"),
+url("/dist/iconfont/iconfont.woff") format("woff"),
+url("/dist/iconfont/iconfont.ttf") format("truetype"),
+url("/dist/iconfont/iconfont.svg#iconfont") format("svg");
+}
+
+.ico {
+	line-height: 1;
+}
+
+.ico:before {
+	font-family: iconfont !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.ico--bill:before {
+	content: "\f101";
+}

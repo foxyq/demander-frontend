@@ -1,0 +1,114 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+exports.default = reducer;
+exports.getUsers = getUsers;
+exports.createUser = createUser;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var GET_USERS = 'api/users/GET_USERS';
+var GET_USERS_SUCCESS = 'api/users/GET_USERS_SUCCESS';
+var GET_USERS_FAIL = 'api/users/GET_USERS_FAIL';
+
+var CREATE_USER = 'api/users/CREATE_USER';
+var CREATE_USER_SUCCESS = 'api/users/CREATE_USER_SUCCESS';
+var CREATE_USER_FAIL = 'api/users/CREATE_USER_FAIL';
+
+var initialState = {
+  getUsers: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: []
+  },
+  createUser: {
+    success: false,
+    isSubmitting: false,
+    error: null
+  }
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    case GET_USERS:
+      return (0, _extends3.default)({}, state, {
+        getUsers: (0, _extends3.default)({}, state.getUsers, {
+          isLoading: true
+        })
+      });
+    case GET_USERS_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getUsers: (0, _extends3.default)({}, state.getUsers, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_USERS_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getUsers: (0, _extends3.default)({}, state.getUsers, {
+          isLoading: false,
+          error: 'ERR GET_USERS'
+        })
+      });
+
+    // ------------------------------------
+
+    case CREATE_USER:
+      return (0, _extends3.default)({}, state, {
+        createUser: (0, _extends3.default)({}, state.createUser, {
+          isSubmitting: true
+        })
+      });
+
+    case CREATE_USER_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        createUser: (0, _extends3.default)({}, state.createUser, {
+          isSubmitting: false,
+          success: true
+        })
+      });
+
+    case CREATE_USER_FAIL:
+      return (0, _extends3.default)({}, state, {
+        createUser: (0, _extends3.default)({}, state.createUser, {
+          isSubmitting: false,
+          error: 'ERR POST CREATE_USER'
+        })
+      });
+
+    // ------------------------------------
+
+    default:
+      return state;
+  }
+}
+
+function getUsers() {
+  return {
+    types: [GET_USERS, GET_USERS_SUCCESS, GET_USERS_FAIL],
+    promise: function promise(client) {
+      return client.get('api/users');
+    }
+  };
+}
+
+function createUser(user) {
+  return {
+    types: [CREATE_USER, CREATE_USER_SUCCESS, CREATE_USER_FAIL],
+    promise: function promise(client) {
+      return client.post('api/users', { user: user });
+    }
+  };
+}
