@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getCompanies, deleteCompany } from 'redux/modules/api/companies'
+import { Spin } from 'antd'
 
 @connect(
   ({ api }) => ({
@@ -37,7 +38,7 @@ export default class List extends Component {
 
     return (
       <div>
-        {isLoading && <h1>loader gif</h1>}
+        {isLoading && <Spin size="large" />}
         {companies &&
           companies.length > 0 &&
           companies.map(company => (

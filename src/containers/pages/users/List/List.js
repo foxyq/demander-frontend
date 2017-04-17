@@ -2,10 +2,12 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getUsers, deleteUser } from 'redux/modules/api/users'
+import { Spin } from 'antd'
 
 @connect(
   ({ api }) => ({
     users: api.users.getUsers.data,
+    isLoading: api.users.getUsers.isLoading,
   }),
   { getUsers, deleteUser },
 )
@@ -14,6 +16,7 @@ export default class List extends Component {
     getUsers: PropTypes.func.isRequired,
     deleteUser: PropTypes.func.isRequired,
     users: PropTypes.array,
+    isLoading: PropTypes.boolean,
   }
 
   componentDidMount() {
@@ -31,10 +34,11 @@ export default class List extends Component {
   }
 
   render() {
-    const { users } = this.props
+    const { users, isLoading } = this.props
 
     return (
       <div>
+        {isLoading && <Spin size="large" />}
         {users &&
           users.length > 0 &&
           users.map(user => (

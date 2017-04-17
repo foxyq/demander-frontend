@@ -63,6 +63,12 @@ export default class Home extends Component {
                 Companies
               </Button>
             </Link>
+
+            <Link to="/fancy">
+              <Button type="primary">
+                Fancy page
+              </Button>
+            </Link>
           </li>
         </ul>
       </div>
