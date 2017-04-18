@@ -31,7 +31,11 @@ export default class App extends Component {
       <div>
         {/* <div className="row"> */}
         {/* <div className="container"> */}
-        {children}
+        {process.env.NODE_ENV === 'production'
+          ? { children }
+          : <div>{children}</div>}
+
+        {/* {children} */}
         {/* </div> */}
         {/* </div> */}
       </div>

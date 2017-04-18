@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react'
 import { Layout } from 'antd'
 const { Header, Footer, Content } = Layout
 
+import { HeaderWebsite } from 'components/layout/headers'
+
 export default class PublicLayout extends Component {
   static propTypes = {
     children: PropTypes.object,
@@ -11,7 +13,7 @@ export default class PublicLayout extends Component {
     return (
       <div>
         <Header>
-          Headeris
+          <HeaderWebsite />
         </Header>
 
         <Content>

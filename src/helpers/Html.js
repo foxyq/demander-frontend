@@ -7,8 +7,8 @@ export default class Html extends Component {
   static propTypes = {
     assets: PropTypes.object,
     component: PropTypes.node,
-    store: PropTypes.object
-  };
+    store: PropTypes.object,
+  }
 
   render() {
     const { assets, component, store } = this.props
@@ -56,7 +56,7 @@ export default class Html extends Component {
           <div id="content" dangerouslySetInnerHTML={{ __html: content }} />
           <script
             dangerouslySetInnerHTML={{
-              __html: `window.__data=${serialize(store.getState())};`
+              __html: `window.__data=${serialize(store.getState())};`,
             }}
             charSet="UTF-8"
           />
@@ -67,7 +67,7 @@ export default class Html extends Component {
               key="dlls__vendor"
               src="/dist/dlls/dll__vendor.js"
               charSet="UTF-8"
-            />
+            />,
           ]}
           <script src={assets.javascript.main} charSet="UTF-8" />
         </body>

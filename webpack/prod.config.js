@@ -34,7 +34,14 @@ module.exports = {
     publicPath: '/dist/'
   },
   module: {
-    loaders: [{
+    loaders: [
+    // { test: /(\.css$)/, loaders: ['style-loader', 'css-loader', 'postcss-loader'] },
+    // { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+    // {
+    // test: /\.css$/,
+    // loader: 'style-loader!css-loader'
+    // },
+    {
       test: /\.less$/,
       loader: extractLESS.extract({ fallbackLoader: 'style-loader', loader: 'css!postcss!less' })
     }, {

@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Link } from 'react-router'
 import { get } from 'lodash'
 import { connect } from 'react-redux'
-import { Button } from 'antd'
 import 'antd/dist/antd.less'
 
 import { getUsers } from 'redux/modules/api/users'
@@ -49,28 +47,7 @@ export default class Home extends Component {
 
     return (
       <div>
-        Home
-        <ul>
-          <li>
-            <Link to="/users">
-              <Button type="primary">
-                Users
-              </Button>
-            </Link>
-
-            <Link to="/companies">
-              <Button type="primary">
-                Companies
-              </Button>
-            </Link>
-
-            <Link to="/fancy">
-              <Button type="primary">
-                Fancy page
-              </Button>
-            </Link>
-          </li>
-        </ul>
+        HomePage content
       </div>
     )
   }

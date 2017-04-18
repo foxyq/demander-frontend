@@ -18,7 +18,6 @@ export default class List extends Component {
     isLoading: PropTypes.boolean,
     companies: PropTypes.array,
   }
-
   componentDidMount() {
     this.props.getCompanies()
   }
