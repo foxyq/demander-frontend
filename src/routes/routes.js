@@ -4,6 +4,9 @@ import { isLoaded as isAuthLoaded, load as loadAuth } from 'redux/modules/auth'
 import App from '../app'
 
 import * as Pages from 'containers/pages'
+import * as Layout from 'containers/layouts'
+
+import Fancy from 'containers/pages/Fancy'
 
 export default store => {
   // const requireLogin = (nextState, replace, cb) => {
@@ -34,16 +37,22 @@ export default store => {
 
   return (
     <Route path="/" onEnter={loadUser} component={App}>
-      <IndexRoute component={Pages.Home} />
+      <Route component={Layout.Public}>
+        <IndexRoute component={Pages.Home} />
 
-      <Route path="users">
-        <IndexRoute component={Pages.Users.List} />
-        <Route path=":id" component={Pages.Users.Detail} />
-      </Route>
+        <Route path="users">
+          <IndexRoute component={Pages.Users.List} />
+          <Route path=":id" component={Pages.Users.Detail} />
+        </Route>
 
-      <Route path="companies">
-        <IndexRoute component={Pages.Companies.List} />
-        <Route path=":id" component={Pages.Companies.Detail} />
+        <Route path="companies">
+          <IndexRoute component={Pages.Companies.List} />
+          <Route path=":id" component={Pages.Companies.Detail} />
+        </Route>
+
+        <Route path="fancy">
+          <IndexRoute component={Fancy} />
+        </Route>
       </Route>
 
       <Route path="demands">

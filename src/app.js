@@ -29,11 +29,11 @@ export default class App extends Component {
 
     return (
       <div>
-        <div className="row">
-          <div className="container">
-            {children}
-          </div>
-        </div>
+        {/* <div className="row"> */}
+        {/* <div className="container"> */}
+        {children}
+        {/* </div> */}
+        {/* </div> */}
       </div>
     )
   }
