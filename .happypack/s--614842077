@@ -1,0 +1,71 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+exports.default = reducer;
+exports.getDemands = getDemands;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var GET_DEMANDS = 'api/demands/GET_DEMANDS';
+var GET_DEMANDS_SUCCESS = 'api/demands/GET_DEMANDS_SUCCESS';
+var GET_DEMANDS_FAIL = 'api/demands/GET_DEMANDS_FAIL';
+
+var initialState = {
+  getDemands: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: []
+  }
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    // ------------------------------------
+    // GET ALL DEMANDS
+    // ------------------------------------
+    case GET_DEMANDS:
+      return (0, _extends3.default)({}, state, {
+        getDemands: (0, _extends3.default)({}, state.getDemands, {
+          isLoading: true,
+          data: []
+        })
+      });
+    case GET_DEMANDS_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getDemands: (0, _extends3.default)({}, state.getDemands, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_DEMANDS_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getDemands: (0, _extends3.default)({}, state.getDemands, {
+          isLoading: false,
+          error: 'ERR GET_DEMANDS'
+        })
+      });
+    default:
+      return state;
+  }
+}
+
+function getDemands() {
+  return {
+    types: [GET_DEMANDS, GET_DEMANDS_SUCCESS, GET_DEMANDS_FAIL],
+    promise: function promise(client) {
+      return client.get('api/demands');
+    }
+  };
+}

@@ -128,7 +128,12 @@ var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_re
               'Delete'
             )
           );
-        })
+        }),
+        _react3.default.createElement(
+          _reactRouter.Link,
+          { to: '/users/new' },
+          'Create user'
+        )
       );
     }
   }]);

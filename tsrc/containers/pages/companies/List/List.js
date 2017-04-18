@@ -32,7 +32,7 @@ var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
 
 var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
 
-var _dec, _class, _class2, _temp;
+var _dec, _class, _class2, _temp2;
 
 var _reactRouter = require('react-router');
 
@@ -64,14 +64,32 @@ function _wrapComponent(id) {
 var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_ref) {
   var api = _ref.api;
   return {
-    companies: api.companies.getCompanies.data
+    companies: api.companies.getCompanies.data,
+    isLoading: api.companies.getCompanies.isLoading
   };
-}, { getCompanies: _companies.getCompanies }), _dec(_class = (_temp = _class2 = function (_Component) {
+}, { getCompanies: _companies.getCompanies, deleteCompany: _companies.deleteCompany }), _dec(_class = (_temp2 = _class2 = function (_Component) {
   (0, _inherits3.default)(List, _Component);
 
   function List() {
+    var _ref2;
+
+    var _temp, _this, _ret;
+
     (0, _classCallCheck3.default)(this, List);
-    return (0, _possibleConstructorReturn3.default)(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref2 = List.__proto__ || Object.getPrototypeOf(List)).call.apply(_ref2, [this].concat(args))), _this), _this.handleDeleteCompany = function (companyId) {
+      var confirmed = confirm('Are you sure?');
+
+      if (confirmed) {
+        _this.props.deleteCompany(companyId).then(function () {
+          _this.props.getCompanies();
+        });
+      }
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
   (0, _createClass3.default)(List, [{
@@ -79,26 +97,24 @@ var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_re
     value: function componentDidMount() {
       this.props.getCompanies();
     }
-
-    //   handleDeleteCompanie = companyId => {
-    //     const confirmed = confirm('Are you sure?')
-    //
-    //     if (confirmed) {
-    //       this.props.deleteCompanie(companyId).then(() => {
-    //         this.props.getCompanies()
-    //       })
-    //     }
-    //   };
-
   }, {
     key: 'render',
     value: function render() {
-      var companies = this.props.companies;
+      var _this2 = this;
+
+      var _props = this.props,
+          companies = _props.companies,
+          isLoading = _props.isLoading;
 
 
       return _react3.default.createElement(
         'div',
         null,
+        isLoading && _react3.default.createElement(
+          'h1',
+          null,
+          'loader gif'
+        ),
         companies && companies.length > 0 && companies.map(function (company) {
           return _react3.default.createElement(
             'div',
@@ -108,18 +124,34 @@ var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_re
               _reactRouter.Link,
               { to: '/companies/' + company._id },
               'Edit'
+            ),
+            _react3.default.createElement(
+              'button',
+              {
+                type: 'button',
+                onClick: function onClick() {
+                  return _this2.handleDeleteCompany(company._id);
+                }
+              },
+              'Delete'
             )
           );
-        })
+        }),
+        _react3.default.createElement(
+          _reactRouter.Link,
+          { to: '/companies/new' },
+          'Create company'
+        )
       );
     }
   }]);
   return List;
 }(_react2.Component), _class2.propTypes = {
   getCompanies: _react2.PropTypes.func.isRequired,
-  // deleteCompany: PropTypes.func.isRequired,
+  deleteCompany: _react2.PropTypes.func.isRequired,
+  isLoading: _react2.PropTypes.boolean,
   companies: _react2.PropTypes.array
-}, _temp)) || _class));
+}, _temp2)) || _class));
 
 exports.default = List;
 module.exports = exports['default'];

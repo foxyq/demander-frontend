@@ -54,6 +54,16 @@ export default store => {
           <IndexRoute component={Fancy} />
         </Route>
       </Route>
+
+      <Route path="demands">
+        <IndexRoute component={Pages.Demands.List} />
+        <Route path=":id" component={Pages.Demands.Detail} />
+      </Route>
+
+      <Route path="services">
+        <IndexRoute component={Pages.Services.List} />
+        <Route path=":id" component={Pages.Services.Detail} />
+      </Route>
     </Route>
   )
 }
