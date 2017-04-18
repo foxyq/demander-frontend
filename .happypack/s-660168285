@@ -1,0 +1,194 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+exports.default = reducer;
+exports.getDemands = getDemands;
+exports.getDemand = getDemand;
+exports.createDemand = createDemand;
+exports.editDemand = editDemand;
+exports.deleteDemand = deleteDemand;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var GET_DEMANDS = 'api/demands/GET_DEMANDS';
+var GET_DEMANDS_SUCCESS = 'api/demands/GET_DEMANDS_SUCCESS';
+var GET_DEMANDS_FAIL = 'api/demands/GET_DEMANDS_FAIL';
+
+var GET_DEMAND = 'api/demands/GET_DEMAND';
+var GET_DEMAND_SUCCESS = 'api/demands/GET_DEMAND_SUCCESS';
+var GET_DEMAND_FAIL = 'api/demands/GET_DEMAND_FAIL';
+
+var CREATE_DEMAND = 'api/demands/CREATE_DEMAND';
+var CREATE_DEMAND_SUCCESS = 'api/demands/CREATE_DEMAND_SUCCESS';
+var CREATE_DEMAND_FAIL = 'api/demands/CREATE_DEMAND_FAIL';
+
+var EDIT_DEMAND = 'api/demands/EDIT_DEMAND';
+var EDIT_DEMAND_SUCCESS = 'api/demands/EDIT_DEMAND_SUCCESS';
+var EDIT_DEMAND_FAIL = 'api/demands/EDIT_DEMAND_FAIL';
+
+var DELETE_DEMAND = 'api/demands/DELETE_DEMAND';
+var DELETE_DEMAND_SUCCESS = 'api/demands/DELETE_DEMAND_SUCCESS';
+var DELETE_DEMAND_FAIL = 'api/demands/DELETE_DEMAND_FAIL';
+
+var initialState = {
+  getDemands: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: []
+  },
+  getDemand: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: null
+  },
+  editDemand: {
+    success: false,
+    isLoading: false,
+    error: null
+  },
+  createDemand: {
+    success: false,
+    isLoading: false,
+    error: null
+  }
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    // ------------------------------------
+    // GET ALL DEMANDS
+    // ------------------------------------
+    case GET_DEMANDS:
+      return (0, _extends3.default)({}, state, {
+        getDemands: (0, _extends3.default)({}, state.getDemands, {
+          isLoading: true,
+          data: []
+        })
+      });
+    case GET_DEMANDS_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getDemands: (0, _extends3.default)({}, state.getDemands, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_DEMANDS_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getDemands: (0, _extends3.default)({}, state.getDemands, {
+          isLoading: false,
+          error: 'ERR GET_DEMANDS'
+        })
+      });
+    // ------------------------------------
+    // GET DEMAND
+    // ------------------------------------
+    case GET_DEMAND:
+      return (0, _extends3.default)({}, state, {
+        getDemand: (0, _extends3.default)({}, state.getDemand, {
+          isLoading: true,
+          data: null
+        })
+      });
+    case GET_DEMAND_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getDemand: (0, _extends3.default)({}, state.getDemand, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_DEMAND_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getDemand: (0, _extends3.default)({}, state.getDemand, {
+          isLoading: false,
+          error: 'ERR GET_DEMAND'
+        })
+      });
+    // ------------------------------------
+    // CREATE DEMAND
+    // ------------------------------------
+    case CREATE_DEMAND:
+      return (0, _extends3.default)({}, state, {
+        createDemand: (0, _extends3.default)({}, state.createDemand, {
+          isSubmitting: true
+        })
+      });
+
+    case CREATE_DEMAND_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        createDemand: (0, _extends3.default)({}, state.createDemand, {
+          isSubmitting: false,
+          success: true
+        })
+      });
+
+    case CREATE_DEMAND_FAIL:
+      return (0, _extends3.default)({}, state, {
+        createDemand: (0, _extends3.default)({}, state.createDemand, {
+          isSubmitting: false,
+          error: 'ERR POST CREATE_DEMAND'
+        })
+      });
+
+    default:
+      return state;
+  }
+}
+
+function getDemands() {
+  return {
+    types: [GET_DEMANDS, GET_DEMANDS_SUCCESS, GET_DEMANDS_FAIL],
+    promise: function promise(client) {
+      return client.get('api/demands');
+    }
+  };
+}
+
+function getDemand(id) {
+  return {
+    types: [GET_DEMAND, GET_DEMAND_SUCCESS, GET_DEMAND_FAIL],
+    promise: function promise(client) {
+      return client.get('api/demands/' + id);
+    }
+  };
+}
+
+function createDemand(data) {
+  return {
+    types: [CREATE_DEMAND, CREATE_DEMAND_SUCCESS, CREATE_DEMAND_FAIL],
+    promise: function promise(client) {
+      return client.post('api/demands', { data: data });
+    }
+  };
+}
+
+function editDemand(data, companyId) {
+  return {
+    types: [EDIT_DEMAND, EDIT_DEMAND_SUCCESS, EDIT_DEMAND_FAIL],
+    promise: function promise(client) {
+      return client.put('api/demands/' + companyId, { data: data });
+    }
+  };
+}
+
+function deleteDemand(companyId) {
+  return {
+    types: [DELETE_DEMAND, DELETE_DEMAND_SUCCESS, DELETE_DEMAND_FAIL],
+    promise: function promise(client) {
+      return client.del('api/demands/' + companyId);
+    }
+  };
+}

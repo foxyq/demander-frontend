@@ -63,6 +63,18 @@ export default class Home extends Component {
                 Companies
               </Button>
             </Link>
+
+            <Link to="/demands">
+              <Button type="primary">
+                Demands
+              </Button>
+            </Link>
+
+            <Link to="/services">
+              <Button type="primary">
+                Services
+              </Button>
+            </Link>
           </li>
         </ul>
       </div>

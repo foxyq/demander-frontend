@@ -32,7 +32,7 @@ var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
 
 var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
 
-var _class, _temp;
+var _forms = require('containers/forms');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -55,9 +55,7 @@ function _wrapComponent(id) {
   };
 }
 
-// import { UserForm } from 'containers/forms'
-
-var Detail = _wrapComponent('Detail')((_temp = _class = function (_Component) {
+var Detail = _wrapComponent('Detail')(function (_Component) {
   (0, _inherits3.default)(Detail, _Component);
 
   function Detail() {
@@ -67,23 +65,17 @@ var Detail = _wrapComponent('Detail')((_temp = _class = function (_Component) {
 
   (0, _createClass3.default)(Detail, [{
     key: 'render',
+
+    // static propTypes = {
+    //   something: PropTypes.any,
+    // }
+
     value: function render() {
-      return _react3.default.createElement(
-        'div',
-        null,
-        _react3.default.createElement(
-          'h1',
-          null,
-          'toto je details'
-        )
-      );
-      // return <UserForm {...this.props} />
+      return _react3.default.createElement(_forms.CompanyForm, this.props);
     }
   }]);
   return Detail;
-}(_react2.Component), _class.propTypes = {
-  something: _react2.PropTypes.any
-}, _temp));
+}(_react2.Component));
 
 exports.default = Detail;
 module.exports = exports['default'];

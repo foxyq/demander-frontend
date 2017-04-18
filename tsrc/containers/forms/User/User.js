@@ -71,11 +71,12 @@ function _wrapComponent(id) {
   };
 }
 
-var User = _wrapComponent('User')((_dec = (0, _reactRedux.connect)(function (_ref) {
+var User = _wrapComponent('User')((_dec = (0, _reactRedux.connect)(function (_ref, _ref2) {
   var api = _ref.api;
+  var params = _ref2.params;
   return {
     isSubmitting: api.users.createUser.isSubmitting,
-    initialValues: api.users.getUser.data
+    initialValues: params.id !== 'new' && api.users.getUser.data
   };
 }, { createUser: _users.createUser, getUsers: _users.getUsers, getUser: _users.getUser, editUser: _users.editUser }), _dec2 = (0, _reduxForm.reduxForm)({
   form: 'User',
@@ -85,7 +86,7 @@ var User = _wrapComponent('User')((_dec = (0, _reactRedux.connect)(function (_re
   (0, _inherits3.default)(User, _Component);
 
   function User() {
-    var _ref2;
+    var _ref3;
 
     var _temp, _this, _ret;
 
@@ -95,7 +96,7 @@ var User = _wrapComponent('User')((_dec = (0, _reactRedux.connect)(function (_re
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref2 = User.__proto__ || Object.getPrototypeOf(User)).call.apply(_ref2, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref3 = User.__proto__ || Object.getPrototypeOf(User)).call.apply(_ref3, [this].concat(args))), _this), _this.state = {
       error: null
     }, _this.handleSubmit = function (model) {
       var userId = _this.props.params.id;
