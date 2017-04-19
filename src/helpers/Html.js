@@ -26,14 +26,67 @@ export default class Html extends Component {
 
           <link rel="shortcut icon" href="/favicon.ico" />
           <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossOrigin="anonymous"
+          />
+          <link
+            href="http://demander.cz/css/live/material-kit.css"
+            rel="stylesheet"
+          />
+          <link href="http://demander.cz/css/live/demo.css" rel="stylesheet" />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+          />
+          <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+          />
+          <script
+            src="http://demander.cz/js/live/jquery.min.js"
+            type="text/javascript"
+          />
+          <script
+            src="http://demander.cz/js/live/bootstrap.min.js"
+            type="text/javascript"
+          />
+          <script src="http://demander.cz/js/live/material.min.js" />
+
+          <script
+            src="http://demander.cz/js/live/nouislider.min.js"
+            type="text/javascript"
+          />
+
+          <script
+            src="http://demander.cz/js/live/bootstrap-datepicker.js"
+            type="text/javascript"
+          />
+
+          <script
+            src="http://demander.cz/js/live/material-kit.js"
+            type="text/javascript"
+          />
+
+          <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&amp;subset=latin-ext"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+            rel="stylesheet"
+          />
           <link rel="stylesheet" type="text/css" href="/dist/iconfont.css" />
-          <script
+          {/* <script
             type="text/javascript"
             src="https://maps.google.com/maps/api/js?key=AIzaSyCM1wM1pG1A8LNCj295JRv0nW1NOAZc3v8&amp;libraries=places"
-          />
+          /> */}
           {Object.keys(assets.styles).map((style, key) => (
             <link
               href={assets.styles[style]}

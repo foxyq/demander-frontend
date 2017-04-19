@@ -17,7 +17,7 @@ export default class List extends Component {
   static propTypes = {
     getServices: PropTypes.func.isRequired,
     deleteService: PropTypes.func.isRequired,
-    isLoading: PropTypes.boolean,
+    isLoading: PropTypes.bool,
     services: PropTypes.array,
   }
 
@@ -49,10 +49,8 @@ export default class List extends Component {
 
               <Link to={`/services/${service._id}`}>Edit</Link>
 
-              <button
-                type="button"
-                onClick={() => this.handleDeleteService(service._id)}
-              >
+              <button type="button">
+                {/* // onClick={() => this.handleDeleteService(service._id)} */}
                 Delete
               </button>
             </div>

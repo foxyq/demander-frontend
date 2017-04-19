@@ -94,14 +94,10 @@ var App = _wrapComponent('App')((_dec = (0, _reduxConnect.asyncConnect)([{
       return _react3.default.createElement(
         'div',
         null,
-        _react3.default.createElement(
+        process.env.NODE_ENV === 'production' ? { children: children } : _react3.default.createElement(
           'div',
-          { className: 'row' },
-          _react3.default.createElement(
-            'div',
-            { className: 'container' },
-            children
-          )
+          null,
+          children
         )
       );
     }

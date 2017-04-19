@@ -1,0 +1,151 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _FontIcon = require('material-ui/FontIcon');
+
+var _FontIcon2 = _interopRequireDefault(_FontIcon);
+
+var _BottomNavigation = require('material-ui/BottomNavigation');
+
+var _Paper = require('material-ui/Paper');
+
+var _Paper2 = _interopRequireDefault(_Paper);
+
+var _locationOn = require('material-ui/svg-icons/communication/location-on');
+
+var _locationOn2 = _interopRequireDefault(_locationOn);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  FooterWebsite: {
+    displayName: 'FooterWebsite'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Work/react/demander/demander-frontend/src/components/layout/Footer/FooterWebsite.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Work/react/demander/demander-frontend/src/components/layout/Footer/FooterWebsite.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var recentsIcon = _react3.default.createElement(
+  _FontIcon2.default,
+  { className: 'material-icons' },
+  'restore'
+);
+var favoritesIcon = _react3.default.createElement(
+  _FontIcon2.default,
+  { className: 'material-icons' },
+  'favorite'
+);
+var nearbyIcon = _react3.default.createElement(_locationOn2.default, null);
+
+var FooterWebsite = _wrapComponent('FooterWebsite')(function (_Component) {
+  (0, _inherits3.default)(FooterWebsite, _Component);
+
+  function FooterWebsite() {
+    (0, _classCallCheck3.default)(this, FooterWebsite);
+    return (0, _possibleConstructorReturn3.default)(this, (FooterWebsite.__proto__ || Object.getPrototypeOf(FooterWebsite)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(FooterWebsite, [{
+    key: 'render',
+
+    // state = {
+    //   selectedIndex: 0,
+    // }
+    //
+    // select = index => this.setState({ selectedIndex: index })
+
+    value: function render() {
+      var _this2 = this;
+
+      return _react3.default.createElement(
+        _Paper2.default,
+        { zDepth: 1 },
+        _react3.default.createElement(
+          _BottomNavigation.BottomNavigation,
+          null,
+          '// selectedIndex=',
+          this.state.selectedIndex,
+          ' >',
+          _react3.default.createElement(_BottomNavigation.BottomNavigationItem, {
+            label: 'Recents',
+            icon: recentsIcon,
+            onTouchTap: function onTouchTap() {
+              return _this2.select(0);
+            }
+          }),
+          _react3.default.createElement(_BottomNavigation.BottomNavigationItem, {
+            label: 'Favorites',
+            icon: favoritesIcon,
+            onTouchTap: function onTouchTap() {
+              return _this2.select(1);
+            }
+          }),
+          _react3.default.createElement(_BottomNavigation.BottomNavigationItem, {
+            label: 'Nearby',
+            icon: nearbyIcon,
+            onTouchTap: function onTouchTap() {
+              return _this2.select(2);
+            }
+          })
+        )
+      );
+    }
+  }]);
+  return FooterWebsite;
+}(_react2.Component));
+
+exports.default = FooterWebsite;
+module.exports = exports['default'];

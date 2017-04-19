@@ -64,7 +64,8 @@ function _wrapComponent(id) {
 var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_ref) {
   var api = _ref.api;
   return {
-    users: api.users.getUsers.data
+    users: api.users.getUsers.data,
+    isLoading: api.users.getUsers.isLoading
   };
 }, { getUsers: _users.getUsers, deleteUser: _users.deleteUser }), _dec(_class = (_temp2 = _class2 = function (_Component) {
   (0, _inherits3.default)(List, _Component);
@@ -101,16 +102,23 @@ var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_re
     value: function render() {
       var _this2 = this;
 
-      var users = this.props.users;
+      var _props = this.props,
+          users = _props.users,
+          isLoading = _props.isLoading;
 
 
       return _react3.default.createElement(
         'div',
         null,
+        isLoading && _react3.default.createElement(
+          'span',
+          null,
+          'IS LOADING '
+        ),
         users && users.length > 0 && users.map(function (user) {
           return _react3.default.createElement(
             'div',
-            null,
+            { key: user._id },
             'id: ' + user._id + ', name: ' + user.name,
             _react3.default.createElement(
               _reactRouter.Link,
@@ -141,7 +149,8 @@ var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_re
 }(_react2.Component), _class2.propTypes = {
   getUsers: _react2.PropTypes.func.isRequired,
   deleteUser: _react2.PropTypes.func.isRequired,
-  users: _react2.PropTypes.array
+  users: _react2.PropTypes.array,
+  isLoading: _react2.PropTypes.bool
 }, _temp2)) || _class));
 
 exports.default = List;

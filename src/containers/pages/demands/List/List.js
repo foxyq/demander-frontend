@@ -17,7 +17,7 @@ export default class List extends Component {
   static propTypes = {
     getDemands: PropTypes.func.isRequired,
     deleteDemand: PropTypes.func.isRequired,
-    isLoading: PropTypes.boolean,
+    isLoading: PropTypes.bool,
     demands: PropTypes.array,
   }
 
@@ -49,10 +49,8 @@ export default class List extends Component {
 
               <Link to={`/demands/${demand._id}`}>Edit</Link>
 
-              <button
-                type="button"
-                onClick={() => this.handleDeleteDemand(demand._id)}
-              >
+              <button type="button">
+                {/* // onClick={() => this.handleDeleteDemand(demand._id)} */}
                 Delete
               </button>
             </div>

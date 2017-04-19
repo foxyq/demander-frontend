@@ -13,7 +13,9 @@ import getRoutes from './routes/routes'
 const pretty = new PrettyError()
 const config = require('./config')
 
-// require('assets/css/font-awesome.min.css')
+// var injectTapEventPlugin = require('react-tap-event-plugin')
+
+// injectTapEventPlugin()
 
 const mainView = (req, res) => {
   if (__DEVELOPMENT__) {
