@@ -46,6 +46,7 @@
     "react/no-unused-prop-types": 1,
     "react/prefer-stateless-function": 0,
     "react/prop-types": [1, { "ignore": ["store", "params"], "customValidators": [] }],
+    # "space-infix-ops": ["error", {"int32Hint": true}],
     "semi": [1, "never"],
     "strict": 0,
     "complexity": ["error", 20],

@@ -1,0 +1,21 @@
+SyntaxError: Expected corresponding JSX closing tag for <img> (88:14)
+
+  86 |         						<div class="image-container">
+  87 |         							<img src="assets/img/presentation/components.jpg" alt="">
+> 88 |         						</div>
+     |         						^
+  89 |         					</div>
+  90 |         				</div>
+  91 |         			</div>
+
+Error
+    at transpile (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

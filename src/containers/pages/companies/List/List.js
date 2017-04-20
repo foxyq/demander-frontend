@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getCompanies, deleteCompany } from 'redux/modules/api/companies'
-import { Spin } from 'antd'
 
 @connect(
   ({ api }) => ({
@@ -15,7 +14,7 @@ export default class List extends Component {
   static propTypes = {
     getCompanies: PropTypes.func.isRequired,
     deleteCompany: PropTypes.func.isRequired,
-    isLoading: PropTypes.boolean,
+    isLoading: PropTypes.bool,
     companies: PropTypes.array,
   }
   componentDidMount() {
@@ -37,19 +36,16 @@ export default class List extends Component {
 
     return (
       <div>
-        {isLoading && <Spin size="large" />}
+        {isLoading && <span>IS LOADING </span>}
         {companies &&
           companies.length > 0 &&
           companies.map(company => (
             <div key={company._id}>
               {`id: ${company._id}, name: ${company.company_name}`}
-
               <Link to={`/companies/${company._id}`}>Edit</Link>
 
-              <button
-                type="button"
-                onClick={() => this.handleDeleteCompany(company._id)}
-              >
+              <button type="button">
+                {/* // onClick={() => this.handleDeleteCompany(company._id)} */}
                 Delete
               </button>
             </div>

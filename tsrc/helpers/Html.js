@@ -103,14 +103,25 @@ var Html = _wrapComponent('Html')((_temp = _class = function (_Component) {
           head.script.toComponent(),
           _react3.default.createElement('link', { rel: 'shortcut icon', href: '/favicon.ico' }),
           _react3.default.createElement('link', {
-            href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&subset=latin-ext',
-            rel: 'stylesheet'
+            href: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+            rel: 'stylesheet',
+            integrity: 'sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u',
+            crossOrigin: 'anonymous'
+          }),
+          _react3.default.createElement('link', {
+            rel: 'stylesheet',
+            href: 'https://fonts.googleapis.com/icon?family=Material+Icons'
+          }),
+          _react3.default.createElement('link', {
+            rel: 'stylesheet',
+            type: 'text/css',
+            href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700'
+          }),
+          _react3.default.createElement('link', {
+            rel: 'stylesheet',
+            href: 'https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css'
           }),
           _react3.default.createElement('link', { rel: 'stylesheet', type: 'text/css', href: '/dist/iconfont.css' }),
-          _react3.default.createElement('script', {
-            type: 'text/javascript',
-            src: 'https://maps.google.com/maps/api/js?key=AIzaSyCM1wM1pG1A8LNCj295JRv0nW1NOAZc3v8&libraries=places'
-          }),
           (0, _keys2.default)(assets.styles).map(function (style, key) {
             return _react3.default.createElement('link', {
               href: assets.styles[style],

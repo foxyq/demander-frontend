@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import { isLoaded as isAuthLoaded, load as loadAuth } from 'redux/modules/auth'
-import App from '../app'
 
+import App from '../app'
 import * as Pages from 'containers/pages'
 import * as Layout from 'containers/layouts'
 
-import Fancy from 'containers/pages/Fancy'
+import Fancy from '../containers/pages/Fancy'
 
 export default store => {
   // const requireLogin = (nextState, replace, cb) => {
@@ -53,16 +53,17 @@ export default store => {
         <Route path="fancy">
           <IndexRoute component={Fancy} />
         </Route>
-      </Route>
 
-      <Route path="demands">
-        <IndexRoute component={Pages.Demands.List} />
-        <Route path=":id" component={Pages.Demands.Detail} />
-      </Route>
+        <Route path="demands">
+          <IndexRoute component={Pages.Demands.List} />
+          <Route path=":id" component={Pages.Demands.Detail} />
+        </Route>
 
-      <Route path="services">
-        <IndexRoute component={Pages.Services.List} />
-        <Route path=":id" component={Pages.Services.Detail} />
+        <Route path="services">
+          <IndexRoute component={Pages.Services.List} />
+          <Route path=":id" component={Pages.Services.Detail} />
+        </Route>
+
       </Route>
     </Route>
   )

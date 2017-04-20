@@ -51,6 +51,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var pretty = new _prettyError2.default();
 var config = require('./config');
 
+// var injectTapEventPlugin = require('react-tap-event-plugin')
+
+// injectTapEventPlugin()
+
 var mainView = function mainView(req, res) {
   if (__DEVELOPMENT__) {
     webpackIsomorphicTools.refresh();
@@ -81,7 +85,10 @@ var mainView = function mainView(req, res) {
       if (!config.isProduction && config.autoLogin) {
         store.getState().auth.user = config.tempUser;
       }
-      (0, _reduxConnect.loadOnServer)((0, _extends3.default)({}, renderProps, { store: store, helpers: { client: client } })).then(function () {
+      (0, _reduxConnect.loadOnServer)((0, _extends3.default)({}, renderProps, {
+        store: store,
+        helpers: { client: client }
+      })).then(function () {
         var component = _react2.default.createElement(
           _reactRedux.Provider,
           { store: store, key: 'provider' },
@@ -92,7 +99,11 @@ var mainView = function mainView(req, res) {
 
         global.navigator = { userAgent: req.headers['user-agent'] };
 
-        res.send('<!doctype html>\n' + _server2.default.renderToString(_react2.default.createElement(_Html2.default, { assets: webpackIsomorphicTools.assets(), component: component, store: store })));
+        res.send('<!doctype html>\n' + _server2.default.renderToString(_react2.default.createElement(_Html2.default, {
+          assets: webpackIsomorphicTools.assets(),
+          component: component,
+          store: store
+        })));
       });
     } else {
       res.status(404).send('Not found');

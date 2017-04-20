@@ -1,0 +1,21 @@
+SyntaxError: Unexpected token (354:55)
+
+  352 |                           />
+  353 |                         </a>
+> 354 |                         <div className="colored-shadow", style={{
+      |                                                        ^
+  355 |                           opacity: 1,
+  356 |                           backgroundImage: 'url("http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-blog2.jpg")',
+  357 |                         }}/>
+
+Error
+    at transpile (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

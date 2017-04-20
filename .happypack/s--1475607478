@@ -1,0 +1,21 @@
+SyntaxError: Expected corresponding JSX closing tag for <img> (266:13)
+
+  264 | 	    										This Summer Will be Awesome
+  265 | 	    									</div>
+> 266 | 	    								</a>
+      | 	    								^
+  267 | 	    							<div class="colored-shadow" style="background-image: url(&quot;assets/img/examples/card-blog1.jpg&quot;); opacity: 1;"></div></div>
+  268 | 
+  269 | 	    							<div class="card-content">
+
+Error
+    at transpile (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

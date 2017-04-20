@@ -111,9 +111,9 @@ var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_re
         'div',
         null,
         isLoading && _react3.default.createElement(
-          'h1',
+          'span',
           null,
-          'loader gif'
+          'IS LOADING '
         ),
         companies && companies.length > 0 && companies.map(function (company) {
           return _react3.default.createElement(
@@ -149,7 +149,7 @@ var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_re
 }(_react2.Component), _class2.propTypes = {
   getCompanies: _react2.PropTypes.func.isRequired,
   deleteCompany: _react2.PropTypes.func.isRequired,
-  isLoading: _react2.PropTypes.boolean,
+  isLoading: _react2.PropTypes.bool,
   companies: _react2.PropTypes.array
 }, _temp2)) || _class));
 

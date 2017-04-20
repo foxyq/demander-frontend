@@ -1,0 +1,21 @@
+SyntaxError: Unexpected token, expected } (75:47)
+
+  73 |                     </h3> */}
+  74 | 
+> 75 |                     <div className={grid.make--row}>
+     |                                                ^
+  76 |                       <button className="btn">
+  77 |                         Přidat službu<div className="ripple-container" />
+  78 |                       </button>
+
+Error
+    at transpile (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

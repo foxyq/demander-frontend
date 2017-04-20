@@ -34,13 +34,9 @@ var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErr
 
 var _dec, _class, _class2, _temp;
 
-var _reactRouter = require('react-router');
-
 var _lodash = require('lodash');
 
 var _reactRedux = require('react-redux');
-
-var _antd = require('antd');
 
 require('antd/dist/antd.less');
 
@@ -67,24 +63,6 @@ function _wrapComponent(id) {
   };
 }
 
-// import { UserForm } from 'containers/forms'
-
-// const stateToProps = state => ({
-//   users: state.api.users.getUsers.data
-// })
-//
-// const stateToProps = state => {
-//   return {
-//     users: state.api.users.getUsers.data
-//   }
-// }
-//
-// const dispatchToProps = {
-//   getUsers
-// }
-//
-// export default connect(stateToProps, dispatchToProps)(Home)
-
 var Home = _wrapComponent('Home')((_dec = (0, _reactRedux.connect)(function (_ref) {
   var api = _ref.api,
       auth = _ref.auth;
@@ -103,51 +81,17 @@ var Home = _wrapComponent('Home')((_dec = (0, _reactRedux.connect)(function (_re
   }
 
   (0, _createClass3.default)(Home, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      // this.props.getUsers()
-    }
-  }, {
     key: 'render',
     value: function render() {
-      // const { users } = this.props
-
       return _react3.default.createElement(
         'div',
         null,
-        'Home',
-        _react3.default.createElement(
-          'ul',
-          null,
-          _react3.default.createElement(
-            'li',
-            null,
-            _react3.default.createElement(
-              _reactRouter.Link,
-              { to: '/users' },
-              _react3.default.createElement(
-                _antd.Button,
-                { type: 'primary' },
-                'Users'
-              )
-            ),
-            _react3.default.createElement(
-              _reactRouter.Link,
-              { to: '/companies' },
-              _react3.default.createElement(
-                _antd.Button,
-                { type: 'primary' },
-                'Companies'
-              )
-            )
-          )
-        )
+        'HomePage content'
       );
     }
   }]);
   return Home;
 }(_react2.Component), _class2.propTypes = {
-  // getUsers: PropTypes.func.isRequired,
   users: _react2.PropTypes.array
 }, _temp)) || _class));
 

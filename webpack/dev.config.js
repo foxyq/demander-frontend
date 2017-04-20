@@ -77,11 +77,10 @@ const webpackConfig = module.exports = () => {
     },
     module: {
       loaders: [
-//         {
-//     test: /\.css$/,
-//     loader: 'style-loader!css-loader'
-// },
-        { test: /\.css$/, loaders: ['to-string-loader', 'css-loader?url=false'] },
+        {
+           test: /\.scss$/,
+           loader: "style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&camelCase=dashes!postcss!less-loader"
+       },
         {
           test: /\.less$/,
           loader: "style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&camelCase=dashes!postcss!less-loader"

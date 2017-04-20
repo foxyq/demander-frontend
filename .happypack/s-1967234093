@@ -1,0 +1,555 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _class, _class2, _temp;
+
+var _lodash = require('lodash');
+
+var _reactRedux = require('react-redux');
+
+require('antd/dist/antd.less');
+
+var _users = require('redux/modules/api/users');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Home: {
+    displayName: 'Home'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/containers/pages/Home/Home.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/containers/pages/Home/Home.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var Home = _wrapComponent('Home')((_dec = (0, _reactRedux.connect)(function (_ref) {
+  var api = _ref.api,
+      auth = _ref.auth;
+  return {
+    users: (0, _lodash.get)(api, 'users.getUsers.data'),
+    token: (0, _lodash.get)(auth, 'user.token')
+  };
+}, {
+  getUsers: _users.getUsers
+}), _dec(_class = (_temp = _class2 = function (_Component) {
+  (0, _inherits3.default)(Home, _Component);
+
+  function Home() {
+    (0, _classCallCheck3.default)(this, Home);
+    return (0, _possibleConstructorReturn3.default)(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Home, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        'div',
+        null,
+        _react3.default.createElement(
+          'div',
+          { className: 'section section-basic' },
+          _react3.default.createElement(
+            'div',
+            { className: 'container' },
+            _react3.default.createElement(
+              'div',
+              { className: 'row' },
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-8 col-md-offset-2' },
+                _react3.default.createElement(
+                  'h4',
+                  { className: 'description text-center' },
+                  'Demander.cz je modern\xED platforma zam\u011B\u0159en\xE1 na z\xEDsk\xE1v\xE1n\xED nov\xFDch zak\xE1zek, nab\xEDdku vlastn\xEDch slu\u017Eeb a prezentaci firmy.',
+                  ' '
+                )
+              )
+            ),
+            _react3.default.createElement(
+              'div',
+              { className: 'features-1' },
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-rose' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'business'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'h4',
+                      { className: 'info-title' },
+                      'Zaregistrujte profil firmy'
+                    ),
+                    _react3.default.createElement(
+                      'p',
+                      null,
+                      'Every element that you need in a product comes built in as a component. All components fit perfectly with each other and can take variations in colour.'
+                    )
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-info' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'description'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'h4',
+                      { className: 'info-title' },
+                      'Vlo\u017Ete nab\xEDdku'
+                    ),
+                    _react3.default.createElement(
+                      'p',
+                      null,
+                      'Putting together a page has never been easier than matching together sections. From team presentation to pricing options, you can easily customise and built your pages.'
+                    )
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-success' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'touch_app'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'h4',
+                      { className: 'info-title' },
+                      'Vyberte dodavatele'
+                    ),
+                    _react3.default.createElement(
+                      'p',
+                      null,
+                      'If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages.'
+                    )
+                  )
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'section-components' },
+          _react3.default.createElement(
+            'div',
+            { className: 'container' },
+            _react3.default.createElement(
+              'div',
+              { className: 'row' },
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-5' },
+                _react3.default.createElement(
+                  'h3',
+                  { className: 'title' },
+                  'Profil firmy'
+                ),
+                _react3.default.createElement(
+                  'h6',
+                  { className: 'description' },
+                  'Prezentujte svoji firmu pomoc\xED roz\u0161\xED\u0159en\xE9ho profilu firmy'
+                ),
+                _react3.default.createElement(
+                  'h5',
+                  { className: 'description' },
+                  'We re-styled every Bootstrap element to make it resemble Material Design and also fit with each other. All the Bootstrap components that you need in a development have been re-design with the new look. Besides the numerous basic elements, we have also created additional classes. All these items will help you take your project to the next level.'
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-6 col-md-offset-1' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'image-container' },
+                  _react3.default.createElement('img', {
+                    src: require('assets/img/presentation/components.jpg'),
+                    alt: ''
+                  })
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'section section-cards section-dark' },
+          _react3.default.createElement(
+            'div',
+            { className: 'container' },
+            _react3.default.createElement(
+              'div',
+              { className: 'row' },
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-7' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'image-container' },
+                  _react3.default.createElement('img', {
+                    className: 'img',
+                    src: require('assets/img/presentation/cards-test.png')
+                  })
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-4 col-md-offset-1' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'section-description' },
+                  _react3.default.createElement(
+                    'h3',
+                    { className: 'title' },
+                    'Spr\xE1va nab\xEDdek'
+                  ),
+                  _react3.default.createElement(
+                    'h6',
+                    { className: 'description' },
+                    'Efektivn\xED spr\xE1va nab\xEDdek na jednom m\xEDst\u011B'
+                  ),
+                  _react3.default.createElement(
+                    'h5',
+                    { className: 'description' },
+                    'We love cards and everybody on the web seems to. We have gone above and beyond with options for you to organise your information. From cards designed for blog posts, to product cards or user profiles, you will have many options to choose from. All the cards follow the material principles and have a design that stands out.',
+                    ' '
+                  )
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'row' },
+          _react3.default.createElement(
+            'div',
+            { className: 'col-md-8 col-md-offset-2' },
+            _react3.default.createElement(
+              'div',
+              { className: 'media-area' },
+              _react3.default.createElement(
+                'h3',
+                { className: 'title text-center' },
+                'Komunikace'
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'media' },
+                _react3.default.createElement(
+                  'a',
+                  { className: 'pull-left', href: '#pablo' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'avatar' },
+                    _react3.default.createElement('img', {
+                      className: 'media-object',
+                      src: '../assets/img/faces/card-profile4-square.jpg',
+                      alt: '...'
+                    })
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'media-body' },
+                  _react3.default.createElement(
+                    'h4',
+                    { className: 'media-heading' },
+                    'Tina Andrew ',
+                    _react3.default.createElement(
+                      'small',
+                      null,
+                      '\xB7 7 minutes ago'
+                    )
+                  ),
+                  _react3.default.createElement('h6', { className: 'text-muted' }),
+                  _react3.default.createElement(
+                    'p',
+                    null,
+                    'Chance too good. God level bars. I\'m so proud of @LifeOfDesiigner #1 song in the country. Panda! Don\'t be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!'
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'media-footer' },
+                    _react3.default.createElement(
+                      'a',
+                      {
+                        href: '#pablo',
+                        className: 'btn btn-primary btn-simple pull-right',
+                        rel: 'tooltip',
+                        title: '',
+                        'data-original-title': 'Reply to Comment'
+                      },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'reply'
+                      ),
+                      ' Reagovat'
+                    )
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'media' },
+                _react3.default.createElement(
+                  'a',
+                  { className: 'pull-left', href: '#pablo' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'avatar' },
+                    _react3.default.createElement('img', {
+                      className: 'media-object',
+                      alt: 'Tim Picture',
+                      src: '../assets/img/faces/card-profile1-square.jpg'
+                    })
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'media-body' },
+                  _react3.default.createElement(
+                    'h4',
+                    { className: 'media-heading' },
+                    'John Camber ',
+                    _react3.default.createElement(
+                      'small',
+                      null,
+                      '\xB7 Yesterday'
+                    )
+                  ),
+                  _react3.default.createElement(
+                    'p',
+                    null,
+                    'Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.'
+                  ),
+                  _react3.default.createElement(
+                    'p',
+                    null,
+                    ' Don\'t forget, You\'re Awesome!'
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'media-footer' },
+                    _react3.default.createElement(
+                      'a',
+                      {
+                        href: '#pablo',
+                        className: 'btn btn-primary btn-simple pull-right',
+                        rel: 'tooltip',
+                        title: '',
+                        'data-original-title': 'Reply to Comment'
+                      },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'reply'
+                      ),
+                      ' Reagovat'
+                    )
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'media' },
+                    _react3.default.createElement(
+                      'a',
+                      { className: 'pull-left', href: '#pablo' },
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'avatar' },
+                        _react3.default.createElement('img', {
+                          className: 'media-object',
+                          alt: '64x64',
+                          src: '../assets/img/faces/card-profile4-square.jpg'
+                        })
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'media-body' },
+                      _react3.default.createElement(
+                        'h4',
+                        { className: 'media-heading' },
+                        'Tina Andrew ',
+                        _react3.default.createElement(
+                          'small',
+                          null,
+                          '\xB7 12 Hours Ago'
+                        )
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        'Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.'
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        ' Don\'t forget, You\'re Awesome!'
+                      ),
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'media-footer' },
+                        _react3.default.createElement(
+                          'a',
+                          {
+                            href: '#pablo',
+                            className: 'btn btn-primary btn-simple pull-right',
+                            rel: 'tooltip',
+                            title: '',
+                            'data-original-title': 'Reply to Comment'
+                          },
+                          _react3.default.createElement(
+                            'i',
+                            { className: 'material-icons' },
+                            'reply'
+                          ),
+                          ' Reagovat'
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+            _react3.default.createElement(
+              'h3',
+              { className: 'title text-center' },
+              'Vlo\u017Eit nov\xFD koment\xE1\u0159'
+            ),
+            _react3.default.createElement(
+              'div',
+              { className: 'media media-post' },
+              _react3.default.createElement(
+                'a',
+                { className: 'pull-left author', href: '#pablo' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'avatar' },
+                  _react3.default.createElement('img', {
+                    className: 'media-object',
+                    alt: '64x64',
+                    src: '../assets/img/faces/card-profile6-square.jpg'
+                  })
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'media-body' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'form-group is-empty' },
+                  _react3.default.createElement('textarea', {
+                    className: 'form-control',
+                    placeholder: 'T\u011Blo komen\xE1\u0159e',
+                    rows: '6'
+                  }),
+                  _react3.default.createElement('span', { className: 'material-input' })
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'media-footer' },
+                  _react3.default.createElement(
+                    'a',
+                    {
+                      href: '#pablo',
+                      className: 'btn btn-primary btn-round btn-wd pull-right'
+                    },
+                    'Vlo\u017Eit komen\xE1\u0159'
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Home;
+}(_react2.Component), _class2.propTypes = {
+  users: _react2.PropTypes.array
+}, _temp)) || _class));
+
+exports.default = Home;
+module.exports = exports['default'];
