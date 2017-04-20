@@ -37,21 +37,28 @@ export default store => {
 
   return (
     <Route path="/" onEnter={loadUser} component={App}>
-      <Route component={Layout.Public}>
+      {/* HOMEPAGE */}
+      <Route component={Layout.Home}>
         <IndexRoute component={Pages.Home} />
+      </Route>
 
+      {/* COMPANIES */}
+      <Route path="companies">
+        {/* COMPANIES STANDARD */}
+        <Route component={Layout.Standard}>
+          <IndexRoute component={Pages.Companies.List} />
+        </Route>
+        {/* COMPANIES PROFILE */}
+        <Route path=":id" component={Layout.Company}>
+          <IndexRoute component={Pages.Companies.Detail} />
+        </Route>
+      </Route>
+
+      {/*  STANDARD LAYOUT */}
+      <Route component={Layout.Standard}>
         <Route path="users">
           <IndexRoute component={Pages.Users.List} />
           <Route path=":id" component={Pages.Users.Detail} />
-        </Route>
-
-        <Route path="companies">
-          <IndexRoute component={Pages.Companies.List} />
-          <Route path=":id" component={Pages.Companies.Detail} />
-        </Route>
-
-        <Route path="fancy">
-          <IndexRoute component={Fancy} />
         </Route>
 
         <Route path="demands">
@@ -64,7 +71,13 @@ export default store => {
           <Route path=":id" component={Pages.Services.Detail} />
         </Route>
 
+        <Route path="fancy">
+          <IndexRoute component={Fancy} />
+        </Route>
+
       </Route>
+
     </Route>
   )
+  // </Route>
 }

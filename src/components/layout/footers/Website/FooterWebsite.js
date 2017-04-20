@@ -9,34 +9,37 @@ export default class FooterWebsite extends React.Component {
             <nav className="pull-left">
               <ul>
                 <li>
-                  <a href="http://www.creative-tim.com">
-                    Creative Tim
+
+                  <a href="#">
+                    DOMŮ
                     <div className="ripple-container" />
                   </a>
                 </li>
                 <li>
-                  <a href="http://presentation.creative-tim.com">
-                    About Us
+                  <a href="#">
+                    SPOLEČNOSTI
                   </a>
                 </li>
                 <li>
-                  <a href="http://blog.creative-tim.com">
-                    Blog
+                  <a href="#">
+                    POUŽIVATELÉ
                   </a>
                 </li>
                 <li>
-                  <a href="http://www.creative-tim.com/license">
-                    Licenses
+                  <a href="#">
+                    POPTÁVKY
                   </a>
                 </li>
+                <li>
+                  <a href="#">
+                    NABÍDKY
+                  </a>
+                </li>
+
               </ul>
             </nav>
             <div className="copyright pull-right">
-              © 2017, made with
-              {' '}
-              <i className="material-icons">favorite</i>
-              {' '}
-              by Creative Tim for a better web.
+              © 2017 Parco Digital
             </div>
           </div>
         </footer>

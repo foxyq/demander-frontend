@@ -47,15 +47,25 @@ export default class List extends Component {
             <div key={service._id}>
               {`id: ${service._id}, name: ${service.title}`}
 
-              <Link to={`/services/${service._id}`}>Edit</Link>
+              <Link
+                to={`/services/${service._id}`}
+                className="btn btn-info btn-lg"
+              >
+                Edit<div className="ripple-container" />
+              </Link>
 
-              <button type="button">
-                {/* // onClick={() => this.handleDeleteService(service._id)} */}
-                Delete
+              <button
+                className="btn btn-danger btn-lg"
+                type="button"
+                onClick={() => this.handleDeleteService(service._id)}
+              >
+                Delete<div className="ripple-container" />
               </button>
             </div>
           ))}
-        <Link to={'/services/new'}>Create service</Link>
+        <Link to={'/services/new'} className="btn btn-success btn-lg">
+          Create service<div className="ripple-container" />
+        </Link>
       </div>
     )
   }
