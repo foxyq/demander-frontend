@@ -1,0 +1,21 @@
+SyntaxError: Expected corresponding JSX closing tag for <img> (97:12)
+
+   95 | 													<img src="../assets/img/examples/chris1.jpg" class="img-rounded">
+   96 | 													<img src="../assets/img/examples/chris0.jpg" class="img-rounded">
+>  97 | 												</div>
+      | 												^
+   98 | 												<div class="col-md-6">
+   99 | 													<img src="../assets/img/examples/chris3.jpg" class="img-rounded">
+  100 | 													<img src="../assets/img/examples/chris4.jpg" class="img-rounded">
+
+Error
+    at transpile (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

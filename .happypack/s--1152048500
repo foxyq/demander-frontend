@@ -1,0 +1,14 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Home = undefined;
+
+var _Home2 = require('./Home/Home');
+
+var _Home3 = _interopRequireDefault(_Home2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Home = _Home3.default;
