@@ -1,123 +1,110 @@
 import React, { Component, PropTypes } from 'react'
-// import { Layout } from 'antd'
-// const { Footer, Content } = Layout
-
-// import AppBar from 'material-ui/AppBar'
-// import { Menu, Icon } from 'antd'
-// const SubMenu = Menu.SubMenu
-// const MenuItemGroup = Menu.ItemGroup
-//
-// import getMuiTheme from 'material-ui/styles/getMuiTheme'
-// // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-// import { purple500, purple700, purple50 } from 'material-ui/styles/colors'
+import cx from 'classnames'
 
 import { HeaderWebsite } from 'components/layout/headers'
-// import { FooterWebsite } from 'components/layout/Footer/FooterWebsite'
+import { FooterWebsite } from 'components/layout/footers'
 
-// const muiTheme = getMuiTheme({
-//   AppBar: {
-//     height: 70,
-//   },
-//   palette: {
-//     primary1Color: purple500,
-//     primary2Color: purple700,
-//     alternateTextColor: purple50,
-//     color: purple50,
-//     accent1Color: purple50,
-//     accent2Color: purple50,
-//     accent3Color: purple50,
-//     textColor: purple50,
-//   },
-//   color: {
-//     color: purple50,
-//   },
-//   title: {
-//     color: purple50,
-//     height: 15,
-//   },
-// })
+import style from 'assets/css/base/vertical-rhythm.styl'
+import cigan from 'assets/css/cigan.styl'
 
 export default class PublicLayout extends Component {
   static propTypes = {
     children: PropTypes.object,
   }
 
+  state = {
+    transform: 0,
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  changeTransform = value => {
+    this.setState({
+      transform: value,
+    })
+  }
+
+  handleScroll = event => {
+    const scrollTop = event.srcElement.body.scrollTop
+    // itemTranslate = Math.min(0, scrollTop / 3 - 60)
+    const itemTranslate = Math.min(1000, scrollTop / 3)
+
+    this.changeTransform(itemTranslate)
+  }
+
   render() {
+    // let dynamicClass = 'header header-filter ' + {state.transform}
+    // const dynamicClass =
+    //   'transform:translate3d(0px,',
+    //   {this.state.transform} ,
+    //   'px, 0px)'
+
     return (
-      <div>
+      <div className="index-page">
         <HeaderWebsite />
-        <div className="index-page wrapper">
+
+        <div className="wrapper">
 
           <div
             className="header header-filter"
             style={{
+              transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
               backgroundImage: 'url("http://demos.creative-tim.com/material-kit/assets/img/bg2.jpeg")',
-              translate3d: '(0px, 0px, 0px)',
             }}
           >
             <div className="container">
               <div className="row">
                 <div className="col-md-8 col-md-offset-2">
                   <div className="brand">
-                    <h1>Material Kit.</h1>
-                    <h3>A Badass Bootstrap UI Kit based on Material Design.</h3>
+                    <div>
+                      <img
+                        src="http://demander.cz/images/logo1_white2.svg"
+                        height="210"
+                      />
+                    </div>
+                    {/* <h3>
+                      Staňte se součástí revoluce získávání nových klientů a dodavatelů
+                    </h3> */}
+
+                    <div className={style.baseMarginTop}>
+                      <button className={cx('btn', cigan.brandbutton)}>
+                        Přidat službu<div className="ripple-container" />
+                      </button>
+                      <button
+                        className={cx('btn btn-primary', cigan.brandbutton)}
+                      >
+                        Reagovat na nabídku
+                        <div className="ripple-container" />
+                      </button>
+                    </div>
+
                   </div>
+                  {/* /brand */}
+
                 </div>
               </div>
-
             </div>
+            {/* /container */}
+
           </div>
-
-          {/* <MuiThemeProvider muiTheme={muiTheme}> */}
-
-          {/* <AppBar */}
-          {/* title={<HeaderWebsite />} */}
-          {/* iconClassNameRight="muidocs-icon-navigation-expand-more" */}
-          {/* /> */}
-          {/* </MuiThemeProvider> */}
-
-          {/* <Content> */}
+          {/* /header filter */}
 
           <div className="main main-raised">
-            <div className="section section-basic">
-              <div className="container">
-                {this.props.children}
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br /><br />
-                <br />
-                <br />
-
-                <br /><br />
-                <br />
-
-                <br />
-              </div>
-            </div>
+            {this.props.children}
           </div>
-          {/* </Content> */}
+          {/* /main-raised */}
 
-          {/* <Footer> */}
-          {/* <FooterWebsite /> */}
-          {/* </Footer> */}
+          <FooterWebsite />
 
         </div>
+        {/* /wrapper */}
+
       </div>
     )
   }

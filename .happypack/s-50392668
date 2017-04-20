@@ -1,0 +1,21 @@
+SyntaxError: "scrollTop" is read-only
+
+  34 |     const scrollTop = null
+  35 | 
+> 36 |     ;(scrollTop =
+     |       ^
+  37 |       event.srcElement.body
+  38 |         .scrollTop), // itemTranslate = Math.min(0, scrollTop / 3 - 60)
+  39 |     (itemTranslate = Math.min(1000, scrollTop / 3))
+
+Error
+    at transpile (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Work/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

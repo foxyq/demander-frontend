@@ -5,7 +5,7 @@ import { Link, IndexLink } from 'react-router'
 export default class HeaderWebsite extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-fixed-top navbar-color-on-scroll">
+      <nav className="navbar navbar-fixed-top navbar-color-on-scroll navbar-transparent">
         <div className="container">
           <div className="navbar-header">
             <button
@@ -14,27 +14,28 @@ export default class HeaderWebsite extends React.Component {
               data-toggle="collapse"
               data-target="#navigation-index"
             >
-              <span className="sr-only">Toggle navigation</span>
+              <span className="sr-only">Navigace</span>
               <span className="icon-bar" />
               <span className="icon-bar" />
               <span className="icon-bar" />
             </button>
-            <a href="http://www.creative-tim.com">
+            <a href="#">
               <div className="logo-container">
                 <div className="logo">
                   <img
-                    src="http://demos.creative-tim.com/material-kit/assets/img/logo.png"
-                    alt="Creative Tim Logo"
+                    src={require('assets/img/logo.png')}
+                    height="45"
+                    alt="Demander.cz logo"
                     rel="tooltip"
                     title=""
                     data-placement="bottom"
                     data-html="true"
-                    data-original-title="<b>Material Kit</b> was Designed &amp; Coded with care by the staff from <b>Creative Tim</b>"
+                    data-original-title="<b>Demander.cz</b> revoluce v systému obchodování"
                   />
                 </div>
-                <div className="brand">
-                  Creative Tim
-                </div>
+                {/* <div className="brand">
+                  {/* Creative Tim */}
+                {/* </div> */}
 
               </div>
             </a>
@@ -53,26 +54,28 @@ export default class HeaderWebsite extends React.Component {
                 </a>
               </li> */}
               <li>
-                <IndexLink to="/" activeClassName="active">Home</IndexLink>
+                <IndexLink to="/" activeClassName="active">Domů</IndexLink>
 
               </li>
               <li>
-                <Link to="/companies" activeClassName="active">Companies</Link>
+                <Link to="/companies" activeClassName="active">
+                  Společnosti
+                </Link>
 
               </li>
               <li>
-                <Link to="/users" activeClassName="active">Users</Link>
+                <Link to="/users" activeClassName="active">Použivatelé</Link>
               </li>
               <li>
-                <Link to="/demands" activeClassName="active">Demands</Link>
+                <Link to="/demands" activeClassName="active">Poptávky</Link>
 
               </li>
               <li>
-                <Link to="/services" activeClassName="active">Services</Link>
+                <Link to="/services" activeClassName="active">Nabídky</Link>
 
               </li>
               <li>
-                <Link to="/fancy" activeClassName="active">Test page</Link>
+                <Link to="/fancy" activeClassName="active">Test</Link>
               </li>
 
             </ul>
@@ -83,7 +86,7 @@ export default class HeaderWebsite extends React.Component {
                   rel="tooltip"
                   title=""
                   data-placement="bottom"
-                  href="https://twitter.com/CreativeTim"
+                  href="#"
                   target="_blank"
                   className="btn btn-white btn-simple btn-just-icon"
                   data-original-title="Follow us on Twitter"
@@ -96,7 +99,7 @@ export default class HeaderWebsite extends React.Component {
                   rel="tooltip"
                   title=""
                   data-placement="bottom"
-                  href="https://www.facebook.com/CreativeTim"
+                  href="#"
                   target="_blank"
                   className="btn btn-white btn-simple btn-just-icon"
                   data-original-title="Like us on Facebook"
@@ -109,7 +112,7 @@ export default class HeaderWebsite extends React.Component {
                   rel="tooltip"
                   title=""
                   data-placement="bottom"
-                  href="https://www.instagram.com/CreativeTimOfficial"
+                  href="#"
                   target="_blank"
                   className="btn btn-white btn-simple btn-just-icon"
                   data-original-title="Follow us on Instagram"
@@ -121,6 +124,7 @@ export default class HeaderWebsite extends React.Component {
             </ul>
           </div>
         </div>
+
       </nav>
     )
   }

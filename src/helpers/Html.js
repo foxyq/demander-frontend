@@ -38,12 +38,8 @@ export default class Html extends Component {
           <link href="http://demander.cz/css/live/demo.css" rel="stylesheet" />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-          />
-          <link
-            rel="stylesheet"
             type="text/css"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
           />
           <link
             rel="stylesheet"
@@ -58,30 +54,22 @@ export default class Html extends Component {
             type="text/javascript"
           />
           <script src="http://demander.cz/js/live/material.min.js" />
-
           <script
             src="http://demander.cz/js/live/nouislider.min.js"
             type="text/javascript"
           />
-
           <script
             src="http://demander.cz/js/live/bootstrap-datepicker.js"
             type="text/javascript"
           />
-
           <script
             src="http://demander.cz/js/live/material-kit.js"
             type="text/javascript"
           />
-
-          <link
+          {/* <link
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&amp;subset=latin-ext"
             rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-            rel="stylesheet"
-          />
+          /> */}
           <link rel="stylesheet" type="text/css" href="/dist/iconfont.css" />
           {/* <script
             type="text/javascript"
@@ -97,13 +85,13 @@ export default class Html extends Component {
               charSet="UTF-8"
             />
           ))}
-          <link
+          {/* <link
             href="/dist/main-styles-less.css"
             media="screen, projection"
             rel="stylesheet"
             type="text/css"
             charSet="UTF-8"
-          />
+          /> */}
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{ __html: content }} />
