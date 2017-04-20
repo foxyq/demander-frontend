@@ -1,7 +1,7 @@
-µµ{
+{
   "javascript": {
-    "main": "http://192.168.43.78:3001/dist/main-730a63e5d7d65ee6f152.js",
-    "vendor": "http://192.168.43.78:3001/dist/vendor-730a63e5d7d65ee6f152.js"
+    "main": "http://192.168.0.136:3001/dist/main-ae19813d7dd4d117df2e.js",
+    "vendor": "http://192.168.0.136:3001/dist/vendor-ae19813d7dd4d117df2e.js"
   },
   "styles": {},
   "assets": {
@@ -4275,6 +4275,19 @@
     },
     "./src/components/fields/Input/input.styl": {
       "_style": ".form-group {\n  margin-bottom: 20px;\n}\n.control-label {\n  font-size: 14px;\n  display: inline-block;\n  padding-bottom: 8px;\n  color: #4a4a4a;\n}\n.form-control {\n  width: 100%;\n  padding: 10px;\n  box-shadow: none;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  background-color: #fff;\n  max-height: 40px;\n}\n.form-control-error {\n  display: inline-block;\n  color: #b71c1c;\n  font-size: 14px;\n  padding-top: 4px;\n}\n"
+    },
+    "./src/components/fields/TextArea/text-area.styl": {
+      "container": "text-area__container___3nCfk",
+      "form-group": "text-area__form-group___2Zo8F",
+      "formGroup": "text-area__form-group___2Zo8F",
+      "control-label": "text-area__control-label___3UcEZ",
+      "controlLabel": "text-area__control-label___3UcEZ",
+      "form-control": "text-area__form-control___164q6",
+      "formControl": "text-area__form-control___164q6",
+      "form-control-error": "text-area__form-control-error___9OSb6",
+      "formControlError": "text-area__form-control-error___9OSb6",
+      "textArea": "text-area__textArea___23lIq",
+      "_style": ".text-area__container___3nCfk,\nposition relative,\ncolor red,\n.text-area__form-group___2Zo8F {\n  margin-bottom: 20px;\n}\n.text-area__control-label___3UcEZ {\n  font-size: 14px;\n  display: inline-block;\n  padding-bottom: 8px;\n  color: #4a4a4a;\n}\n.text-area__form-control___164q6 {\n  width: 100%;\n  padding: 10px;\n  box-shadow: none;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  background-color: #fff;\n  max-height: 1000px;\n}\n.text-area__form-control-error___9OSb6 {\n  display: inline-block;\n  color: #b71c1c;\n  font-size: 14px;\n  padding-top: 4px;\n}\n.text-area__container___3nCfk {\n  position: relative;\n}\n.text-area__textArea___23lIq {\n  resize: vertical;\n  line-height: 1.5;\n}\n"
     }
   }
 }
