@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import { getCompany } from 'redux/modules/api/companies'
 
-// company: params.id !== '' && api.companies.getCompany.data,
 @connect(
   ({ api }) => ({
     company: api.companies.getCompany.data,
@@ -19,10 +18,29 @@ export default class Detail extends Component {
   state = {
     transform: 0,
   }
+
   componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
     const companyId = this.props.params.id
 
     this.props.getCompany(companyId)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  changeTransform = value => {
+    this.setState({
+      transform: value,
+    })
+  }
+
+  handleScroll = event => {
+    const scrollTop = event.srcElement.body.scrollTop
+    const itemTranslate = Math.min(1000, scrollTop / 3)
+
+    this.changeTransform(itemTranslate)
   }
 
   render() {
@@ -61,65 +79,9 @@ export default class Detail extends Component {
                 </div>
               </div>
 
-              <div className="description text-center">
-                <p>
-                  {company.company_description}
-                </p>
-              </div>
-
               <div className="row">
                 <div className="col-md-6">
-                  <p className="description">
-                    You can contact us with anything related to our Products. We'll get in touch with you as soon as possible.
-                    {/* <br><br> */}
-                  </p>
-                  <form
-                    role="form"
-                    id="contact-form"
-                    method="post"
-                    _lpchecked="1"
-                  >
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Your name</label>
-                      <input type="text" name="name" className="form-control" />
-                      <span className="material-input" />
-                    </div>
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Email address</label>
-                      <input
-                        type="email"
-                        name="email"
-                        className="form-control"
-                      />
-                      <span className="material-input" />
-                    </div>
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Phone</label>
-                      <input
-                        type="text"
-                        name="phone"
-                        className="form-control"
-                      />
-                      <span className="material-input" />
-                    </div>
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Your message</label>
-                      <textarea
-                        name="message"
-                        className="form-control"
-                        id="message"
-                        rows="6"
-                      />
-                      <span className="material-input" />
-                    </div>
-                    <div className="submit text-center">
-                      <input
-                        type="submit"
-                        className="btn btn-primary btn-raised btn-round"
-                        value="Contact Us"
-                      />
-                    </div>
-                  </form>
+                  <h5>{company.company_description}</h5>
                 </div>
                 <div className="col-md-4 col-md-offset-2">
                   <div className="info info-horizontal">
@@ -171,6 +133,285 @@ export default class Detail extends Component {
           </div>
         </div>
         {/* /main-raised */}
+
+        <div id="cards" className="cd-section">
+          {/* <div className="section-gray"> */}
+
+          <div>
+            {/* <!--     *********    BLOG CARDS     *********      --> */}
+
+            <div className="cards">
+
+              <div className="container">
+                <div className="title">
+                  {/* <h2>Poptávky</h2> */}
+                  <br /><br /><br /><br />
+                  <h3>Nejnovější poptávky</h3>
+                </div>
+                <div className="row">
+
+                  <div className="col-md-4">
+
+                    <div className="card card-blog">
+
+                      <div className="card-content">
+                        <h6 className="category text-success">Textil</h6>
+                        <br />
+                        <h4 className="card-title">
+                          <a href="#pablo">
+                            Dodávka textilních látek
+                          </a>
+                        </h4>
+                        <br />
+                        <p className="card-description">
+                          Máme zájem o dodávku textilních látek pro zajímavý projekt v kultuře.Uvedené druhy látek jsou závazné, šíři, délku a barvu lze upravit, dle zboží, které bude mít dodavatel na skladě. Preferujeme kvalitu a vstřícnou cenu.
+                        </p>
+                        <br />
+                        <div className="footer">
+                          <div className="author">
+                            <a href="#pablo">
+                              <img
+                                src="http://demander.cz/images/live/logo-csob.png"
+                                alt="..."
+                                className="avatar img-raised"
+                              />
+                              <span>CSOB</span>
+                            </a>
+                          </div>
+                          <div className="stats">
+                            <i className="material-icons">schedule</i>
+                            {' '}
+                            před 4 dny
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="col-md-4">
+
+                    <div className="card card-blog">
+
+                      <div className="card-content">
+                        <h6 className="category text-success">Stavebnictví</h6>
+                        <br />
+                        <h4 className="card-title">
+                          <a href="#pablo">
+                            Mám zájem o tenkovrstvou omítku Baumit
+                          </a>
+                        </h4><br />
+                        <p className="card-description">
+                          Tenkovrstvou omítku Baumit Finetop, Baumit silikontop, Baumit Uniprimer. Preferuji cenu.
+                        </p><br />
+                        <div className="footer">
+                          <div className="author">
+                            <a href="#pablo">
+                              <img
+                                src="http://demander.cz/images/live/logo-kb.png"
+                                alt="..."
+                                className="avatar img-raised"
+                              />
+                              <span>Komerční Banka</span>
+                            </a>
+                          </div>
+                          <div className="stats">
+                            <i className="material-icons">schedule</i>
+                            {' '}
+                            před 3 dny
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div className="col-md-4">
+
+                    <div className="card card-blog">
+                      <div className="card-content">
+                        <h6 className="category text-success">Tisk</h6>
+                        <br />
+                        <h4 className="card-title">
+                          <a href="#pablo">
+                            Grafický návrh, sazbu a tisk publikace
+                          </a>
+                        </h4><br />
+                        <p className="card-description">
+                          Jedná se o formát A5 v lepené vazbě, celkově 200 stránek s cca 100 barev. obrázky, 5O černobílých. Celkové množství 500 kusů.
+                        </p><br />
+                        <div className="footer">
+                          <div className="author">
+                            <a href="#pablo">
+                              <img
+                                src="http://demander.cz/images/live/logo-vodafone.png"
+                                alt="..."
+                                className="avatar img-raised"
+                              />
+                              <span>Vodafone</span>
+                            </a>
+                          </div>
+                          <div className="stats">
+                            <i className="material-icons">schedule</i>
+                            {' '}
+                            před 1 hodinou
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+            <br /><br /><br />
+
+          </div>
+          {/* <!--     *********    END BLOG CARDS      *********      --> */}
+
+          <div id="cards" className="cd-section section-gray">
+            <div>
+              {/* <!--     *********    BLOG CARDS     *********      --> */}
+
+              <div className="cards">
+
+                <div className="container">
+                  <div className="title">
+                    {/* <h2>Poptávky</h2> */}
+                    <br /><br /><br /><br />
+                    <h3>Nejnovější nabídky</h3>
+                  </div>
+                  <div className="row">
+
+                    <div className="col-md-4">
+
+                      <div className="card card-blog">
+
+                        <div className="card-content">
+                          <h6 className="category text-success">Grafika</h6>
+                          <br />
+
+                          <h4 className="card-title">
+                            <a href="#pablo">
+                              Grafické služby
+                            </a>
+                          </h4><br />
+                          <p className="card-description">
+                            Nabízím grafické služby - návrhy a tvorba firemních log, identity nebo jiné grafické práce.
+                          </p><br />
+                          <div className="footer">
+                            <div className="author">
+                              <a href="#pablo">
+                                <img
+                                  src="http://demos.creative-tim.com/material-kit-pro/assets/img/faces/marc.jpg"
+                                  alt="..."
+                                  className="avatar img-raised"
+                                />
+                                <span>LH Design</span>
+                              </a>
+                            </div>
+                            <div className="stats">
+                              <i className="material-icons">schedule</i>
+                              {' '}
+                              před 2 dny
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div className="col-md-4">
+
+                      <div className="card card-blog">
+
+                        <div className="card-content">
+                          <h6 className="category text-success">Údržba</h6>
+                          <br />
+
+                          <h4 className="card-title">
+                            <a href="#pablo">
+                              Sanita a instalatéřské práce
+                            </a>
+                          </h4><br />
+                          <p className="card-description">
+                            Nabízím instalatéřské práce všeho druhu pro firmy, domácnosti nebo nárazově na stavby, rekonstrukce apod. Cena individuální.
+                          </p><br />
+                          <div className="footer">
+                            <div className="author">
+                              <a href="#pablo">
+                                <img
+                                  src="http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile1-square.jpg"
+                                  alt="..."
+                                  className="avatar img-raised"
+                                />
+                                <span>Jaromír Havíř</span>
+                              </a>
+                            </div>
+                            <div className="stats">
+                              <i className="material-icons">schedule</i>
+                              {' '}
+                              před 3 dny
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div className="col-md-4">
+
+                      <div className="card card-blog">
+                        <div className="card-content">
+                          <h6 className="category text-success">Finance</h6>
+                          <br />
+
+                          <h4 className="card-title">
+                            <a href="#pablo">
+                              Vedení účetníctví{' '}
+                            </a>
+                          </h4><br />
+                          <p className="card-description">
+                            Nabízím správu účetnictví pro malé a střední podniky s orientací na výrobní a služby poskytující společnosti.
+                            {' '}
+                          </p><br />
+                          <div className="footer">
+                            <div className="author">
+                              <a href="#pablo">
+                                <img
+                                  src="http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile4-square.jpg"
+                                  alt="..."
+                                  className="avatar img-raised"
+                                />
+                                <span>Lucie Novodvorská</span>
+                              </a>
+                            </div>
+                            <div className="stats">
+                              <i className="material-icons">schedule</i>
+                              {' '}
+                              před týdnem
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div><br /><br /><br /><br />
+
+            </div>
+
+            {/* <!--     *********    END BLOG CARDS      *********      --> */}
+
+          </div>
+        </div>
 
       </div>
     )
