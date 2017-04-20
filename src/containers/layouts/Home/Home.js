@@ -32,19 +32,12 @@ export default class HomeLayout extends Component {
 
   handleScroll = event => {
     const scrollTop = event.srcElement.body.scrollTop
-    // itemTranslate = Math.min(0, scrollTop / 3 - 60)
     const itemTranslate = Math.min(1000, scrollTop / 3)
 
     this.changeTransform(itemTranslate)
   }
 
   render() {
-    // let dynamicClass = 'header header-filter ' + {state.transform}
-    // const dynamicClass =
-    //   'transform:translate3d(0px,',
-    //   {this.state.transform} ,
-    //   'px, 0px)'
-
     return (
       <div className="index-page">
         <HeaderWebsite />

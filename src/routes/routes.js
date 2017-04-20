@@ -47,11 +47,14 @@ export default store => {
         {/* COMPANIES STANDARD */}
         <Route component={Layout.Standard}>
           <IndexRoute component={Pages.Companies.List} />
+          <Route path=":id" component={Pages.Companies.Form} />
         </Route>
-        {/* COMPANIES PROFILE */}
-        <Route path=":id" component={Layout.Company}>
-          <IndexRoute component={Pages.Companies.Detail} />
-        </Route>
+      </Route>
+
+      {/* COMPANY PROFILE */}
+      <Route path="company" component={Layout.Company}>
+        {/* <IndexRoute component={Pages.Companies.List} /> */}
+        <Route path=":id" component={Pages.Companies.Detail} />
       </Route>
 
       {/*  STANDARD LAYOUT */}
@@ -79,5 +82,4 @@ export default store => {
 
     </Route>
   )
-  // </Route>
 }

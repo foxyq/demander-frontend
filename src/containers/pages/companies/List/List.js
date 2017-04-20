@@ -36,21 +36,56 @@ export default class List extends Component {
 
     return (
       <div>
-        {isLoading && <span>IS LOADING </span>}
-        {companies &&
-          companies.length > 0 &&
-          companies.map(company => (
-            <div key={company._id}>
-              {`id: ${company._id}, name: ${company.company_name}`}
-              <Link to={`/companies/${company._id}`}>Edit</Link>
+        <div className="row">
+          <div className="profile">
 
-              <button type="button">
-                {/* // onClick={() => this.handleDeleteCompany(company._id)} */}
-                Delete
-              </button>
+            <div className="name">
+              <h3 className="title">Seznam společností</h3>
+              <h6>společnosti registrované v systému Demander</h6>
             </div>
-          ))}
-        <Link to={'/companies/new'}>Create company</Link>
+          </div>
+        </div>
+
+        <div className="row pull-left">
+          <div className="profile">
+
+            <div className="text-left">
+              {isLoading && <span>IS LOADING </span>}
+              {companies &&
+                companies.length > 0 &&
+                companies.map(company => (
+                  <div key={company._id}>
+                    <div className="ripple-container" />
+
+                    <Link
+                      to={`/company/${company._id}`}
+                      className="btn btn-primary"
+                    >
+                      {company.company_name}
+                    </Link>
+
+                    <Link
+                      to={`/companies/${company._id}`}
+                      className="btn btn-info"
+                    >
+                      Edit
+                    </Link>
+
+                    <button
+                      type="button"
+                      className="btn btn-danger "
+                      onClick={() => this.handleDeleteCompany(company._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                ))}
+              <Link to={'/companies/new'} className="btn btn-success ">
+                Přidat společnost
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }

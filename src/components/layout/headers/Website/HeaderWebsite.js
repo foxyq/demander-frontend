@@ -58,6 +58,15 @@ export default class HeaderWebsite extends React.Component {
 
               </li>
               <li>
+                <Link to="/services" activeClassName="active">Nabídky</Link>
+
+              </li>
+              <li>
+                <Link to="/demands" activeClassName="active">Poptávky</Link>
+
+              </li>
+
+              <li>
                 <Link to="/companies" activeClassName="active">
                   Společnosti
                 </Link>
@@ -66,14 +75,7 @@ export default class HeaderWebsite extends React.Component {
               <li>
                 <Link to="/users" activeClassName="active">Použivatelé</Link>
               </li>
-              <li>
-                <Link to="/demands" activeClassName="active">Poptávky</Link>
 
-              </li>
-              <li>
-                <Link to="/services" activeClassName="active">Nabídky</Link>
-
-              </li>
               <li>
                 <Link to="/fancy" activeClassName="active">Test</Link>
               </li>

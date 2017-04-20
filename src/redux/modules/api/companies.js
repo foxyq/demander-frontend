@@ -29,7 +29,7 @@ const initialState = {
     success: false,
     isLoading: false,
     error: null,
-    data: null,
+    data: [],
   },
   editCompany: {
     success: false,
@@ -85,7 +85,7 @@ export default function reducer(state = initialState, action = {}) {
         getCompany: {
           ...state.getCompany,
           isLoading: true,
-          data: null,
+          data: [],
         },
       }
     case GET_COMPANY_SUCCESS:

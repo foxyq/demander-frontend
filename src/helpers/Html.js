@@ -66,10 +66,6 @@ export default class Html extends Component {
             src="http://demander.cz/js/live/material-kit.js"
             type="text/javascript"
           />
-          {/* <link
-            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&amp;subset=latin-ext"
-            rel="stylesheet"
-          /> */}
           <link rel="stylesheet" type="text/css" href="/dist/iconfont.css" />
           {/* <script
             type="text/javascript"
