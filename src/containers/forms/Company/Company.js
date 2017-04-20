@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { schema } from 'models/company'
 
-import { Input } from 'components/fields'
+import { Input, TextArea } from 'components/fields'
 
 import {
   getCompanies,
@@ -76,8 +76,24 @@ export default class Company extends Component {
 
     return (
       <form onSubmit={handleSubmit(this.handleSubmit)}>
-        <Input label="company_name" name="company_name" />
-
+        <Input label="Company name" name="company_name" />
+        <Input label="Company ID" name="company_id" />
+        <Input label="Company VAT ID" name="company_vat_id" />
+        {/* <TextArea
+          rows="4"
+          cols="50"
+          label="About company"
+          name="company_about"
+        /> */}
+        <TextArea label="About company" name="company_about" />
+        <Input label="Description" name="company_description" />
+        <Input label="Opening hours" name="company_opening_hours" />
+        <Input label="Telephone" name="contact_telephone" />
+        <Input label="Email" name="contact_email" />
+        <Input label="Adress" name="contact_adress" />
+        <Input label="Contact person" name="contact_person" />
+        <Input label="Categorization" name="categorization" />
+        <Input label="Slogan" name="slogan" />
         <input type="submit" />
 
         {isSubmitting && <div>Submitting...</div>}

@@ -1,0 +1,192 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _dec2, _class, _class2, _temp2;
+
+var _reactRouter = require('react-router');
+
+var _reactRedux = require('react-redux');
+
+var _reduxForm = require('redux-form');
+
+var _company = require('models/company');
+
+var _fields = require('components/fields');
+
+var _companies = require('redux/modules/api/companies');
+
+var _company2 = require('./company.validation');
+
+var _company3 = _interopRequireDefault(_company2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Company: {
+    displayName: 'Company'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/containers/forms/Company/Company.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/containers/forms/Company/Company.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var Company = _wrapComponent('Company')((_dec = (0, _reactRedux.connect)(function (_ref, _ref2) {
+  var api = _ref.api;
+  var params = _ref2.params;
+  return {
+    isSubmitting: api.companies.createCompany.isSubmitting,
+    initialValues: params.id !== 'new' && api.companies.getCompany.data
+  };
+}, { createCompany: _companies.createCompany, getCompanies: _companies.getCompanies, getCompany: _companies.getCompany, editCompany: _companies.editCompany }), _dec2 = (0, _reduxForm.reduxForm)({
+  form: 'Company',
+  enableReinitialize: true,
+  validate: _company3.default
+}), _dec(_class = _dec2(_class = (_temp2 = _class2 = function (_Component) {
+  (0, _inherits3.default)(Company, _Component);
+
+  function Company() {
+    var _ref3;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, Company);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref3 = Company.__proto__ || Object.getPrototypeOf(Company)).call.apply(_ref3, [this].concat(args))), _this), _this.state = {
+      error: null
+    }, _this.handleSubmit = function (model) {
+      var companyId = _this.props.params.id;
+      var isEditing = companyId !== 'new';
+
+      var action = isEditing ? _this.props.editCompany : _this.props.createCompany;
+      var values = (0, _company.schema)(model);
+
+      action(values, companyId).then(_this.handleSuccess).catch(_this.handleError);
+    }, _this.handleSuccess = function () {
+      _this.props.getCompanies();
+
+      _reactRouter.browserHistory.push('/companies');
+    }, _this.handleError = function (error) {
+      return _this.setState({ error: error });
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(Company, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var companyId = this.props.params.id;
+      var isEditing = companyId !== 'new';
+
+      if (isEditing) {
+        this.props.getCompany(companyId);
+      }
+    }
+
+    // This is the actual submit method called on successful form submit
+
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          handleSubmit = _props.handleSubmit,
+          isSubmitting = _props.isSubmitting;
+      var error = this.state.error;
+
+
+      return _react3.default.createElement(
+        'form',
+        { onSubmit: handleSubmit(this.handleSubmit) },
+        _react3.default.createElement(_fields.Input, { label: 'Company name', name: 'company_name' }),
+        _react3.default.createElement(_fields.Input, { label: 'Company ID', name: 'company_id' }),
+        _react3.default.createElement(_fields.Input, { label: 'Company VAT ID', name: 'company_vat_id' }),
+        _react3.default.createElement(_fields.TextArea, { label: 'About company', name: 'company_about' }),
+        _react3.default.createElement(_fields.Input, { label: 'Description', name: 'company_description' }),
+        _react3.default.createElement(_fields.Input, { label: 'Opening hours', name: 'company_opening_hours' }),
+        _react3.default.createElement(_fields.Input, { label: 'Telephone', name: 'contact_telephone' }),
+        _react3.default.createElement(_fields.Input, { label: 'Email', name: 'contact_email' }),
+        _react3.default.createElement(_fields.Input, { label: 'Adress', name: 'contact_adress' }),
+        _react3.default.createElement(_fields.Input, { label: 'Contact person', name: 'contact_person' }),
+        _react3.default.createElement(_fields.Input, { label: 'Categorization', name: 'categorization' }),
+        _react3.default.createElement(_fields.Input, { label: 'Slogan', name: 'slogan' }),
+        _react3.default.createElement('input', { type: 'submit' }),
+        isSubmitting && _react3.default.createElement(
+          'div',
+          null,
+          'Submitting...'
+        ),
+        error && _react3.default.createElement(
+          'div',
+          null,
+          error
+        )
+      );
+    }
+  }]);
+  return Company;
+}(_react2.Component), _class2.propTypes = {
+  // This is from redux form
+  handleSubmit: _react2.PropTypes.func.isRequired,
+  isSubmitting: _react2.PropTypes.bool.isRequired,
+  getCompanies: _react2.PropTypes.func.isRequired,
+  getCompany: _react2.PropTypes.func.isRequired,
+  editCompany: _react2.PropTypes.func.isRequired,
+  createCompany: _react2.PropTypes.func.isRequired
+}, _temp2)) || _class) || _class));
+
+exports.default = Company;
+module.exports = exports['default'];
