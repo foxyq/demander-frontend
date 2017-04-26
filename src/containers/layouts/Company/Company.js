@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 // import cx from 'classnames'
 
-import { HeaderWebsite } from 'components/layout/headers'
+// import { HeaderWebsite } from 'components/layout/headers'
+import * as Header from 'components/layout/headers'
 import { FooterWebsite } from 'components/layout/footers'
 
 // import style from 'assets/css/base/vertical-rhythm.styl'
@@ -15,7 +16,7 @@ export default class CompanyLayout extends Component {
   render() {
     return (
       <div className="profile-page">
-        <HeaderWebsite />
+        <Header.HeaderWebsite logo={<Header.Logo />} />
 
         <div className="wrapper">
           {this.props.children}

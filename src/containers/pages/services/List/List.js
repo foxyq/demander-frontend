@@ -6,6 +6,8 @@ import {
   deleteService,
 } from 'redux/modules/api/services' /* , deleteService*/
 
+import Listing from 'components/common/Listing/Listing'
+
 @connect(
   ({ api }) => ({
     services: api.services.getServices.data,
@@ -40,32 +42,27 @@ export default class List extends Component {
 
     return (
       <div>
-        {isLoading && <h1>loader gif</h1>}
-        {services &&
-          services.length > 0 &&
-          services.map(service => (
-            <div key={service._id}>
-              {`id: ${service._id}, name: ${service.title}`}
+        {isLoading &&
+          <img src="https://d13yacurqjgara.cloudfront.net/users/82092/screenshots/1073359/spinner.gif" />}
 
-              <Link
-                to={`/services/${service._id}`}
-                className="btn btn-info btn-lg"
-              >
-                Edit<div className="ripple-container" />
-              </Link>
-
-              <button
-                className="btn btn-danger btn-lg"
-                type="button"
-                onClick={() => this.handleDeleteService(service._id)}
-              >
-                Delete<div className="ripple-container" />
-              </button>
-            </div>
-          ))}
         <Link to={'/services/new'} className="btn btn-success btn-lg">
           Create service<div className="ripple-container" />
         </Link>
+
+        <hr /> <br />
+        <div className="container">
+          <h2>
+            Nase service
+          </h2>
+
+          <Listing
+            items={services}
+            controller="services"
+            onDelete={this.handleDeleteService}
+            isAdmin="true"
+          />
+
+        </div>
       </div>
     )
   }

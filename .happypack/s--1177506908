@@ -1,0 +1,198 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _class, _class2, _temp2;
+
+var _reactRouter = require('react-router');
+
+var _reactRedux = require('react-redux');
+
+var _services = require('redux/modules/api/services');
+
+var _Listing = require('components/common/Listing/Listing');
+
+var _Listing2 = _interopRequireDefault(_Listing);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  List: {
+    displayName: 'List'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/services/List/List.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/services/List/List.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+} /* , deleteService*/
+
+var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_ref) {
+  var api = _ref.api;
+  return {
+    services: api.services.getServices.data,
+    isLoading: api.services.getServices.isLoading
+  };
+}, { getServices: _services.getServices, deleteService: _services.deleteService }), _dec(_class = (_temp2 = _class2 = function (_Component) {
+  (0, _inherits3.default)(List, _Component);
+
+  function List() {
+    var _ref2;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, List);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref2 = List.__proto__ || Object.getPrototypeOf(List)).call.apply(_ref2, [this].concat(args))), _this), _this.handleDeleteService = function (serviceId) {
+      var confirmed = confirm('Are you sure?');
+
+      if (confirmed) {
+        _this.props.deleteService(serviceId).then(function () {
+          _this.props.getServices();
+        });
+      }
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(List, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.getServices();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var _props = this.props,
+          services = _props.services,
+          isLoading = _props.isLoading;
+
+
+      return _react3.default.createElement(
+        'div',
+        null,
+        isLoading && _react3.default.createElement(
+          'h1',
+          null,
+          'loader gif'
+        ),
+        services && services.length > 0 && services.map(function (service) {
+          return _react3.default.createElement(
+            'div',
+            { key: service._id },
+            'id: ' + service._id + ', name: ' + service.title,
+            _react3.default.createElement(
+              _reactRouter.Link,
+              {
+                to: '/services/' + service._id,
+                className: 'btn btn-info btn-lg'
+              },
+              'Edit',
+              _react3.default.createElement('div', { className: 'ripple-container' })
+            ),
+            _react3.default.createElement(
+              'button',
+              {
+                className: 'btn btn-danger btn-lg',
+                type: 'button',
+                onClick: function onClick() {
+                  return _this2.handleDeleteService(service._id);
+                }
+              },
+              'Delete',
+              _react3.default.createElement('div', { className: 'ripple-container' })
+            )
+          );
+        }),
+        _react3.default.createElement(
+          _reactRouter.Link,
+          { to: '/services/new', className: 'btn btn-success btn-lg' },
+          'Create service',
+          _react3.default.createElement('div', { className: 'ripple-container' })
+        ),
+        _react3.default.createElement('hr', null),
+        ' ',
+        _react3.default.createElement('br', null),
+        _react3.default.createElement(
+          'div',
+          { className: 'container' },
+          _react3.default.createElement(
+            'h2',
+            null,
+            'Nase inzeraty'
+          ),
+          _react3.default.createElement(_Listing2.default, {
+            items: services,
+            controller: 'services',
+            onDelete: function onDelete() {
+              return _this2.handleDeleteService();
+            }
+          })
+        )
+      );
+    }
+  }]);
+  return List;
+}(_react2.Component), _class2.propTypes = {
+  getServices: _react2.PropTypes.func.isRequired,
+  deleteService: _react2.PropTypes.func.isRequired,
+  isLoading: _react2.PropTypes.bool,
+  services: _react2.PropTypes.array
+}, _temp2)) || _class));
+
+exports.default = List;
+module.exports = exports['default'];

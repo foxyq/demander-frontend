@@ -89,11 +89,10 @@ export default class Detail extends Component {
                       <i className="material-icons">pin_drop</i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Find us at the office</h4>
+                      <h4 className="info-title">Najděte nás</h4>
                       <p>
-                        {' '}Bld Mihail Kogalniceanu, nr. 8,
-                        7652 Bucharest,
-                        Romania
+                        {company.contact_address} <br />
+                        {company.company_opening_hours}
                       </p>
                     </div>
                   </div>
@@ -102,11 +101,12 @@ export default class Detail extends Component {
                       <i className="material-icons">phone</i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Give us a ring</h4>
+                      <h4 className="info-title">Kontakt</h4>
                       <p>
-                        {' '}Michael Jordan
-                        +40 762 321 762
-                        Mon - Fri, 8:00-22:00
+                        {company.contact_person}<br />
+                        {company.contact_telephone}<br />
+                        {company.contact_email} <br />
+
                       </p>
                     </div>
                   </div>
@@ -115,12 +115,11 @@ export default class Detail extends Component {
                       <i className="material-icons">business_center</i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Legal Information</h4>
+                      <h4 className="info-title">Údaje o firmě</h4>
                       <p>
-                        {' '}Creative Tim Ltd.
-                        VAT · EN2341241
-                        IBAN · EN8732ENGB2300099123
-                        Bank · Great Britain Bank
+                        {company.company_name}<br />
+                        IČO: {company.company_id}<br />
+                        DIČ: {company.company_vat_id}<br />
                       </p>
                     </div>
                   </div>
@@ -146,7 +145,7 @@ export default class Detail extends Component {
                 <div className="title">
                   {/* <h2>Poptávky</h2> */}
                   <br /><br /><br /><br />
-                  <h3>Nejnovější poptávky</h3>
+                  <h3>Aktuálně poptáváme</h3>
                 </div>
                 <div className="row">
 
@@ -282,7 +281,7 @@ export default class Detail extends Component {
                   <div className="title">
                     {/* <h2>Poptávky</h2> */}
                     <br /><br /><br /><br />
-                    <h3>Nejnovější nabídky</h3>
+                    <h3>Služby společnosti</h3>
                   </div>
                   <div className="row">
 

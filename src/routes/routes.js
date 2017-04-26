@@ -74,6 +74,14 @@ export default store => {
           <Route path=":id" component={Pages.Services.Detail} />
         </Route>
 
+        <Route path="howitworks">
+          <IndexRoute component={Pages.HowItWorks} />
+        </Route>
+
+        <Route path="contact">
+          <IndexRoute component={Pages.Kontakt} />
+        </Route>
+
         <Route path="fancy">
           <IndexRoute component={Fancy} />
         </Route>

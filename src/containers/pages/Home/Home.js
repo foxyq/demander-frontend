@@ -28,7 +28,7 @@ export default class Home extends Component {
             <div className="row">
               <div className="col-md-8 col-md-offset-2">
                 <h4 className="description text-center">
-                  Demander.cz je moderní platforma zaměřená na získávání nových zakázek, nabídku vlastních služeb a prezentaci firmy.
+                  Demander.cz představuje moderní platformu zaměřenou na získávání nových zakázek, nabídku vlastních služeb a prezentaci firmy. Jedná se o B2B poptávkový systém, kde se setkávají zájmy a potřeby předních společností napříč všemi segmenty trhu.
                   {' '}
                 </h4>
               </div>
@@ -43,7 +43,8 @@ export default class Home extends Component {
                     </div>
                     <h4 className="info-title">Zaregistrujte profil firmy</h4>
                     <p>
-                      Every element that you need in a product comes built in as a component. All components fit perfectly with each other and can take variations in colour.
+                      Vstoupit na trh Demander můžete díky založení profilu vaší společnosti. Vyplňte základní identifikační údaje a můžete začít.
+                      {' '}
                     </p>
                   </div>
                 </div>
@@ -53,9 +54,9 @@ export default class Home extends Component {
                     <div className="icon icon-info">
                       <i className="material-icons">description</i>
                     </div>
-                    <h4 className="info-title">Vložte nabídku</h4>
+                    <h4 className="info-title">Vložte popávku</h4>
                     <p>
-                      Putting together a page has never been easier than matching together sections. From team presentation to pricing options, you can easily customise and built your pages.
+                      Dalším krokem je vložení poptávky, kde definujete vaší aktuální potřebu - předmět toho, co poptáváte. Přiblížit detaily můžete vložením technické dokumentace. Demander je i totiž systémem pro náročné.
                     </p>
                   </div>
                 </div>
@@ -67,7 +68,8 @@ export default class Home extends Component {
                     </div>
                     <h4 className="info-title">Vyberte dodavatele</h4>
                     <p>
-                      If you want to get inspiration or just show something directly to your clients, you can jump start your development with our pre-built example pages.
+                      V katalogu firem získáte přehled o dodavatelích, jejich zaměření, předmětu činnosti, poskytovaných službách, lokalitě a další pro vás užitečné informace.
+                      {' '}
                     </p>
                   </div>
                 </div>
@@ -82,13 +84,12 @@ export default class Home extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-5">
-                <h3 className="title">Profil firmy</h3>
+                <h3 className="title">Firemní stránka na Demandru </h3>
                 <h6 className="description">
                   Prezentujte svoji firmu pomocí rozšířeného profilu firmy
                 </h6>
                 <h5 className="description">
-                  We re-styled every Bootstrap element to make it resemble Material Design and also fit with each other. All the Bootstrap components that you need in a development have been re-design with the new look. Besides the numerous basic elements, we have also created additional classes. All these items will help you take your project to the next level.
-
+                  Čím více dokážete vaší společnost přiblížit ostatním uživatelům poptávkového systému Demander, tím relevantnější nabídky obdržíte. Budujte svoji vizitku na trhu a dejte si záležet na prezentaci vaší firmy díky rozšířenému firemnímu profilu. Stačí vyplnit položky logo, slogan, přehled služeb a produktů, doplnit digitální vizitku, další poptávky a ihned se vaše společnost stane čitelnější. I detail dělá dojem.
                 </h5>
               </div>
               <div className="col-md-6 col-md-offset-1">
@@ -118,13 +119,12 @@ export default class Home extends Component {
 
               <div className="col-md-4 col-md-offset-1">
                 <div className="section-description">
-                  <h3 className="title">Správa nabídek</h3>
+                  <h3 className="title">Správa poptávek</h3>
                   <h6 className="description">
-                    Efektivní správa nabídek na jednom místě
+                    Efektivní správa poptávek na jednom místě
                   </h6>
                   <h5 className="description">
-                    We love cards and everybody on the web seems to. We have gone above and beyond with options for you to organise your information. From cards designed for blog posts, to product cards or user profiles, you will have many options to choose from. All the cards follow the material principles and have a design that stands out.
-                    {' '}
+                    Poptávkový systém Demander vám nabízí přehlednou správu nabídek přímo ve vašem firemním profilu. Nabídky od dodavatelů jsou strukturované a poskytují jednoznačný rozcestník, ve kterém se snadno zorientujete. Obchodujete a komunikujete systematicky a s klidnou tváří.
                   </h5>
                 </div>
 
@@ -392,7 +392,7 @@ export default class Home extends Component {
                   <div className="title">
                     {/* <h2>Poptávky</h2> */}
                     <br /><br /><br /><br />
-                    <h3>Nejnovější nabídky</h3>
+                    <h3>Nejnovější služby</h3>
                   </div>
                   <div className="row">
 

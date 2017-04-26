@@ -45,7 +45,7 @@ export default class FooterWebsite extends React.Component {
             </ul>
             {/* </nav> */}
             <div className="copyright pull-right">
-              © 2017 Parco Digital
+              © 2017 Demander
             </div>
           </div>
           <br /><br />

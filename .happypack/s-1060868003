@@ -1,0 +1,12 @@
+/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/layouts/Company/Company.js: Property value of JSXAttribute expected node to be of a type ["JSXElement","StringLiteral","JSXExpressionContainer"] but instead got "CallExpression"
+TypeError: /Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/layouts/Company/Company.js: Property value of JSXAttribute expected node to be of a type ["JSXElement","StringLiteral","JSXExpressionContainer"] but instead got "CallExpression"
+    at Object.validate (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-types/lib/definitions/index.js:109:13)
+    at Object.validate (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-types/lib/index.js:505:9)
+    at NodePath._replaceWith (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-traverse/lib/path/replacement.js:176:7)
+    at NodePath.replaceWith (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-traverse/lib/path/replacement.js:160:8)
+    at PluginPass.exit (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-helper-builder-react-jsx/lib/index.js:22:12)
+    at newFn (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-traverse/lib/visitors.js:276:21)
+    at NodePath._call (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-traverse/lib/path/context.js:76:18)
+    at NodePath.call (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-traverse/lib/path/context.js:48:17)
+    at NodePath.visit (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-traverse/lib/path/context.js:117:8)
+    at TraversalContext.visitQueue (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-traverse/lib/context.js:150:16)
