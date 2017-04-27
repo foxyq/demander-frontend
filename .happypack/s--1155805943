@@ -1,0 +1,268 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require("babel-runtime/helpers/createClass");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require("react-transform-hmr");
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require("redbox-react");
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require("react");
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require("react-transform-catch-errors");
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  HowItWorks: {
+    displayName: "HowItWorks"
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: "/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/HowItWorks/HowItWorks.js",
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: "/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/HowItWorks/HowItWorks.js",
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+// import RaisedButton from 'material-ui/RaisedButton'
+
+var HowItWorks = _wrapComponent("HowItWorks")(function (_Component) {
+  (0, _inherits3.default)(HowItWorks, _Component);
+
+  function HowItWorks() {
+    (0, _classCallCheck3.default)(this, HowItWorks);
+    return (0, _possibleConstructorReturn3.default)(this, (HowItWorks.__proto__ || Object.getPrototypeOf(HowItWorks)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(HowItWorks, [{
+    key: "render",
+    value: function render() {
+      return _react3.default.createElement(
+        "div",
+        null,
+        _react3.default.createElement(
+          "div",
+          { className: "row", id: "comments_section" },
+          _react3.default.createElement(
+            "div",
+            { className: "col-md-8 col-md-offset-2" },
+            _react3.default.createElement(
+              "div",
+              { className: "media-area" },
+              _react3.default.createElement(
+                "h3",
+                { className: "title text-center" },
+                "Komunikace"
+              ),
+              _react3.default.createElement(
+                "div",
+                { className: "media" },
+                _react3.default.createElement(
+                  "a",
+                  { className: "pull-left", href: "#pablo" },
+                  _react3.default.createElement(
+                    "div",
+                    { className: "avatar" },
+                    _react3.default.createElement("img", {
+                      className: "media-object",
+                      src: "http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile4-square.jpg",
+                      alt: "..."
+                    })
+                  )
+                ),
+                _react3.default.createElement(
+                  "div",
+                  { className: "media-body" },
+                  _react3.default.createElement(
+                    "h4",
+                    { className: "media-heading" },
+                    "Ivana Dlouh\xE1 ",
+                    _react3.default.createElement(
+                      "small",
+                      null,
+                      "\xB7 p\u0159ed 2 dny"
+                    )
+                  ),
+                  _react3.default.createElement("h6", { className: "text-muted" }),
+                  _react3.default.createElement(
+                    "p",
+                    null,
+                    "Dobr\xFD den, r\xE1d bych se informovala, jakou kvaliu slu\u017Eby po\u017Eadujete. Resp. m\xE1te n\u011Bjakou dokumentaci stavby?"
+                  ),
+                  _react3.default.createElement(
+                    "div",
+                    { className: "media-footer" },
+                    _react3.default.createElement(
+                      "a",
+                      {
+                        href: "#pablo",
+                        className: "btn btn-primary btn-simple pull-right",
+                        rel: "tooltip",
+                        title: "",
+                        "data-original-title": "Reply to Comment"
+                      },
+                      _react3.default.createElement(
+                        "i",
+                        { className: "material-icons" },
+                        "reply"
+                      ),
+                      " Reagovat"
+                    )
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                "div",
+                { className: "media" },
+                _react3.default.createElement(
+                  "a",
+                  { className: "pull-left", href: "#pablo" },
+                  _react3.default.createElement(
+                    "div",
+                    { className: "avatar" },
+                    _react3.default.createElement("img", {
+                      className: "media-object",
+                      alt: "Tim Picture",
+                      src: "http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile1-square.jpg"
+                    })
+                  )
+                ),
+                _react3.default.createElement(
+                  "div",
+                  { className: "media-body" },
+                  _react3.default.createElement(
+                    "h4",
+                    { className: "media-heading" },
+                    "Michal Mr\xE1\u010Dek ",
+                    _react3.default.createElement(
+                      "small",
+                      null,
+                      "\xB7 p\u0159ed 7 minutami"
+                    )
+                  ),
+                  _react3.default.createElement(
+                    "p",
+                    null,
+                    "Podklady V\xE1m za\u0161lu emailem. Jedn\xE1 sa o jednoduchou d\u0159evostavbu."
+                  ),
+                  _react3.default.createElement(
+                    "div",
+                    { className: "media-footer" },
+                    _react3.default.createElement(
+                      "a",
+                      {
+                        href: "#pablo",
+                        className: "btn btn-primary btn-simple pull-right",
+                        rel: "tooltip",
+                        title: "",
+                        "data-original-title": "Reply to Comment"
+                      },
+                      _react3.default.createElement(
+                        "i",
+                        { className: "material-icons" },
+                        "reply"
+                      ),
+                      " Reagovat"
+                    )
+                  )
+                )
+              )
+            ),
+            _react3.default.createElement(
+              "h3",
+              { className: "title text-center" },
+              "Vlo\u017Eit nov\xFD koment\xE1\u0159"
+            ),
+            _react3.default.createElement(
+              "div",
+              { className: "media media-post" },
+              _react3.default.createElement(
+                "a",
+                { className: "pull-left author", href: "#pablo" },
+                _react3.default.createElement(
+                  "div",
+                  { className: "avatar" },
+                  _react3.default.createElement("img", {
+                    className: "media-object",
+                    alt: "64x64",
+                    src: "http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile1-square.jpg"
+                  })
+                )
+              ),
+              _react3.default.createElement(
+                "div",
+                { className: "media-body" },
+                _react3.default.createElement(
+                  "div",
+                  { className: "form-group is-empty" },
+                  _react3.default.createElement("textarea", {
+                    className: "form-control",
+                    placeholder: "T\u011Blo komen\xE1\u0159e",
+                    rows: "6"
+                  }),
+                  _react3.default.createElement("span", { className: "material-input" })
+                ),
+                _react3.default.createElement(
+                  "div",
+                  { className: "media-footer" },
+                  _react3.default.createElement(
+                    "a",
+                    {
+                      href: "#pablo",
+                      className: "btn btn-primary btn-round btn-wd pull-right"
+                    },
+                    "Vlo\u017Eit komen\xE1\u0159"
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return HowItWorks;
+}(_react2.Component));
+
+exports.default = HowItWorks;
+module.exports = exports["default"];

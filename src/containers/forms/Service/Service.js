@@ -31,7 +31,7 @@ export default class Service extends Component {
   static propTypes = {
     // This is from redux form
     handleSubmit: PropTypes.func.isRequired,
-    isSubmitting: PropTypes.bool.isRequired,
+    isSubmitting: PropTypes.bool,
     getServices: PropTypes.func.isRequired,
     getService: PropTypes.func.isRequired,
     editService: PropTypes.func.isRequired,
@@ -65,7 +65,8 @@ export default class Service extends Component {
   handleSuccess = () => {
     this.props.getServices()
 
-    browserHistory.push('/services')
+    // browserHistory.push('/services')
+    browserHistory.goBack()
   }
 
   handleError = error => this.setState({ error })

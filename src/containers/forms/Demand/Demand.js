@@ -64,8 +64,8 @@ export default class Demand extends Component {
 
   handleSuccess = () => {
     this.props.getDemands()
-
-    browserHistory.push('/demands')
+    browserHistory.goBack()
+    // browserHistory.push('/demands')
   }
 
   handleError = error => this.setState({ error })

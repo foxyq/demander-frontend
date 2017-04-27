@@ -6,7 +6,7 @@ import {
   deleteService,
 } from 'redux/modules/api/services' /* , deleteService*/
 
-import Listing from 'components/common/Listing/Listing'
+import { Listing } from 'components/common'
 
 @connect(
   ({ api }) => ({
@@ -59,7 +59,7 @@ export default class List extends Component {
             items={services}
             controller="services"
             onDelete={this.handleDeleteService}
-            isAdmin="true"
+            isAdmin
           />
 
         </div>

@@ -3,11 +3,10 @@ import ListingItem from 'components/common/ListingItem/ListingItem'
 
 export default class Listing extends Component {
   static propTypes = {
-    // children: PropTypes.object,
     items: PropTypes.array.isRequired,
     controller: PropTypes.string.isRequired,
-    onDelete: PropTypes.func.isRequired,
-    isAdmin: PropTypes.string.isRequired,
+    onDelete: PropTypes.func,
+    isAdmin: PropTypes.bool.isRequired,
   }
 
   render() {

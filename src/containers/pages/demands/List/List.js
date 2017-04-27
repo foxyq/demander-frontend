@@ -118,7 +118,7 @@ export default class List extends Component {
           items={demands}
           controller="demands"
           onDelete={this.handleDeleteDemand}
-          isAdmin="true"
+          isAdmin
         />
 
       </div>

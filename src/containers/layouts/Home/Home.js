@@ -74,19 +74,19 @@ export default class HomeLayout extends Component {
                         height="210"
                       />
                     </div>
-                    {/* <h3>
-                      Staňte se součástí revoluce získávání nových klientů a dodavatelů
-                    </h3> */}
 
                     <div className={style.baseMarginTop}>
                       <button
-                        className={cx('btn', cigan.brandbutton)}
+                        className={cx('btn btn-lg', cigan.brandbutton)}
                         href="/services/new"
                       >
                         Přidat poptávku<div className="ripple-container" />
                       </button>
                       <button
-                        className={cx('btn btn-primary', cigan.brandbutton)}
+                        className={cx(
+                          'btn btn-primary btn-lg',
+                          cigan.brandbutton,
+                        )}
                       >
                         Najít službu
                         <div className="ripple-container" />

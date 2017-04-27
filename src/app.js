@@ -34,7 +34,7 @@ export default class App extends Component {
     // const { messages } = this.getIntl()
 
     return (
-      <IntlProvider key="intl">
+      <IntlProvider key="intl" locale="cs">
         <div>
           {/* <div className="row"> */}
           {/* <div className="container"> */}

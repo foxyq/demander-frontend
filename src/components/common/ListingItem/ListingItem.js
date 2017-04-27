@@ -7,8 +7,8 @@ export default class ListingItem extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
     controller: PropTypes.string.isRequired,
-    onDelete: PropTypes.func.isRequired,
-    isAdmin: PropTypes.string.isRequired,
+    onDelete: PropTypes.func,
+    isAdmin: PropTypes.bool.isRequired,
   }
 
   deleteClick(id) {
@@ -41,10 +41,11 @@ export default class ListingItem extends Component {
             </p>
             <br />
 
-            {isAdmin === 'true' &&
+            {/* admin buttons */}
+            {isAdmin &&
               <span>
                 <Link to={`/${controller}/${item._id}`}>
-                  Edit
+                  Upraviť
                 </Link>
                 <button
                   type="button"
@@ -53,6 +54,8 @@ export default class ListingItem extends Component {
                   Delete
                 </button>
               </span>}
+            {/* admin buttons */}
+
             <div className="footer">
               <div className="author">
                 <a href="#pablo">

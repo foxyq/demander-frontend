@@ -1,0 +1,129 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp;
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  ContentStripe: {
+    displayName: 'ContentStripe'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/common/ContentStripe/ContentStripe.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/common/ContentStripe/ContentStripe.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var ContentStripe = _wrapComponent('ContentStripe')((_temp = _class = function (_React$Component) {
+  (0, _inherits3.default)(ContentStripe, _React$Component);
+
+  function ContentStripe() {
+    (0, _classCallCheck3.default)(this, ContentStripe);
+    return (0, _possibleConstructorReturn3.default)(this, (ContentStripe.__proto__ || Object.getPrototypeOf(ContentStripe)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(ContentStripe, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          isColored = _props.isColored,
+          title = _props.title,
+          additionalClasses = _props.additionalClasses;
+
+
+      return _react3.default.createElement(
+        'div',
+        {
+          className: (0, _classnames2.default)('cd-section', 'section-' + isColored, additionalClasses)
+        },
+        _react3.default.createElement(
+          'div',
+          { className: 'cards' },
+          _react3.default.createElement(
+            'div',
+            { className: 'container' },
+            _react3.default.createElement(
+              'div',
+              { className: 'row' },
+              title && _react3.default.createElement(
+                'div',
+                { className: 'title' },
+                _react3.default.createElement(
+                  'h3',
+                  null,
+                  title
+                )
+              ),
+              this.props.children
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return ContentStripe;
+}(_react3.default.Component), _class.propTypes = {
+  children: _react2.PropTypes.object,
+  isColored: _react2.PropTypes.string,
+  title: _react2.PropTypes.string.isRequired,
+  additionalClasses: _react2.PropTypes.string
+}, _temp));
+
+exports.default = ContentStripe;
+module.exports = exports['default'];
