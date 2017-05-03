@@ -3,16 +3,18 @@ import cx from 'classnames'
 
 export default class ContentStripe extends React.Component {
   static propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.any,
+    id: PropTypes.string,
     isColored: PropTypes.string,
     title: PropTypes.string,
     additionalClasses: PropTypes.string,
   }
   render() {
-    const { isColored, title, additionalClasses } = this.props
+    const { isColored, title, additionalClasses, id } = this.props
 
     return (
       <div
+        id={id}
         className={cx('cd-section', 'section-' + isColored, additionalClasses)}
       >
         <div className="container">

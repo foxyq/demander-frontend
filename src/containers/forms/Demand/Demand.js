@@ -29,9 +29,8 @@ import validate from './demand.validation'
 })
 export default class Demand extends Component {
   static propTypes = {
-    // This is from redux form
     handleSubmit: PropTypes.func.isRequired,
-    isSubmitting: PropTypes.bool.isRequired,
+    isSubmitting: PropTypes.bool,
     getDemands: PropTypes.func.isRequired,
     getDemand: PropTypes.func.isRequired,
     editDemand: PropTypes.func.isRequired,

@@ -15,7 +15,7 @@ export default class List extends Component {
     getCompanies: PropTypes.func.isRequired,
     deleteCompany: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
-    companies: PropTypes.array,
+    companies: PropTypes.array.isRequired,
   }
   componentDidMount() {
     this.props.getCompanies()

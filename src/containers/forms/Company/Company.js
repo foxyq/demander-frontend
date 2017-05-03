@@ -31,7 +31,7 @@ export default class Company extends Component {
   static propTypes = {
     // This is from redux form
     handleSubmit: PropTypes.func.isRequired,
-    isSubmitting: PropTypes.bool.isRequired,
+    isSubmitting: PropTypes.bool,
     getCompanies: PropTypes.func.isRequired,
     getCompany: PropTypes.func.isRequired,
     editCompany: PropTypes.func.isRequired,

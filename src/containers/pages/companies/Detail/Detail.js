@@ -2,18 +2,33 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { getCompany } from 'redux/modules/api/companies'
+import { Listing, ContentStripe } from 'components/common'
+
+import Scrollchor from 'react-scrollchor'
+
+import { getDemands } from 'redux/modules/api/demands'
+import { getServices } from 'redux/modules/api/services'
+
+import cx from 'classnames'
+import style from './detail.styl'
 
 @connect(
   ({ api }) => ({
     company: api.companies.getCompany.data,
+    demands: api.demands.getDemands.data,
+    services: api.services.getServices.data,
   }),
-  { getCompany },
+  { getCompany, getDemands, getServices },
 )
 export default class Detail extends Component {
   static propTypes = {
     getCompany: PropTypes.func.isRequired,
+    getDemands: PropTypes.func.isRequired,
+    getServices: PropTypes.func.isRequired,
     // isLoading: PropTypes.bool,
-    company: PropTypes.object,
+    company: PropTypes.any,
+    demands: PropTypes.array,
+    services: PropTypes.array,
   }
   state = {
     transform: 0,
@@ -24,6 +39,8 @@ export default class Detail extends Component {
     const companyId = this.props.params.id
 
     this.props.getCompany(companyId)
+    this.props.getDemands()
+    this.props.getServices()
   }
 
   componentWillUnmount() {
@@ -44,7 +61,7 @@ export default class Detail extends Component {
   }
 
   render() {
-    const { company } = this.props
+    const { company, demands, services } = this.props
 
     return (
       <div>
@@ -53,10 +70,14 @@ export default class Detail extends Component {
           className="header header-filter"
           style={{
             transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
-            // backgroundImage: 'url("http://demos.creative-tim.com/material-kit/assets/img/examples/city.jpg")',
-            backgroundImage: 'url(https://www.wired.com/wp-content/uploads/2016/11/GoogleMap-1.jpg)',
+            backgroundImage: 'url(http://www.triplepoint.co.uk/storage/images-processed/w-1200_h-482_m-cover_s-any__internet-technology-concept.jpg)',
+            backgroundSize: '100%',
           }}
-        />
+        >
+          <div className={style.mottowrapper}>
+            <div className={style.mottotext}>{company.company_about}</div>
+          </div>
+        </div>
 
         <div className="main main-raised">
           <div className="profile-content">
@@ -66,7 +87,6 @@ export default class Detail extends Component {
                 <div className="profile">
                   <div className="avatar img-rounded">
                     <img
-                      // src="http://logok.org/wp-content/uploads/2014/08/Vodafone_logo-old.png"
                       src={company.logo_url}
                       alt="Circle Image"
                       className="img-rounded img-responsive img-raised"
@@ -74,16 +94,18 @@ export default class Detail extends Component {
                   </div>
                   <div className="name">
                     <h3 className="title">{company.company_name}</h3>
-                    <h6>{company.company_about}</h6>
                   </div>
                 </div>
               </div>
 
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-10 col-md-offset-1">
                   <h5>{company.company_description}</h5>
                 </div>
-                <div className="col-md-4 col-md-offset-2">
+              </div>
+
+              <div className="row">
+                <div className="col-sm-4">
                   <div className="info info-horizontal">
                     <div className="icon icon-primary">
                       <i className="material-icons">pin_drop</i>
@@ -96,20 +118,9 @@ export default class Detail extends Component {
                       </p>
                     </div>
                   </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-primary">
-                      <i className="material-icons">phone</i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Kontakt</h4>
-                      <p>
-                        {company.contact_person}<br />
-                        {company.contact_telephone}<br />
-                        {company.contact_email} <br />
+                </div>
 
-                      </p>
-                    </div>
-                  </div>
+                <div className="col-sm-4">
                   <div className="info info-horizontal">
                     <div className="icon icon-primary">
                       <i className="material-icons">business_center</i>
@@ -124,293 +135,96 @@ export default class Detail extends Component {
                     </div>
                   </div>
                 </div>
+
+                <div className="col-sm-4">
+                  <div className="info info-horizontal">
+                    <div className="icon icon-primary">
+                      <i className="material-icons">phone</i>
+                    </div>
+                    <div className="description">
+                      <h4 className="info-title">Kontakt</h4>
+                      <p>
+                        {company.contact_person}<br />
+                        {company.contact_telephone}<br />
+                        {company.contact_email} <br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="row">
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#nabidka_sluzeb"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Nabídka služeb
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
+
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#poptavky"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Poptávky
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
+
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#poptavky"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Historie
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
+
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#poptavky"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Kontakt
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
               </div>
 
             </div>
             {/* container */}
-
           </div>
         </div>
         {/* /main-raised */}
 
-        <div id="cards" className="cd-section">
-          {/* <div className="section-gray"> */}
+        <ContentStripe title="Nabídka služeb" id="nabidka_sluzeb">
+          <Listing items={services} controller="demands" isAdmin={false} />
+        </ContentStripe>
 
-          <div>
-            {/* <!--     *********    BLOG CARDS     *********      --> */}
+        <ContentStripe
+          title="Aktuálně poptáváme"
+          id="poptavky"
+          isColored="gray"
+        >
+          <Listing items={demands} controller="demands" isAdmin={false} />
+        </ContentStripe>
 
-            <div className="cards">
-
-              <div className="container">
-                <div className="title">
-                  {/* <h2>Poptávky</h2> */}
-                  <br /><br /><br /><br />
-                  <h3>Aktuálně poptáváme</h3>
-                </div>
-                <div className="row">
-
-                  <div className="col-md-4">
-
-                    <div className="card card-blog">
-
-                      <div className="card-content">
-                        <h6 className="category text-success">Textil</h6>
-                        <br />
-                        <h4 className="card-title">
-                          <a href="#pablo">
-                            Dodávka textilních látek
-                          </a>
-                        </h4>
-                        <br />
-                        <p className="card-description">
-                          Máme zájem o dodávku textilních látek pro zajímavý projekt v kultuře.Uvedené druhy látek jsou závazné, šíři, délku a barvu lze upravit, dle zboží, které bude mít dodavatel na skladě. Preferujeme kvalitu a vstřícnou cenu.
-                        </p>
-                        <br />
-                        <div className="footer">
-                          <div className="author">
-                            <a href="#pablo">
-                              <img
-                                src="http://demander.cz/images/live/logo-csob.png"
-                                alt="..."
-                                className="avatar img-raised"
-                              />
-                              <span>CSOB</span>
-                            </a>
-                          </div>
-                          <div className="stats">
-                            <i className="material-icons">schedule</i>
-                            {' '}
-                            před 4 dny
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="col-md-4">
-
-                    <div className="card card-blog">
-
-                      <div className="card-content">
-                        <h6 className="category text-success">Stavebnictví</h6>
-                        <br />
-                        <h4 className="card-title">
-                          <a href="#pablo">
-                            Mám zájem o tenkovrstvou omítku Baumit
-                          </a>
-                        </h4><br />
-                        <p className="card-description">
-                          Tenkovrstvou omítku Baumit Finetop, Baumit silikontop, Baumit Uniprimer. Preferuji cenu.
-                        </p><br />
-                        <div className="footer">
-                          <div className="author">
-                            <a href="#pablo">
-                              <img
-                                src="http://demander.cz/images/live/logo-kb.png"
-                                alt="..."
-                                className="avatar img-raised"
-                              />
-                              <span>Komerční Banka</span>
-                            </a>
-                          </div>
-                          <div className="stats">
-                            <i className="material-icons">schedule</i>
-                            {' '}
-                            před 3 dny
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="col-md-4">
-
-                    <div className="card card-blog">
-                      <div className="card-content">
-                        <h6 className="category text-success">Tisk</h6>
-                        <br />
-                        <h4 className="card-title">
-                          <a href="#pablo">
-                            Grafický návrh, sazbu a tisk publikace
-                          </a>
-                        </h4><br />
-                        <p className="card-description">
-                          Jedná se o formát A5 v lepené vazbě, celkově 200 stránek s cca 100 barev. obrázky, 5O černobílých. Celkové množství 500 kusů.
-                        </p><br />
-                        <div className="footer">
-                          <div className="author">
-                            <a href="#pablo">
-                              <img
-                                src="http://demander.cz/images/live/logo-vodafone.png"
-                                alt="..."
-                                className="avatar img-raised"
-                              />
-                              <span>Vodafone</span>
-                            </a>
-                          </div>
-                          <div className="stats">
-                            <i className="material-icons">schedule</i>
-                            {' '}
-                            před 1 hodinou
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-            <br /><br /><br />
-
-          </div>
-          {/* <!--     *********    END BLOG CARDS      *********      --> */}
-
-          <div id="cards" className="cd-section section-gray">
-            <div>
-              {/* <!--     *********    BLOG CARDS     *********      --> */}
-
-              <div className="cards">
-
-                <div className="container">
-                  <div className="title">
-                    {/* <h2>Poptávky</h2> */}
-                    <br /><br /><br /><br />
-                    <h3>Služby společnosti</h3>
-                  </div>
-                  <div className="row">
-
-                    <div className="col-md-4">
-
-                      <div className="card card-blog">
-
-                        <div className="card-content">
-                          <h6 className="category text-success">Grafika</h6>
-                          <br />
-
-                          <h4 className="card-title">
-                            <a href="#pablo">
-                              Grafické služby
-                            </a>
-                          </h4><br />
-                          <p className="card-description">
-                            Nabízím grafické služby - návrhy a tvorba firemních log, identity nebo jiné grafické práce.
-                          </p><br />
-                          <div className="footer">
-                            <div className="author">
-                              <a href="#pablo">
-                                <img
-                                  src="http://demos.creative-tim.com/material-kit-pro/assets/img/faces/marc.jpg"
-                                  alt="..."
-                                  className="avatar img-raised"
-                                />
-                                <span>LH Design</span>
-                              </a>
-                            </div>
-                            <div className="stats">
-                              <i className="material-icons">schedule</i>
-                              {' '}
-                              před 2 dny
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div className="col-md-4">
-
-                      <div className="card card-blog">
-
-                        <div className="card-content">
-                          <h6 className="category text-success">Údržba</h6>
-                          <br />
-
-                          <h4 className="card-title">
-                            <a href="#pablo">
-                              Sanita a instalatéřské práce
-                            </a>
-                          </h4><br />
-                          <p className="card-description">
-                            Nabízím instalatéřské práce všeho druhu pro firmy, domácnosti nebo nárazově na stavby, rekonstrukce apod. Cena individuální.
-                          </p><br />
-                          <div className="footer">
-                            <div className="author">
-                              <a href="#pablo">
-                                <img
-                                  src="http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile1-square.jpg"
-                                  alt="..."
-                                  className="avatar img-raised"
-                                />
-                                <span>Jaromír Havíř</span>
-                              </a>
-                            </div>
-                            <div className="stats">
-                              <i className="material-icons">schedule</i>
-                              {' '}
-                              před 3 dny
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div className="col-md-4">
-
-                      <div className="card card-blog">
-                        <div className="card-content">
-                          <h6 className="category text-success">Finance</h6>
-                          <br />
-
-                          <h4 className="card-title">
-                            <a href="#pablo">
-                              Vedení účetníctví{' '}
-                            </a>
-                          </h4><br />
-                          <p className="card-description">
-                            Nabízím správu účetnictví pro malé a střední podniky s orientací na výrobní a služby poskytující společnosti.
-                            {' '}
-                          </p><br />
-                          <div className="footer">
-                            <div className="author">
-                              <a href="#pablo">
-                                <img
-                                  src="http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile4-square.jpg"
-                                  alt="..."
-                                  className="avatar img-raised"
-                                />
-                                <span>Lucie Novodvorská</span>
-                              </a>
-                            </div>
-                            <div className="stats">
-                              <i className="material-icons">schedule</i>
-                              {' '}
-                              před týdnem
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              </div><br /><br /><br /><br />
-
-            </div>
-
-            {/* <!--     *********    END BLOG CARDS      *********      --> */}
-
-          </div>
-        </div>
+        <Scrollchor
+          to="#top"
+          animate={{ offset: -110, duration: 600 }}
+          className={cx('btn btn-primary btn-fab btn-round', style.topbutton)}
+        >
+          <i className="material-icons">keyboard_arrow_up</i>
+          <div className="ripple-container" />
+        </Scrollchor>
 
       </div>
     )
