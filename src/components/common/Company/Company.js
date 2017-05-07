@@ -1,13 +1,20 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 // import style from './Company'
 
 export default class Company extends React.Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
     isAdmin: PropTypes.bool.isRequired,
+    controller: PropTypes.string.isRequired,
+    onDelete: PropTypes.func,
+  }
+
+  deleteClick(id) {
+    this.props.onDelete(id)
   }
   render() {
-    const { item, isAdmin } = this.props
+    const { item, isAdmin, controller } = this.props
 
     return (
       <div className="col-xs-12 col-sm-6 col-md-4">

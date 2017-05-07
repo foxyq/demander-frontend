@@ -39,6 +39,9 @@ export default class List extends Component {
     return (
       <div>
         <div className="row">
+          <Link to={'/companies/new'} className="btn btn-success ">
+            Přidat společnost
+          </Link>
           <div className="profile">
 
             <div className="name">
@@ -46,6 +49,7 @@ export default class List extends Component {
               <h6>společnosti registrované v systému Demander</h6>
             </div>
           </div>
+
         </div>
 
         {isLoading && <span>IS LOADING </span>}
@@ -60,7 +64,7 @@ export default class List extends Component {
         <div className="row pull-left">
           <div className="profile">
 
-            <div className="text-left">
+            {/* <div className="text-left">
               {isLoading && <span>IS LOADING </span>}
               {companies &&
                 companies.length > 0 &&
@@ -91,10 +95,8 @@ export default class List extends Component {
                     </button>
                   </div>
                 ))}
-              <Link to={'/companies/new'} className="btn btn-success ">
-                Přidat společnost
-              </Link>
-            </div>
+
+            </div> */}
           </div>
         </div>
       </div>
