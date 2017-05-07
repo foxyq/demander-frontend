@@ -11,7 +11,7 @@ export const schema = model => {
   values.company_opening_hours = get(model, 'company_opening_hours')
   values.contact_telephone = get(model, 'contact_telephone')
   values.contact_email = get(model, 'contact_email')
-  values.contact_adress = get(model, 'contact_adress')
+  values.contact_address = get(model, 'contact_address')
   values.contact_person = get(model, 'contact_person')
   values.categorization = get(model, 'categorization')
   values.slogan = get(model, 'slogan')

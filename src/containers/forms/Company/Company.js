@@ -90,7 +90,7 @@ export default class Company extends Component {
         <Input label="Opening hours" name="company_opening_hours" />
         <Input label="Telephone" name="contact_telephone" />
         <Input label="Email" name="contact_email" />
-        <Input label="Adress" name="contact_adress" />
+        <Input label="Address" name="contact_address" />
         <Input label="Contact person" name="contact_person" />
         <Input label="Categorization" name="categorization" />
         <Input label="Slogan" name="slogan" />
