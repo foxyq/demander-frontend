@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 
-import { HeaderWebsite } from 'components/layout/headers'
+import * as Header from 'components/layout/headers'
 import { FooterWebsite } from 'components/layout/footers'
 
 import style from 'assets/css/base/vertical-rhythm.styl'
@@ -40,17 +40,30 @@ export default class HomeLayout extends Component {
   render() {
     return (
       <div className="index-page">
-        <HeaderWebsite />
+        <Header.HeaderWebsite logo={<Header.Logo />} />
 
         <div className="wrapper">
-
           <div
             className="header header-filter"
             style={{
               transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
-              backgroundImage: 'url("http://demos.creative-tim.com/material-kit/assets/img/bg2.jpeg")',
+              backgroundImage: 'url("http://demander.cz/images/live/cover_pic.png")',
             }}
           >
+            {/* <video
+              className="video-container video-container-overlay"
+              preload="auto"
+              autoPlay="true"
+              loop="true"
+              muted="true"
+              data-reactid=".0.1.0.0"
+            >
+              <source
+                type="video/mp4"
+                data-reactid=".0.1.0.0.0"
+                src="http://demander.cz/video/business1.mp4"
+              />
+            </video> */}
             <div className="container">
               <div className="row">
                 <div className="col-md-8 col-md-offset-2">
@@ -61,18 +74,21 @@ export default class HomeLayout extends Component {
                         height="210"
                       />
                     </div>
-                    {/* <h3>
-                      Staňte se součástí revoluce získávání nových klientů a dodavatelů
-                    </h3> */}
 
                     <div className={style.baseMarginTop}>
-                      <button className={cx('btn', cigan.brandbutton)}>
+                      <button
+                        className={cx('btn btn-lg', cigan.brandbutton)}
+                        href="/services/new"
+                      >
                         Přidat poptávku<div className="ripple-container" />
                       </button>
                       <button
-                        className={cx('btn btn-primary', cigan.brandbutton)}
+                        className={cx(
+                          'btn btn-primary btn-lg',
+                          cigan.brandbutton,
+                        )}
                       >
-                        Najít poptávku
+                        Najít službu
                         <div className="ripple-container" />
                       </button>
                     </div>

@@ -1,0 +1,15 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Listing = undefined;
+
+var _Listing2 = require('./Listing/Listing');
+
+var _Listing3 = _interopRequireDefault(_Listing2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Listing = _Listing3.default;
+// export ListingItem from './ListingItem'

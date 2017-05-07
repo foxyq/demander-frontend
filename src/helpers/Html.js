@@ -25,6 +25,18 @@ export default class Html extends Component {
           {head.script.toComponent()}
 
           <link rel="shortcut icon" href="/favicon.ico" />
+          {/* timeline */}
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="http://demander.cz/css/live/style.css"
+          />
+          {/* <link
+            rel="stylesheet"
+            type="text/css"
+            href="http://demander.cz/css/live/company.css"
+          /> */}
+          {/* theme */}
           <link
             href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
             rel="stylesheet"

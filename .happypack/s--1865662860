@@ -1,0 +1,204 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp2;
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _headers = require('components/layout/headers');
+
+var _footers = require('components/layout/footers');
+
+var _verticalRhythm = require('assets/css/base/vertical-rhythm.styl');
+
+var _verticalRhythm2 = _interopRequireDefault(_verticalRhythm);
+
+var _cigan = require('assets/css/cigan.styl');
+
+var _cigan2 = _interopRequireDefault(_cigan);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  HomeLayout: {
+    displayName: 'HomeLayout'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/layouts/Home/Home.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/layouts/Home/Home.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var HomeLayout = _wrapComponent('HomeLayout')((_temp2 = _class = function (_Component) {
+  (0, _inherits3.default)(HomeLayout, _Component);
+
+  function HomeLayout() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, HomeLayout);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = HomeLayout.__proto__ || Object.getPrototypeOf(HomeLayout)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      transform: 0
+    }, _this.changeTransform = function (value) {
+      _this.setState({
+        transform: value
+      });
+    }, _this.handleScroll = function (event) {
+      var scrollTop = event.srcElement.body.scrollTop;
+      var itemTranslate = Math.min(1000, scrollTop / 3);
+
+      _this.changeTransform(itemTranslate);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(HomeLayout, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        'div',
+        { className: 'index-page' },
+        _react3.default.createElement(_headers.HeaderWebsite, null),
+        _react3.default.createElement(
+          'div',
+          { className: 'wrapper' },
+          _react3.default.createElement(
+            'div',
+            {
+              className: 'header header-filter',
+              style: {
+                transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
+                backgroundImage: 'url("http://demander.cz/images/live/cover_pic.png")'
+              }
+            },
+            _react3.default.createElement(
+              'div',
+              { className: 'container' },
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-8 col-md-offset-2' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'brand' },
+                    _react3.default.createElement(
+                      'div',
+                      null,
+                      _react3.default.createElement('img', {
+                        src: 'http://demander.cz/images/logo1_white2.svg',
+                        height: '210'
+                      })
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: _verticalRhythm2.default.baseMarginTop },
+                      _react3.default.createElement(
+                        'button',
+                        {
+                          className: (0, _classnames2.default)('btn', _cigan2.default.brandbutton),
+                          href: '/services/new'
+                        },
+                        'P\u0159idat popt\xE1vku',
+                        _react3.default.createElement('div', { className: 'ripple-container' })
+                      ),
+                      _react3.default.createElement(
+                        'button',
+                        {
+                          className: (0, _classnames2.default)('btn btn-primary', _cigan2.default.brandbutton)
+                        },
+                        'Naj\xEDt slu\u017Ebu',
+                        _react3.default.createElement('div', { className: 'ripple-container' })
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'main main-raised' },
+            this.props.children
+          ),
+          _react3.default.createElement(_footers.FooterWebsite, null)
+        )
+      );
+    }
+  }]);
+  return HomeLayout;
+}(_react2.Component), _class.propTypes = {
+  children: _react2.PropTypes.object
+}, _temp2));
+
+exports.default = HomeLayout;
+module.exports = exports['default'];

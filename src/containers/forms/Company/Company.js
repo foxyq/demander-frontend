@@ -31,7 +31,7 @@ export default class Company extends Component {
   static propTypes = {
     // This is from redux form
     handleSubmit: PropTypes.func.isRequired,
-    isSubmitting: PropTypes.bool.isRequired,
+    isSubmitting: PropTypes.bool,
     getCompanies: PropTypes.func.isRequired,
     getCompany: PropTypes.func.isRequired,
     editCompany: PropTypes.func.isRequired,
@@ -64,8 +64,8 @@ export default class Company extends Component {
 
   handleSuccess = () => {
     this.props.getCompanies()
-
-    browserHistory.push('/companies')
+    browserHistory.goBack()
+    // browserHistory.push('/companies')
   }
 
   handleError = error => this.setState({ error })

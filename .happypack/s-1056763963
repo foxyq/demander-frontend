@@ -1,0 +1,192 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _dec2, _class, _class2, _temp2;
+
+var _reactRouter = require('react-router');
+
+var _reactRedux = require('react-redux');
+
+var _reduxForm = require('redux-form');
+
+var _service = require('models/service');
+
+var _fields = require('components/fields');
+
+var _services = require('redux/modules/api/services');
+
+var _service2 = require('./service.validation');
+
+var _service3 = _interopRequireDefault(_service2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Service: {
+    displayName: 'Service'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/forms/Service/Service.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/forms/Service/Service.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var Service = _wrapComponent('Service')((_dec = (0, _reactRedux.connect)(function (_ref, _ref2) {
+  var api = _ref.api;
+  var params = _ref2.params;
+  return {
+    isSubmitting: api.services.createService.isSubmitting,
+    initialValues: params.id !== 'new' && api.services.getService.data
+  };
+}, { createService: _services.createService, getServices: _services.getServices, getService: _services.getService, editService: _services.editService }), _dec2 = (0, _reduxForm.reduxForm)({
+  form: 'Service',
+  enableReinitialize: true,
+  validate: _service3.default
+}), _dec(_class = _dec2(_class = (_temp2 = _class2 = function (_Component) {
+  (0, _inherits3.default)(Service, _Component);
+
+  function Service() {
+    var _ref3;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, Service);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref3 = Service.__proto__ || Object.getPrototypeOf(Service)).call.apply(_ref3, [this].concat(args))), _this), _this.state = {
+      error: null
+    }, _this.handleSubmit = function (model) {
+      var serviceId = _this.props.params.id;
+      var isEditing = serviceId !== 'new';
+
+      var action = isEditing ? _this.props.editService : _this.props.createService;
+      var values = (0, _service.schema)(model);
+
+      action(values, serviceId).then(_this.handleSuccess).catch(_this.handleError);
+    }, _this.handleSuccess = function () {
+      _this.props.getServices();
+
+      // browserHistory.push('/services')
+
+      _reactRouter.browserHistory.pop();
+
+      // let browserHistory = ReactRouter.browserHistory
+
+      // this.context.router.goBack()
+
+      // const BrowserHistory = require('react-router/lib/BrowserHistory').default
+      // BrowserHistory.goBack()
+      // browserHistory.goBack()
+      // this.history.goBack()
+    }, _this.handleError = function (error) {
+      return _this.setState({ error: error });
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(Service, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var serviceId = this.props.params.id;
+      var isEditing = serviceId !== 'new';
+
+      if (isEditing) {
+        this.props.getService(serviceId);
+      }
+    }
+
+    // This is the actual submit method called on successful form submit
+
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          handleSubmit = _props.handleSubmit,
+          isSubmitting = _props.isSubmitting;
+      var error = this.state.error;
+
+
+      return _react3.default.createElement(
+        'form',
+        { onSubmit: handleSubmit(this.handleSubmit) },
+        _react3.default.createElement(_fields.Input, { label: 'Service title', name: 'title' }),
+        _react3.default.createElement('input', { type: 'submit' }),
+        isSubmitting && _react3.default.createElement(
+          'div',
+          null,
+          'Submitting...'
+        ),
+        error && _react3.default.createElement(
+          'div',
+          null,
+          error
+        )
+      );
+    }
+  }]);
+  return Service;
+}(_react2.Component), _class2.propTypes = {
+  // This is from redux form
+  handleSubmit: _react2.PropTypes.func.isRequired,
+  isSubmitting: _react2.PropTypes.bool,
+  getServices: _react2.PropTypes.func.isRequired,
+  getService: _react2.PropTypes.func.isRequired,
+  editService: _react2.PropTypes.func.isRequired,
+  createService: _react2.PropTypes.func.isRequired
+}, _temp2)) || _class) || _class));
+
+exports.default = Service;
+module.exports = exports['default'];

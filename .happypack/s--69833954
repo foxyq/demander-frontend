@@ -1,0 +1,21 @@
+SyntaxError: Expected corresponding JSX closing tag for <source> (29:18)
+
+  27 |                   <video class="video-container video-container-overlay" autoplay="" loop="" muted="" data-reactid=".0.1.0.0">
+  28 |                     <source type="video/mp4" data-reactid=".0.1.0.0.0" src="mov_bbb.mp4">
+> 29 |                   </video>
+     |                   ^
+  30 |                   {/* <video id="video_background" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
+  31 |                               <source src="video/shpecsun.webm" type="video/webm">
+  32 |                               <source src="video/shpecsun.mp4" type="video/mp4">
+
+Error
+    at transpile (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

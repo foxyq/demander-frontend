@@ -1,0 +1,769 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _class, _class2, _temp2;
+
+var _reactRedux = require('react-redux');
+
+var _companies = require('redux/modules/api/companies');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Detail: {
+    displayName: 'Detail'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Work/react/demander/demander-frontend/src/containers/pages/companies/Detail/Detail.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Work/react/demander/demander-frontend/src/containers/pages/companies/Detail/Detail.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var Detail = _wrapComponent('Detail')((_dec = (0, _reactRedux.connect)(function (_ref) {
+  var api = _ref.api;
+  return {
+    company: api.companies.getCompany.data
+  };
+}, { getCompany: _companies.getCompany }), _dec(_class = (_temp2 = _class2 = function (_Component) {
+  (0, _inherits3.default)(Detail, _Component);
+
+  function Detail() {
+    var _ref2;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, Detail);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref2 = Detail.__proto__ || Object.getPrototypeOf(Detail)).call.apply(_ref2, [this].concat(args))), _this), _this.state = {
+      transform: 0
+    }, _this.changeTransform = function (value) {
+      _this.setState({
+        transform: value
+      });
+    }, _this.handleScroll = function (event) {
+      var scrollTop = event.srcElement.body.scrollTop;
+      var itemTranslate = Math.min(1000, scrollTop / 3);
+
+      _this.changeTransform(itemTranslate);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(Detail, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+      var companyId = this.props.params.id;
+
+      this.props.getCompany(companyId);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var company = this.props.company;
+
+
+      return _react3.default.createElement(
+        'div',
+        null,
+        _react3.default.createElement('div', {
+          className: 'header header-filter',
+          style: {
+            transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
+            // backgroundImage: 'url("http://demos.creative-tim.com/material-kit/assets/img/examples/city.jpg")',
+            backgroundImage: 'url(https://www.wired.com/wp-content/uploads/2016/11/GoogleMap-1.jpg)'
+          }
+        }),
+        _react3.default.createElement(
+          'div',
+          { className: 'main main-raised' },
+          _react3.default.createElement(
+            'div',
+            { className: 'profile-content' },
+            _react3.default.createElement(
+              'div',
+              { className: 'container' },
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'profile' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'avatar img-rounded' },
+                    _react3.default.createElement('img', {
+                      // src="http://logok.org/wp-content/uploads/2014/08/Vodafone_logo-old.png"
+                      src: company.logo_url,
+                      alt: 'Circle Image',
+                      className: 'img-rounded img-responsive img-raised'
+                    })
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'name' },
+                    _react3.default.createElement(
+                      'h3',
+                      { className: 'title' },
+                      company.company_name
+                    ),
+                    _react3.default.createElement(
+                      'h6',
+                      null,
+                      company.company_about
+                    )
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-6' },
+                  _react3.default.createElement(
+                    'h5',
+                    null,
+                    company.company_description
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-4 col-md-offset-2' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info info-horizontal' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-primary' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'pin_drop'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'description' },
+                      _react3.default.createElement(
+                        'h4',
+                        { className: 'info-title' },
+                        'Find us at the office'
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        ' ',
+                        'Bld Mihail Kogalniceanu, nr. 8, 7652 Bucharest, Romania'
+                      )
+                    )
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info info-horizontal' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-primary' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'phone'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'description' },
+                      _react3.default.createElement(
+                        'h4',
+                        { className: 'info-title' },
+                        'Give us a ring'
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        ' ',
+                        'Michael Jordan +40 762 321 762 Mon - Fri, 8:00-22:00'
+                      )
+                    )
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info info-horizontal' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-primary' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'business_center'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'description' },
+                      _react3.default.createElement(
+                        'h4',
+                        { className: 'info-title' },
+                        'Legal Information'
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        ' ',
+                        'Creative Tim Ltd. VAT \xB7 EN2341241 IBAN \xB7 EN8732ENGB2300099123 Bank \xB7 Great Britain Bank'
+                      )
+                    )
+                  )
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { id: 'cards', className: 'cd-section' },
+          _react3.default.createElement(
+            'div',
+            null,
+            _react3.default.createElement(
+              'div',
+              { className: 'cards' },
+              _react3.default.createElement(
+                'div',
+                { className: 'container' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'title' },
+                  _react3.default.createElement('br', null),
+                  _react3.default.createElement('br', null),
+                  _react3.default.createElement('br', null),
+                  _react3.default.createElement('br', null),
+                  _react3.default.createElement(
+                    'h3',
+                    null,
+                    'Nejnov\u011Bj\u0161\xED popt\xE1vky'
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'row' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'col-md-4' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'card card-blog' },
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'card-content' },
+                        _react3.default.createElement(
+                          'h6',
+                          { className: 'category text-success' },
+                          'Textil'
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'h4',
+                          { className: 'card-title' },
+                          _react3.default.createElement(
+                            'a',
+                            { href: '#pablo' },
+                            'Dod\xE1vka textiln\xEDch l\xE1tek'
+                          )
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'p',
+                          { className: 'card-description' },
+                          'M\xE1me z\xE1jem o dod\xE1vku textiln\xEDch l\xE1tek pro zaj\xEDmav\xFD projekt v kultu\u0159e.Uveden\xE9 druhy l\xE1tek jsou z\xE1vazn\xE9, \u0161\xED\u0159i, d\xE9lku a barvu lze upravit, dle zbo\u017E\xED, kter\xE9 bude m\xEDt dodavatel na sklad\u011B. Preferujeme kvalitu a vst\u0159\xEDcnou cenu.'
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'div',
+                          { className: 'footer' },
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'author' },
+                            _react3.default.createElement(
+                              'a',
+                              { href: '#pablo' },
+                              _react3.default.createElement('img', {
+                                src: 'http://demander.cz/images/live/logo-csob.png',
+                                alt: '...',
+                                className: 'avatar img-raised'
+                              }),
+                              _react3.default.createElement(
+                                'span',
+                                null,
+                                'CSOB'
+                              )
+                            )
+                          ),
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'stats' },
+                            _react3.default.createElement(
+                              'i',
+                              { className: 'material-icons' },
+                              'schedule'
+                            ),
+                            ' ',
+                            'p\u0159ed 4 dny'
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'col-md-4' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'card card-blog' },
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'card-content' },
+                        _react3.default.createElement(
+                          'h6',
+                          { className: 'category text-success' },
+                          'Stavebnictv\xED'
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'h4',
+                          { className: 'card-title' },
+                          _react3.default.createElement(
+                            'a',
+                            { href: '#pablo' },
+                            'M\xE1m z\xE1jem o tenkovrstvou om\xEDtku Baumit'
+                          )
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'p',
+                          { className: 'card-description' },
+                          'Tenkovrstvou om\xEDtku Baumit Finetop, Baumit silikontop, Baumit Uniprimer. Preferuji cenu.'
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'div',
+                          { className: 'footer' },
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'author' },
+                            _react3.default.createElement(
+                              'a',
+                              { href: '#pablo' },
+                              _react3.default.createElement('img', {
+                                src: 'http://demander.cz/images/live/logo-kb.png',
+                                alt: '...',
+                                className: 'avatar img-raised'
+                              }),
+                              _react3.default.createElement(
+                                'span',
+                                null,
+                                'Komer\u010Dn\xED Banka'
+                              )
+                            )
+                          ),
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'stats' },
+                            _react3.default.createElement(
+                              'i',
+                              { className: 'material-icons' },
+                              'schedule'
+                            ),
+                            ' ',
+                            'p\u0159ed 3 dny'
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'col-md-4' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'card card-blog' },
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'card-content' },
+                        _react3.default.createElement(
+                          'h6',
+                          { className: 'category text-success' },
+                          'Tisk'
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'h4',
+                          { className: 'card-title' },
+                          _react3.default.createElement(
+                            'a',
+                            { href: '#pablo' },
+                            'Grafick\xFD n\xE1vrh, sazbu a tisk publikace'
+                          )
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'p',
+                          { className: 'card-description' },
+                          'Jedn\xE1 se o form\xE1t A5 v lepen\xE9 vazb\u011B, celkov\u011B 200 str\xE1nek s cca 100 barev. obr\xE1zky, 5O \u010Dernob\xEDl\xFDch. Celkov\xE9 mno\u017Estv\xED 500 kus\u016F.'
+                        ),
+                        _react3.default.createElement('br', null),
+                        _react3.default.createElement(
+                          'div',
+                          { className: 'footer' },
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'author' },
+                            _react3.default.createElement(
+                              'a',
+                              { href: '#pablo' },
+                              _react3.default.createElement('img', {
+                                src: 'http://demander.cz/images/live/logo-vodafone.png',
+                                alt: '...',
+                                className: 'avatar img-raised'
+                              }),
+                              _react3.default.createElement(
+                                'span',
+                                null,
+                                'Vodafone'
+                              )
+                            )
+                          ),
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'stats' },
+                            _react3.default.createElement(
+                              'i',
+                              { className: 'material-icons' },
+                              'schedule'
+                            ),
+                            ' ',
+                            'p\u0159ed 1 hodinou'
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            ),
+            _react3.default.createElement('br', null),
+            _react3.default.createElement('br', null),
+            _react3.default.createElement('br', null)
+          ),
+          _react3.default.createElement(
+            'div',
+            { id: 'cards', className: 'cd-section section-gray' },
+            _react3.default.createElement(
+              'div',
+              null,
+              _react3.default.createElement(
+                'div',
+                { className: 'cards' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'container' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'title' },
+                    _react3.default.createElement('br', null),
+                    _react3.default.createElement('br', null),
+                    _react3.default.createElement('br', null),
+                    _react3.default.createElement('br', null),
+                    _react3.default.createElement(
+                      'h3',
+                      null,
+                      'Nejnov\u011Bj\u0161\xED nab\xEDdky'
+                    )
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'col-md-4' },
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'card card-blog' },
+                        _react3.default.createElement(
+                          'div',
+                          { className: 'card-content' },
+                          _react3.default.createElement(
+                            'h6',
+                            { className: 'category text-success' },
+                            'Grafika'
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'h4',
+                            { className: 'card-title' },
+                            _react3.default.createElement(
+                              'a',
+                              { href: '#pablo' },
+                              'Grafick\xE9 slu\u017Eby'
+                            )
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'p',
+                            { className: 'card-description' },
+                            'Nab\xEDz\xEDm grafick\xE9 slu\u017Eby - n\xE1vrhy a tvorba firemn\xEDch log, identity nebo jin\xE9 grafick\xE9 pr\xE1ce.'
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'footer' },
+                            _react3.default.createElement(
+                              'div',
+                              { className: 'author' },
+                              _react3.default.createElement(
+                                'a',
+                                { href: '#pablo' },
+                                _react3.default.createElement('img', {
+                                  src: 'http://demos.creative-tim.com/material-kit-pro/assets/img/faces/marc.jpg',
+                                  alt: '...',
+                                  className: 'avatar img-raised'
+                                }),
+                                _react3.default.createElement(
+                                  'span',
+                                  null,
+                                  'LH Design'
+                                )
+                              )
+                            ),
+                            _react3.default.createElement(
+                              'div',
+                              { className: 'stats' },
+                              _react3.default.createElement(
+                                'i',
+                                { className: 'material-icons' },
+                                'schedule'
+                              ),
+                              ' ',
+                              'p\u0159ed 2 dny'
+                            )
+                          )
+                        )
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'col-md-4' },
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'card card-blog' },
+                        _react3.default.createElement(
+                          'div',
+                          { className: 'card-content' },
+                          _react3.default.createElement(
+                            'h6',
+                            { className: 'category text-success' },
+                            '\xDAdr\u017Eba'
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'h4',
+                            { className: 'card-title' },
+                            _react3.default.createElement(
+                              'a',
+                              { href: '#pablo' },
+                              'Sanita a instalat\xE9\u0159sk\xE9 pr\xE1ce'
+                            )
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'p',
+                            { className: 'card-description' },
+                            'Nab\xEDz\xEDm instalat\xE9\u0159sk\xE9 pr\xE1ce v\u0161eho druhu pro firmy, dom\xE1cnosti nebo n\xE1razov\u011B na stavby, rekonstrukce apod. Cena individu\xE1ln\xED.'
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'footer' },
+                            _react3.default.createElement(
+                              'div',
+                              { className: 'author' },
+                              _react3.default.createElement(
+                                'a',
+                                { href: '#pablo' },
+                                _react3.default.createElement('img', {
+                                  src: 'http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile1-square.jpg',
+                                  alt: '...',
+                                  className: 'avatar img-raised'
+                                }),
+                                _react3.default.createElement(
+                                  'span',
+                                  null,
+                                  'Jarom\xEDr Hav\xED\u0159'
+                                )
+                              )
+                            ),
+                            _react3.default.createElement(
+                              'div',
+                              { className: 'stats' },
+                              _react3.default.createElement(
+                                'i',
+                                { className: 'material-icons' },
+                                'schedule'
+                              ),
+                              ' ',
+                              'p\u0159ed 3 dny'
+                            )
+                          )
+                        )
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'col-md-4' },
+                      _react3.default.createElement(
+                        'div',
+                        { className: 'card card-blog' },
+                        _react3.default.createElement(
+                          'div',
+                          { className: 'card-content' },
+                          _react3.default.createElement(
+                            'h6',
+                            { className: 'category text-success' },
+                            'Finance'
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'h4',
+                            { className: 'card-title' },
+                            _react3.default.createElement(
+                              'a',
+                              { href: '#pablo' },
+                              'Veden\xED \xFA\u010Detn\xEDctv\xED',
+                              ' '
+                            )
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'p',
+                            { className: 'card-description' },
+                            'Nab\xEDz\xEDm spr\xE1vu \xFA\u010Detnictv\xED pro mal\xE9 a st\u0159edn\xED podniky s orientac\xED na v\xFDrobn\xED a slu\u017Eby poskytuj\xEDc\xED spole\u010Dnosti.',
+                            ' '
+                          ),
+                          _react3.default.createElement('br', null),
+                          _react3.default.createElement(
+                            'div',
+                            { className: 'footer' },
+                            _react3.default.createElement(
+                              'div',
+                              { className: 'author' },
+                              _react3.default.createElement(
+                                'a',
+                                { href: '#pablo' },
+                                _react3.default.createElement('img', {
+                                  src: 'http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile4-square.jpg',
+                                  alt: '...',
+                                  className: 'avatar img-raised'
+                                }),
+                                _react3.default.createElement(
+                                  'span',
+                                  null,
+                                  'Lucie Novodvorsk\xE1'
+                                )
+                              )
+                            ),
+                            _react3.default.createElement(
+                              'div',
+                              { className: 'stats' },
+                              _react3.default.createElement(
+                                'i',
+                                { className: 'material-icons' },
+                                'schedule'
+                              ),
+                              ' ',
+                              'p\u0159ed t\xFDdnem'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+              _react3.default.createElement('br', null),
+              _react3.default.createElement('br', null),
+              _react3.default.createElement('br', null),
+              _react3.default.createElement('br', null)
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Detail;
+}(_react2.Component), _class2.propTypes = {
+  getCompany: _react2.PropTypes.func.isRequired,
+  // isLoading: PropTypes.bool,
+  company: _react2.PropTypes.object
+}, _temp2)) || _class));
+
+exports.default = Detail;
+module.exports = exports['default'];

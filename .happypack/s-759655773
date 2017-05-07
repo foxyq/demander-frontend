@@ -1,0 +1,447 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _class, _class2, _temp2;
+
+var _reactRedux = require('react-redux');
+
+var _companies = require('redux/modules/api/companies');
+
+var _common = require('components/common');
+
+var _elements = require('components/elements');
+
+var _reactScrollchor = require('react-scrollchor');
+
+var _reactScrollchor2 = _interopRequireDefault(_reactScrollchor);
+
+var _demands = require('redux/modules/api/demands');
+
+var _services = require('redux/modules/api/services');
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _detail = require('./detail.styl');
+
+var _detail2 = _interopRequireDefault(_detail);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Detail: {
+    displayName: 'Detail'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/companies/Detail/Detail.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/companies/Detail/Detail.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var Detail = _wrapComponent('Detail')((_dec = (0, _reactRedux.connect)(function (_ref) {
+  var api = _ref.api;
+  return {
+    company: api.companies.getCompany.data,
+    demands: api.demands.getDemands.data,
+    services: api.services.getServices.data
+  };
+}, { getCompany: _companies.getCompany, getDemands: _demands.getDemands, getServices: _services.getServices }), _dec(_class = (_temp2 = _class2 = function (_Component) {
+  (0, _inherits3.default)(Detail, _Component);
+
+  function Detail() {
+    var _ref2;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, Detail);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref2 = Detail.__proto__ || Object.getPrototypeOf(Detail)).call.apply(_ref2, [this].concat(args))), _this), _this.state = {
+      transform: 0
+    }, _this.changeTransform = function (value) {
+      _this.setState({
+        transform: value
+      });
+    }, _this.handleScroll = function (event) {
+      var scrollTop = event.srcElement.body.scrollTop;
+      var itemTranslate = Math.min(1000, scrollTop / 3);
+
+      _this.changeTransform(itemTranslate);
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(Detail, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      window.addEventListener('scroll', this.handleScroll);
+      var companyId = this.props.params.id;
+
+      this.props.getCompany(companyId);
+      this.props.getDemands();
+      this.props.getServices();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          company = _props.company,
+          demands = _props.demands,
+          services = _props.services;
+
+
+      return _react3.default.createElement(
+        'div',
+        null,
+        _react3.default.createElement(
+          'div',
+          {
+            className: 'header header-filter',
+            style: {
+              transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
+              backgroundImage: 'url(http://www.triplepoint.co.uk/storage/images-processed/w-1200_h-482_m-cover_s-any__internet-technology-concept.jpg)',
+              backgroundSize: '100%'
+            }
+          },
+          _react3.default.createElement(
+            'div',
+            { className: _detail2.default.mottowrapper },
+            _react3.default.createElement(
+              'div',
+              { className: _detail2.default.mottotext },
+              company.company_about
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'main main-raised' },
+          _react3.default.createElement(
+            'div',
+            { className: 'profile-content' },
+            _react3.default.createElement(
+              'div',
+              { className: 'container' },
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'profile' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'avatar img-rounded' },
+                    _react3.default.createElement('img', {
+                      src: company.logo_url,
+                      alt: 'Circle Image',
+                      className: 'img-rounded img-responsive img-raised'
+                    })
+                  ),
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'name' },
+                    _react3.default.createElement(
+                      'h3',
+                      { className: 'title' },
+                      company.company_name
+                    )
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-10 col-md-offset-1' },
+                  _react3.default.createElement(
+                    'h5',
+                    null,
+                    company.company_description
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-sm-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info info-horizontal' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-primary' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'pin_drop'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'description' },
+                      _react3.default.createElement(
+                        'h4',
+                        { className: 'info-title' },
+                        'Najd\u011Bte n\xE1s'
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        company.contact_address,
+                        ' ',
+                        _react3.default.createElement('br', null),
+                        company.company_opening_hours
+                      )
+                    )
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-sm-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info info-horizontal' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-primary' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'business_center'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'description' },
+                      _react3.default.createElement(
+                        'h4',
+                        { className: 'info-title' },
+                        '\xDAdaje o firm\u011B'
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        company.company_name,
+                        _react3.default.createElement('br', null),
+                        'I\u010CO: ',
+                        company.company_id,
+                        _react3.default.createElement('br', null),
+                        'DI\u010C: ',
+                        company.company_vat_id,
+                        _react3.default.createElement('br', null)
+                      )
+                    )
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-sm-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info info-horizontal' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-primary' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'phone'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'description' },
+                      _react3.default.createElement(
+                        'h4',
+                        { className: 'info-title' },
+                        'Kontakt'
+                      ),
+                      _react3.default.createElement(
+                        'p',
+                        null,
+                        company.contact_person,
+                        _react3.default.createElement('br', null),
+                        company.contact_telephone,
+                        _react3.default.createElement('br', null),
+                        company.contact_email,
+                        ' ',
+                        _react3.default.createElement('br', null)
+                      )
+                    )
+                  )
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-xs-6 col-md-3' },
+                  _react3.default.createElement(
+                    _reactScrollchor2.default,
+                    {
+                      to: '#nabidka_sluzeb',
+                      animate: { offset: -110, duration: 600 },
+                      className: 'btn btn-lg btn-primary fullwidth'
+                    },
+                    'Nab\xEDdka slu\u017Eeb',
+                    _react3.default.createElement('div', { className: 'ripple-container' })
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-xs-6 col-md-3' },
+                  _react3.default.createElement(
+                    _reactScrollchor2.default,
+                    {
+                      to: '#poptavky',
+                      animate: { offset: -110, duration: 600 },
+                      className: 'btn btn-lg btn-primary fullwidth'
+                    },
+                    'Popt\xE1vky',
+                    _react3.default.createElement('div', { className: 'ripple-container' })
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-xs-6 col-md-3' },
+                  _react3.default.createElement(
+                    _reactScrollchor2.default,
+                    {
+                      to: '#historie',
+                      animate: { offset: -110, duration: 600 },
+                      className: 'btn btn-lg btn-primary fullwidth'
+                    },
+                    'Historie',
+                    _react3.default.createElement('div', { className: 'ripple-container' })
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-xs-6 col-md-3' },
+                  _react3.default.createElement(
+                    _reactScrollchor2.default,
+                    {
+                      to: '#kontakt',
+                      animate: { offset: -110, duration: 600 },
+                      className: 'btn btn-lg btn-primary fullwidth'
+                    },
+                    'Kontakt',
+                    _react3.default.createElement('div', { className: 'ripple-container' })
+                  )
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          _common.ContentStripe,
+          { title: 'Nab\xEDdka slu\u017Eeb', id: 'nabidka_sluzeb' },
+          _react3.default.createElement(_common.Listing, { items: services, controller: 'demands', isAdmin: false })
+        ),
+        _react3.default.createElement(
+          _common.ContentStripe,
+          {
+            title: 'Aktu\xE1ln\u011B popt\xE1v\xE1me',
+            id: 'poptavky',
+            isColored: 'gray'
+          },
+          _react3.default.createElement(_common.Listing, { items: demands, controller: 'demands', isAdmin: false })
+        ),
+        _react3.default.createElement(
+          _common.ContentStripe,
+          { title: 'Historie spole\u010Dnosti', id: 'historie' },
+          _react3.default.createElement(_elements.Timeline, null)
+        ),
+        _react3.default.createElement(
+          _reactScrollchor2.default,
+          {
+            to: '#top',
+            animate: { offset: -110, duration: 600 },
+            className: (0, _classnames2.default)('btn btn-primary btn-fab btn-round', _detail2.default.topbutton)
+          },
+          _react3.default.createElement(
+            'i',
+            { className: 'material-icons' },
+            'keyboard_arrow_up'
+          ),
+          _react3.default.createElement('div', { className: 'ripple-container' })
+        )
+      );
+    }
+  }]);
+  return Detail;
+}(_react2.Component), _class2.propTypes = {
+  getCompany: _react2.PropTypes.func.isRequired,
+  getDemands: _react2.PropTypes.func.isRequired,
+  getServices: _react2.PropTypes.func.isRequired,
+  // isLoading: PropTypes.bool,
+  company: _react2.PropTypes.any,
+  demands: _react2.PropTypes.array,
+  services: _react2.PropTypes.array
+}, _temp2)) || _class));
+
+exports.default = Detail;
+module.exports = exports['default'];

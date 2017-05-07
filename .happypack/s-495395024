@@ -1,0 +1,14 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Gototop = undefined;
+
+var _Gototop2 = require('./Gototop/Gototop');
+
+var _Gototop3 = _interopRequireDefault(_Gototop2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Gototop = _Gototop3.default;

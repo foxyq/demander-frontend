@@ -1,0 +1,21 @@
+SyntaxError: Expected corresponding JSX closing tag for <source> (30:26)
+
+  28 |                               <source src="video/shpecsun.mp4" type="video/mp4">
+  29 |                               Video not supported
+> 30 |                           </video>
+     |                           ^
+  31 | 
+  32 |                   {/* <img
+  33 |                     src={require('assets/img/logo.png')}
+
+Error
+    at transpile (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

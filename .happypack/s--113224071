@@ -1,0 +1,346 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _class, _class2, _temp;
+
+var _lodash = require('lodash');
+
+var _reactRedux = require('react-redux');
+
+var _users = require('redux/modules/api/users');
+
+var _demands = require('redux/modules/api/demands');
+
+var _services = require('redux/modules/api/services');
+
+var _common = require('components/common');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Home: {
+    displayName: 'Home'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/Home/Home.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/Home/Home.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+// import 'antd/dist/antd.less'
+
+var Home = _wrapComponent('Home')((_dec = (0, _reactRedux.connect)(function (_ref) {
+  var api = _ref.api,
+      auth = _ref.auth;
+  return {
+    users: (0, _lodash.get)(api, 'users.getUsers.data'),
+    demands: (0, _lodash.get)(api, 'demands.getDemands.data'),
+    services: (0, _lodash.get)(api, 'services.getServices.data'),
+    token: (0, _lodash.get)(auth, 'user.token')
+  };
+}, {
+  getUsers: _users.getUsers,
+  getDemands: _demands.getDemands,
+  getServices: _services.getServices
+}), _dec(_class = (_temp = _class2 = function (_Component) {
+  (0, _inherits3.default)(Home, _Component);
+
+  function Home() {
+    (0, _classCallCheck3.default)(this, Home);
+    return (0, _possibleConstructorReturn3.default)(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Home, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.getDemands();
+      this.props.getServices();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          demands = _props.demands,
+          services = _props.services;
+
+
+      return _react3.default.createElement(
+        'div',
+        null,
+        _react3.default.createElement(
+          'div',
+          { className: 'section section-basic' },
+          _react3.default.createElement(
+            'div',
+            { className: 'container' },
+            _react3.default.createElement(
+              'div',
+              { className: 'row' },
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-8 col-md-offset-2' },
+                _react3.default.createElement(
+                  'h4',
+                  { className: 'description text-center' },
+                  'Demander.cz p\u0159edstavuje modern\xED platformu zam\u011B\u0159enou na z\xEDsk\xE1v\xE1n\xED nov\xFDch zak\xE1zek, nab\xEDdku vlastn\xEDch slu\u017Eeb a prezentaci firmy. Jedn\xE1 se o B2B popt\xE1vkov\xFD syst\xE9m, kde se setk\xE1vaj\xED z\xE1jmy a pot\u0159eby p\u0159edn\xEDch spole\u010Dnost\xED nap\u0159\xED\u010D v\u0161emi segmenty trhu.',
+                  ' '
+                )
+              )
+            ),
+            _react3.default.createElement(
+              'div',
+              { className: 'features-1' },
+              _react3.default.createElement(
+                'div',
+                { className: 'row' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-rose' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'business'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'h4',
+                      { className: 'info-title' },
+                      'Zaregistrujte profil firmy'
+                    ),
+                    _react3.default.createElement(
+                      'p',
+                      null,
+                      'Vstoupit na trh Demander m\u016F\u017Eete d\xEDky zalo\u017Een\xED profilu va\u0161\xED spole\u010Dnosti. Vypl\u0148te z\xE1kladn\xED identifika\u010Dn\xED \xFAdaje a m\u016F\u017Eete za\u010D\xEDt.',
+                      ' '
+                    )
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-info' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'description'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'h4',
+                      { className: 'info-title' },
+                      'Vlo\u017Ete pop\xE1vku'
+                    ),
+                    _react3.default.createElement(
+                      'p',
+                      null,
+                      'Dal\u0161\xEDm krokem je vlo\u017Een\xED popt\xE1vky, kde definujete va\u0161\xED aktu\xE1ln\xED pot\u0159ebu - p\u0159edm\u011Bt toho, co popt\xE1v\xE1te. P\u0159ibl\xED\u017Eit detaily m\u016F\u017Eete vlo\u017Een\xEDm technick\xE9 dokumentace. Demander je i toti\u017E syst\xE9mem pro n\xE1ro\u010Dn\xE9.'
+                    )
+                  )
+                ),
+                _react3.default.createElement(
+                  'div',
+                  { className: 'col-md-4' },
+                  _react3.default.createElement(
+                    'div',
+                    { className: 'info' },
+                    _react3.default.createElement(
+                      'div',
+                      { className: 'icon icon-success' },
+                      _react3.default.createElement(
+                        'i',
+                        { className: 'material-icons' },
+                        'touch_app'
+                      )
+                    ),
+                    _react3.default.createElement(
+                      'h4',
+                      { className: 'info-title' },
+                      'Vyberte dodavatele'
+                    ),
+                    _react3.default.createElement(
+                      'p',
+                      null,
+                      'V katalogu firem z\xEDsk\xE1te p\u0159ehled o dodavatel\xEDch, jejich zam\u011B\u0159en\xED, p\u0159edm\u011Btu \u010Dinnosti, poskytovan\xFDch slu\u017Eb\xE1ch, lokalit\u011B a dal\u0161\xED pro v\xE1s u\u017Eite\u010Dn\xE9 informace.',
+                      ' '
+                    )
+                  )
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'section-components' },
+          _react3.default.createElement(
+            'div',
+            { className: 'container' },
+            _react3.default.createElement(
+              'div',
+              { className: 'row' },
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-5' },
+                _react3.default.createElement(
+                  'h3',
+                  { className: 'title' },
+                  'Firemn\xED str\xE1nka na Demandru '
+                ),
+                _react3.default.createElement(
+                  'h6',
+                  { className: 'description' },
+                  'Prezentujte svoji firmu pomoc\xED roz\u0161\xED\u0159en\xE9ho profilu firmy'
+                ),
+                _react3.default.createElement(
+                  'h5',
+                  { className: 'description' },
+                  '\u010C\xEDm v\xEDce dok\xE1\u017Eete va\u0161\xED spole\u010Dnost p\u0159ibl\xED\u017Eit ostatn\xEDm u\u017Eivatel\u016Fm popt\xE1vkov\xE9ho syst\xE9mu Demander, t\xEDm relevantn\u011Bj\u0161\xED nab\xEDdky obdr\u017E\xEDte. Budujte svoji vizitku na trhu a dejte si z\xE1le\u017Eet na prezentaci va\u0161\xED firmy d\xEDky roz\u0161\xED\u0159en\xE9mu firemn\xEDmu profilu. Sta\u010D\xED vyplnit polo\u017Eky logo, slogan, p\u0159ehled slu\u017Eeb a produkt\u016F, doplnit digit\xE1ln\xED vizitku, dal\u0161\xED popt\xE1vky a ihned se va\u0161e spole\u010Dnost stane \u010Diteln\u011Bj\u0161\xED. I detail d\u011Bl\xE1 dojem.'
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-6 col-md-offset-1' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'image-container' },
+                  _react3.default.createElement('img', {
+                    src: require('assets/img/presentation/components.jpg'),
+                    alt: ''
+                  })
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'section section-cards section-dark' },
+          _react3.default.createElement(
+            'div',
+            { className: 'container' },
+            _react3.default.createElement(
+              'div',
+              { className: 'row' },
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-7' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'image-container' },
+                  _react3.default.createElement('img', {
+                    className: 'img',
+                    src: require('assets/img/presentation/cards-test.png')
+                  })
+                )
+              ),
+              _react3.default.createElement(
+                'div',
+                { className: 'col-md-4 col-md-offset-1' },
+                _react3.default.createElement(
+                  'div',
+                  { className: 'section-description' },
+                  _react3.default.createElement(
+                    'h3',
+                    { className: 'title' },
+                    'Spr\xE1va popt\xE1vek'
+                  ),
+                  _react3.default.createElement(
+                    'h6',
+                    { className: 'description' },
+                    'Efektivn\xED spr\xE1va popt\xE1vek na jednom m\xEDst\u011B'
+                  ),
+                  _react3.default.createElement(
+                    'h5',
+                    { className: 'description' },
+                    'Popt\xE1vkov\xFD syst\xE9m Demander v\xE1m nab\xEDz\xED p\u0159ehlednou spr\xE1vu nab\xEDdek p\u0159\xEDmo ve va\u0161em firemn\xEDm profilu. Nab\xEDdky od dodavatel\u016F jsou strukturovan\xE9 a poskytuj\xED jednozna\u010Dn\xFD rozcestn\xEDk, ve kter\xE9m se snadno zorientujete. Obchodujete a komunikujete systematicky a s klidnou tv\xE1\u0159\xED.'
+                  )
+                )
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(
+          _common.ContentStripe,
+          { title: 'Nejnov\u011Bj\u0161\xED popt\xE1vky', isGray: true },
+          _react3.default.createElement(_common.Listing, { items: demands, controller: 'demands' })
+        ),
+        _react3.default.createElement(
+          _common.ContentStripe,
+          { title: 'Nejnov\u011Bj\u0161\xED popt\xE1vky' },
+          _react3.default.createElement(_common.Listing, { items: services, controller: 'demands' })
+        )
+      );
+    }
+  }]);
+  return Home;
+}(_react2.Component), _class2.propTypes = {
+  // users: PropTypes.array,
+  getDemands: _react2.PropTypes.func.isRequired,
+  getServices: _react2.PropTypes.func.isRequired,
+  demands: _react2.PropTypes.array,
+  services: _react2.PropTypes.array
+}, _temp)) || _class));
+
+exports.default = Home;
+module.exports = exports['default'];

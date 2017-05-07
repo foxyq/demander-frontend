@@ -2,31 +2,68 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { getCompany } from 'redux/modules/api/companies'
+import { Listing, ContentStripe } from 'components/common'
+import { Timeline } from 'components/elements'
+import { Tabs } from 'components/pages/Company'
 
-// company: params.id !== '' && api.companies.getCompany.data,
+import Scrollchor from 'react-scrollchor'
+
+import { getDemands } from 'redux/modules/api/demands'
+import { getServices } from 'redux/modules/api/services'
+
+import cx from 'classnames'
+import style from './detail.styl'
+
 @connect(
   ({ api }) => ({
     company: api.companies.getCompany.data,
+    demands: api.demands.getDemands.data,
+    services: api.services.getServices.data,
   }),
-  { getCompany },
+  { getCompany, getDemands, getServices },
 )
 export default class Detail extends Component {
   static propTypes = {
     getCompany: PropTypes.func.isRequired,
+    getDemands: PropTypes.func.isRequired,
+    getServices: PropTypes.func.isRequired,
     // isLoading: PropTypes.bool,
-    company: PropTypes.object,
+    company: PropTypes.any,
+    demands: PropTypes.array,
+    services: PropTypes.array,
   }
   state = {
     transform: 0,
   }
+
   componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll)
     const companyId = this.props.params.id
 
     this.props.getCompany(companyId)
+    this.props.getDemands()
+    this.props.getServices()
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
+
+  changeTransform = value => {
+    this.setState({
+      transform: value,
+    })
+  }
+
+  handleScroll = event => {
+    const scrollTop = event.srcElement.body.scrollTop
+    const itemTranslate = Math.min(1000, scrollTop / 3)
+
+    this.changeTransform(itemTranslate)
   }
 
   render() {
-    const { company } = this.props
+    const { company, demands, services } = this.props
 
     return (
       <div>
@@ -35,10 +72,14 @@ export default class Detail extends Component {
           className="header header-filter"
           style={{
             transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
-            // backgroundImage: 'url("http://demos.creative-tim.com/material-kit/assets/img/examples/city.jpg")',
-            backgroundImage: 'url(https://www.wired.com/wp-content/uploads/2016/11/GoogleMap-1.jpg)',
+            backgroundImage: 'url(http://www.triplepoint.co.uk/storage/images-processed/w-1200_h-482_m-cover_s-any__internet-technology-concept.jpg)',
+            backgroundSize: '100%',
           }}
-        />
+        >
+          <div className={style.mottowrapper}>
+            <div className={style.mottotext}>{company.company_about}</div>
+          </div>
+        </div>
 
         <div className="main main-raised">
           <div className="profile-content">
@@ -48,7 +89,6 @@ export default class Detail extends Component {
                 <div className="profile">
                   <div className="avatar img-rounded">
                     <img
-                      // src="http://logok.org/wp-content/uploads/2014/08/Vodafone_logo-old.png"
                       src={company.logo_url}
                       alt="Circle Image"
                       className="img-rounded img-responsive img-raised"
@@ -56,121 +96,153 @@ export default class Detail extends Component {
                   </div>
                   <div className="name">
                     <h3 className="title">{company.company_name}</h3>
-                    <h6>{company.company_about}</h6>
                   </div>
                 </div>
               </div>
 
-              <div className="description text-center">
-                <p>
-                  {company.company_description}
-                </p>
+              <div className="row">
+                <div className="col-md-10 col-md-offset-1">
+                  <h5>{company.company_description}</h5>
+                </div>
               </div>
 
               <div className="row">
-                <div className="col-md-6">
-                  <p className="description">
-                    You can contact us with anything related to our Products. We'll get in touch with you as soon as possible.
-                    {/* <br><br> */}
-                  </p>
-                  <form
-                    role="form"
-                    id="contact-form"
-                    method="post"
-                    _lpchecked="1"
-                  >
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Your name</label>
-                      <input type="text" name="name" className="form-control" />
-                      <span className="material-input" />
-                    </div>
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Email address</label>
-                      <input
-                        type="email"
-                        name="email"
-                        className="form-control"
-                      />
-                      <span className="material-input" />
-                    </div>
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Phone</label>
-                      <input
-                        type="text"
-                        name="phone"
-                        className="form-control"
-                      />
-                      <span className="material-input" />
-                    </div>
-                    <div className="form-group label-floating is-empty">
-                      <label className="control-label">Your message</label>
-                      <textarea
-                        name="message"
-                        className="form-control"
-                        id="message"
-                        rows="6"
-                      />
-                      <span className="material-input" />
-                    </div>
-                    <div className="submit text-center">
-                      <input
-                        type="submit"
-                        className="btn btn-primary btn-raised btn-round"
-                        value="Contact Us"
-                      />
-                    </div>
-                  </form>
-                </div>
-                <div className="col-md-4 col-md-offset-2">
+                <div className="col-sm-4">
                   <div className="info info-horizontal">
                     <div className="icon icon-primary">
                       <i className="material-icons">pin_drop</i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Find us at the office</h4>
+                      <h4 className="info-title">Najděte nás</h4>
                       <p>
-                        {' '}Bld Mihail Kogalniceanu, nr. 8,
-                        7652 Bucharest,
-                        Romania
+                        {company.contact_address} <br />
+                        {company.company_opening_hours}
                       </p>
                     </div>
                   </div>
-                  <div className="info info-horizontal">
-                    <div className="icon icon-primary">
-                      <i className="material-icons">phone</i>
-                    </div>
-                    <div className="description">
-                      <h4 className="info-title">Give us a ring</h4>
-                      <p>
-                        {' '}Michael Jordan
-                        +40 762 321 762
-                        Mon - Fri, 8:00-22:00
-                      </p>
-                    </div>
-                  </div>
+                </div>
+
+                <div className="col-sm-4">
                   <div className="info info-horizontal">
                     <div className="icon icon-primary">
                       <i className="material-icons">business_center</i>
                     </div>
                     <div className="description">
-                      <h4 className="info-title">Legal Information</h4>
+                      <h4 className="info-title">Údaje o firmě</h4>
                       <p>
-                        {' '}Creative Tim Ltd.
-                        VAT · EN2341241
-                        IBAN · EN8732ENGB2300099123
-                        Bank · Great Britain Bank
+                        {company.company_name}<br />
+                        IČO: {company.company_id}<br />
+                        DIČ: {company.company_vat_id}<br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-sm-4">
+                  <div className="info info-horizontal">
+                    <div className="icon icon-primary">
+                      <i className="material-icons">phone</i>
+                    </div>
+                    <div className="description">
+                      <h4 className="info-title">Kontakt</h4>
+                      <p>
+                        {company.contact_person}<br />
+                        {company.contact_telephone}<br />
+                        {company.contact_email} <br />
                       </p>
                     </div>
                   </div>
                 </div>
               </div>
 
+              <div className="row">
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#nabidka_sluzeb"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Nabídka služeb
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
+
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#poptavky"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Poptávky
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
+
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#historie"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Historie
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
+
+                <div className="col-xs-6 col-md-3">
+                  <Scrollchor
+                    to="#kontakt"
+                    animate={{ offset: -110, duration: 600 }}
+                    className="btn btn-lg btn-primary fullwidth"
+                  >
+                    Kontakt
+                    <div className="ripple-container" />
+                  </Scrollchor>
+                </div>
+              </div>
+
             </div>
             {/* container */}
-
           </div>
         </div>
         {/* /main-raised */}
+
+        <ContentStripe title="Nabídka služeb" id="nabidka_sluzeb">
+          <Listing items={services} controller="demands" isAdmin={false} />
+        </ContentStripe>
+
+        <ContentStripe
+          title="Aktuálně poptáváme"
+          id="poptavky"
+          isColored="gray"
+        >
+          <Listing items={demands} controller="demands" isAdmin={false} />
+        </ContentStripe>
+
+        <ContentStripe title="Historie společnosti" id="historie">
+          <Timeline />
+        </ContentStripe>
+
+        <ContentStripe title="Aktuality" id="aktuality" isColored="gray">
+          <Tabs />
+        </ContentStripe>
+
+        <ContentStripe title="Galerie" id="galerie">
+          galerie
+        </ContentStripe>
+
+        <ContentStripe title="Kontakt" id="kontakt" isColored="gray">
+          kontakt
+        </ContentStripe>
+
+        <Scrollchor
+          to="#top"
+          animate={{ offset: -110, duration: 600 }}
+          className={cx('btn btn-primary btn-fab btn-round', style.topbutton)}
+        >
+          <i className="material-icons">keyboard_arrow_up</i>
+          <div className="ripple-container" />
+        </Scrollchor>
 
       </div>
     )
