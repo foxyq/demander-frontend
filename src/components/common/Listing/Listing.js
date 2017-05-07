@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import ListingItem from 'components/common/ListingItem/ListingItem'
+import Company from 'components/common/Company/Company'
 
 export default class Listing extends Component {
   static propTypes = {
@@ -7,14 +8,17 @@ export default class Listing extends Component {
     controller: PropTypes.string.isRequired,
     onDelete: PropTypes.func,
     isAdmin: PropTypes.bool.isRequired,
+    isCompany: PropTypes.bool,
   }
 
   render() {
-    const { items, controller, onDelete, isAdmin } = this.props
+    const { items, controller, onDelete, isAdmin, isCompany } = this.props
 
     return (
-      <div className={'xxx-custom row'}>
+      <div className={'row'}>
+
         {items &&
+          !isCompany &&
           items.length > 0 &&
           items.map(item => (
             <ListingItem
@@ -25,6 +29,20 @@ export default class Listing extends Component {
               isAdmin={isAdmin}
             />
           ))}
+
+        {items &&
+          isCompany &&
+          items.length > 0 &&
+          items.map(item => (
+            <Company
+              key={item._id}
+              item={item}
+              controller={controller}
+              onDelete={onDelete}
+              isAdmin={isAdmin}
+            />
+          ))}
+
       </div>
     )
   }

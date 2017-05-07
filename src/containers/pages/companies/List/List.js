@@ -3,6 +3,8 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getCompanies, deleteCompany } from 'redux/modules/api/companies'
 
+import Listing from 'components/common/Listing/Listing'
+
 @connect(
   ({ api }) => ({
     companies: api.companies.getCompanies.data,
@@ -45,6 +47,15 @@ export default class List extends Component {
             </div>
           </div>
         </div>
+
+        {isLoading && <span>IS LOADING </span>}
+        <Listing
+          items={companies}
+          controller="companies"
+          onDelete={this.handleDeleteCompany}
+          isCompany
+          isAdmin
+        />
 
         <div className="row pull-left">
           <div className="profile">

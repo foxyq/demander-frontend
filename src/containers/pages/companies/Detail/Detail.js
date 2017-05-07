@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import { getCompany } from 'redux/modules/api/companies'
 import { Listing, ContentStripe } from 'components/common'
+import { Timeline } from 'components/elements'
+import { Tabs } from 'components/pages/Company'
 
 import Scrollchor from 'react-scrollchor'
 
@@ -178,7 +180,7 @@ export default class Detail extends Component {
 
                 <div className="col-xs-6 col-md-3">
                   <Scrollchor
-                    to="#poptavky"
+                    to="#historie"
                     animate={{ offset: -110, duration: 600 }}
                     className="btn btn-lg btn-primary fullwidth"
                   >
@@ -189,7 +191,7 @@ export default class Detail extends Component {
 
                 <div className="col-xs-6 col-md-3">
                   <Scrollchor
-                    to="#poptavky"
+                    to="#kontakt"
                     animate={{ offset: -110, duration: 600 }}
                     className="btn btn-lg btn-primary fullwidth"
                   >
@@ -215,6 +217,22 @@ export default class Detail extends Component {
           isColored="gray"
         >
           <Listing items={demands} controller="demands" isAdmin={false} />
+        </ContentStripe>
+
+        <ContentStripe title="Historie společnosti" id="historie">
+          <Timeline />
+        </ContentStripe>
+
+        <ContentStripe title="Aktuality" id="aktuality" isColored="gray">
+          <Tabs />
+        </ContentStripe>
+
+        <ContentStripe title="Galerie" id="galerie">
+          galerie
+        </ContentStripe>
+
+        <ContentStripe title="Kontakt" id="kontakt" isColored="gray">
+          kontakt
         </ContentStripe>
 
         <Scrollchor
