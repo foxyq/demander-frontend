@@ -22,16 +22,20 @@ export default class Company extends React.Component {
 
           <div className="card-image">
             <div className="front">
-              <img
-                className="img"
-                // src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-profile7.jpg"
-                src={item.logo_url}
-              />
+              <Link to={`/company/${item._id}`}>
+                <img
+                  className="img"
+                  // src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-profile7.jpg"
+                  src={item.logo_url}
+                />
+              </Link>
             </div>
           </div>
 
           <div className="card-content">
-            <h4 className="card-title">{item.company_name}</h4>
+            <h4 className="card-title">
+              <Link to={`/company/${item._id}`}>{item.company_name}</Link>
+            </h4>
             <h6 className="category text-gray text-center">
               {item.company_vat_id}
             </h6>
