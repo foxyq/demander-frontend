@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { schema } from 'models/demand'
 
-import { Input } from 'components/fields'
+import { Input, TextArea, SimpleSelect } from 'components/fields'
 
 import {
   getDemands,
@@ -12,6 +12,8 @@ import {
   getDemand,
   editDemand,
 } from 'redux/modules/api/demands'
+
+// import { getCompanies } from 'redux/modules/api/companies'
 
 import validate from './demand.validation'
 
@@ -76,6 +78,24 @@ export default class Demand extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleSubmit)}>
         <Input label="Demand title" name="title" />
+        <TextArea label="Goal" name="goal" rows="10" />
+        <TextArea label="Input" name="input" />
+        <TextArea label="Output" name="output" />
+        <TextArea label="Timeplan" name="timeplan" />
+        <Input label="Budget" name="budget" />
+        <TextArea label="Description" name="description" />
+        <Input label="Responsible person" name="responsible_person" />
+        {/* <Input label="Company" name="company" /> */}
+
+        <SimpleSelect
+          label="MOJ NADPIS SELECTU"
+          value
+          name="company"
+          options={[
+            { value: true, label: 'Yes' },
+            { value: false, label: 'No' },
+          ]}
+        />
 
         <input type="submit" />
 

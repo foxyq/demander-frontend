@@ -1,0 +1,173 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require("babel-runtime/helpers/createClass");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require("react-transform-hmr");
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require("redbox-react");
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require("react");
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require("react-transform-catch-errors");
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Steps: {
+    displayName: "Steps"
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: "/Users/pavel/Development/demander/demander-frontend/src/components/pages/Home/Steps/Steps.js",
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: "/Users/pavel/Development/demander/demander-frontend/src/components/pages/Home/Steps/Steps.js",
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var Steps = _wrapComponent("Steps")(function (_React$Component) {
+  (0, _inherits3.default)(Steps, _React$Component);
+
+  function Steps() {
+    (0, _classCallCheck3.default)(this, Steps);
+    return (0, _possibleConstructorReturn3.default)(this, (Steps.__proto__ || Object.getPrototypeOf(Steps)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Steps, [{
+    key: "render",
+    value: function render() {
+      return _react3.default.createElement(
+        "div",
+        { className: "features-1" },
+        _react3.default.createElement(
+          "div",
+          { className: "row" },
+          _react3.default.createElement(
+            "div",
+            { className: "col-md-4" },
+            _react3.default.createElement(
+              "div",
+              { className: "info" },
+              _react3.default.createElement(
+                "div",
+                { className: "icon icon-rose" },
+                _react3.default.createElement(
+                  "i",
+                  { className: "material-icons" },
+                  "business"
+                )
+              ),
+              _react3.default.createElement(
+                "h4",
+                { className: "info-title" },
+                "Zaregistrujte profil firmy"
+              ),
+              _react3.default.createElement(
+                "p",
+                null,
+                "Vstoupit na trh Demander m\u016F\u017Eete d\xEDky zalo\u017Een\xED profilu va\u0161\xED spole\u010Dnosti. Vypl\u0148te z\xE1kladn\xED identifika\u010Dn\xED \xFAdaje a m\u016F\u017Eete za\u010D\xEDt."
+              )
+            )
+          ),
+          _react3.default.createElement(
+            "div",
+            { className: "col-md-4" },
+            _react3.default.createElement(
+              "div",
+              { className: "info" },
+              _react3.default.createElement(
+                "div",
+                { className: "icon icon-info" },
+                _react3.default.createElement(
+                  "i",
+                  { className: "material-icons" },
+                  "description"
+                )
+              ),
+              _react3.default.createElement(
+                "h4",
+                { className: "info-title" },
+                "Vlo\u017Ete pop\xE1vku"
+              ),
+              _react3.default.createElement(
+                "p",
+                null,
+                "Dal\u0161\xEDm krokem je vlo\u017Een\xED popt\xE1vky, kde definujete va\u0161\xED aktu\xE1ln\xED pot\u0159ebu - p\u0159edm\u011Bt toho, co popt\xE1v\xE1te. P\u0159ibl\xED\u017Eit detaily m\u016F\u017Eete vlo\u017Een\xEDm technick\xE9 dokumentace. Demander je i toti\u017E syst\xE9mem pro n\xE1ro\u010Dn\xE9."
+              )
+            )
+          ),
+          _react3.default.createElement(
+            "div",
+            { className: "col-md-4" },
+            _react3.default.createElement(
+              "div",
+              { className: "info" },
+              _react3.default.createElement(
+                "div",
+                { className: "icon icon-success" },
+                _react3.default.createElement(
+                  "i",
+                  { className: "material-icons" },
+                  "touch_app"
+                )
+              ),
+              _react3.default.createElement(
+                "h4",
+                { className: "info-title" },
+                "Vyberte dodavatele"
+              ),
+              _react3.default.createElement(
+                "p",
+                null,
+                "V katalogu firem z\xEDsk\xE1te p\u0159ehled o dodavatel\xEDch, jejich zam\u011B\u0159en\xED, p\u0159edm\u011Btu \u010Dinnosti, poskytovan\xFDch slu\u017Eb\xE1ch, lokalit\u011B a dal\u0161\xED pro v\xE1s u\u017Eite\u010Dn\xE9 informace."
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Steps;
+}(_react3.default.Component));
+
+exports.default = Steps;
+module.exports = exports["default"];

@@ -1,0 +1,259 @@
+'use strict';
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _reactSelect = require('react-select');
+
+var _reactSelect2 = _interopRequireDefault(_reactSelect);
+
+var _states = require('./states.js');
+
+var _states2 = _interopRequireDefault(_states);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  StatesField: {
+    displayName: 'StatesField'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+// const STATES = require('../states')
+
+
+var StatesField = _wrapComponent('StatesField')(function (_React$Component) {
+  (0, _inherits3.default)(StatesField, _React$Component);
+
+  function StatesField() {
+    (0, _classCallCheck3.default)(this, StatesField);
+    return (0, _possibleConstructorReturn3.default)(this, (StatesField.__proto__ || Object.getPrototypeOf(StatesField)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(StatesField, [{
+    key: 'getDefaultProps',
+
+    // const StatesField = React.createClass({
+    value: function getDefaultProps() {
+      return {
+        label: 'States:',
+        searchable: true
+      };
+    }
+  }, {
+    key: 'getInitialState',
+    value: function getInitialState() {
+      return {
+        country: 'AU',
+        disabled: false,
+        searchable: this.props.searchable,
+        selectValue: 'new-south-wales',
+        clearable: true
+      };
+    }
+  }, {
+    key: 'switchCountry',
+    value: function switchCountry(e) {
+      var newCountry = e.target.value;
+
+      console.log('Country changed to ' + newCountry);
+      this.setState({
+        country: newCountry,
+        selectValue: null
+      });
+    }
+  }, {
+    key: 'updateValue',
+    value: function updateValue(newValue) {
+      console.log('State changed to ' + newValue);
+      this.setState({
+        selectValue: newValue
+      });
+    }
+  }, {
+    key: 'focusStateSelect',
+    value: function focusStateSelect() {
+      this.refs.stateSelect.focus();
+    }
+  }, {
+    key: 'toggleCheckbox',
+    value: function toggleCheckbox(e) {
+      var newState = {};
+
+      newState[e.target.name] = e.target.checked;
+      this.setState(newState);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var options = STATES[this.state.country];
+
+      return _react3.default.createElement(
+        'div',
+        { className: 'section' },
+        _react3.default.createElement(
+          'h3',
+          { className: 'section-heading' },
+          this.props.label
+        ),
+        _react3.default.createElement(_reactSelect2.default, {
+          ref: 'stateSelect',
+          autofocus: true,
+          options: options,
+          simpleValue: true,
+          clearable: this.state.clearable,
+          name: 'selected-state',
+          disabled: this.state.disabled,
+          value: this.state.selectValue,
+          onChange: this.updateValue,
+          searchable: this.state.searchable
+        }),
+        _react3.default.createElement(
+          'div',
+          { style: { marginTop: 14 } },
+          _react3.default.createElement(
+            'button',
+            { type: 'button', onClick: this.focusStateSelect },
+            'Focus Select'
+          ),
+          _react3.default.createElement(
+            'label',
+            { className: 'checkbox', style: { marginLeft: 10 } },
+            _react3.default.createElement('input', {
+              type: 'checkbox',
+              className: 'checkbox-control',
+              name: 'searchable',
+              checked: this.state.searchable,
+              onChange: this.toggleCheckbox
+            }),
+            _react3.default.createElement(
+              'span',
+              { className: 'checkbox-label' },
+              'Searchable'
+            )
+          ),
+          _react3.default.createElement(
+            'label',
+            { className: 'checkbox', style: { marginLeft: 10 } },
+            _react3.default.createElement('input', {
+              type: 'checkbox',
+              className: 'checkbox-control',
+              name: 'disabled',
+              checked: this.state.disabled,
+              onChange: this.toggleCheckbox
+            }),
+            _react3.default.createElement(
+              'span',
+              { className: 'checkbox-label' },
+              'Disabled'
+            )
+          ),
+          _react3.default.createElement(
+            'label',
+            { className: 'checkbox', style: { marginLeft: 10 } },
+            _react3.default.createElement('input', {
+              type: 'checkbox',
+              className: 'checkbox-control',
+              name: 'clearable',
+              checked: this.state.clearable,
+              onChange: this.toggleCheckbox
+            }),
+            _react3.default.createElement(
+              'span',
+              { className: 'checkbox-label' },
+              'Clearable'
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'checkbox-list' },
+          _react3.default.createElement(
+            'label',
+            { className: 'checkbox' },
+            _react3.default.createElement('input', {
+              type: 'radio',
+              className: 'checkbox-control',
+              checked: this.state.country === 'AU',
+              value: 'AU',
+              onChange: this.switchCountry
+            }),
+            _react3.default.createElement(
+              'span',
+              { className: 'checkbox-label' },
+              'Australia'
+            )
+          ),
+          _react3.default.createElement(
+            'label',
+            { className: 'checkbox' },
+            _react3.default.createElement('input', {
+              type: 'radio',
+              className: 'checkbox-control',
+              checked: this.state.country === 'US',
+              value: 'US',
+              onChange: this.switchCountry
+            }),
+            _react3.default.createElement(
+              'span',
+              { className: 'checkbox-label' },
+              'United States'
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return StatesField;
+}(_react3.default.Component));
+
+module.exports = StatesField;

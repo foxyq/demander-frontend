@@ -1,0 +1,14 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var messages = {
+  requiredSelect: {
+    id: 'errors.requiredSelect',
+    defaultMessage: 'Tento výber je povinný!'
+  }
+};
+
+exports.default = messages;
+module.exports = exports['default'];

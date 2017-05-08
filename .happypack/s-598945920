@@ -1,0 +1,90 @@
+'use strict';
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _reactSelect = require('react-select');
+
+var _reactSelect2 = _interopRequireDefault(_reactSelect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  ValuesAsBooleansField: {
+    displayName: 'ValuesAsBooleansField'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var ValuesAsBooleansField = _wrapComponent('ValuesAsBooleansField')(_react3.default.createClass({
+  displayName: 'ValuesAsBooleansField',
+  propTypes: {
+    label: _react3.default.PropTypes.string
+  },
+  getInitialState: function getInitialState() {
+    return {
+      options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
+      value: null
+    };
+  },
+  onChange: function onChange(value) {
+    this.setState({ value: value });
+    console.log('Boolean Select value changed to', value);
+  },
+  render: function render() {
+    return _react3.default.createElement(
+      'div',
+      { className: 'section' },
+      _react3.default.createElement(
+        'h3',
+        { className: 'section-heading' },
+        this.props.label
+      ),
+      _react3.default.createElement(_reactSelect2.default, {
+        onChange: this.onChange,
+        options: this.state.options,
+        simpleValue: true,
+        value: this.state.value
+      }),
+      _react3.default.createElement(
+        'div',
+        { className: 'hint' },
+        'This example uses simple boolean values'
+      )
+    );
+  }
+}));
+
+module.exports = ValuesAsBooleansField;

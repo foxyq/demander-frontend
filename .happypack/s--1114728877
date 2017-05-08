@@ -1,0 +1,21 @@
+SyntaxError: Unexpected token (14:3)
+
+  12 |       value: null,
+  13 |     }
+> 14 |   },
+     |    ^
+  15 |   onChange(value) {
+  16 |     this.setState({ value })
+  17 |     console.log('Boolean Select value changed to', value)
+
+Error
+    at transpile (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

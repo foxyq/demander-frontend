@@ -1,0 +1,296 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp2;
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _uuid = require('uuid');
+
+var _uuid2 = _interopRequireDefault(_uuid);
+
+var _lodash = require('lodash');
+
+var _reduxForm = require('redux-form');
+
+var _simpleSelect = require('./simple-select.styl');
+
+var _simpleSelect2 = _interopRequireDefault(_simpleSelect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  SimpleSelect: {
+    displayName: 'SimpleSelect'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+// import { FormattedHTMLMessage, injectIntl } from 'react-intl'
+
+
+// import { Tooltip } from 'components/misc'
+
+// import messages from './simple-select.messages'
+
+// @injectIntl
+var SimpleSelect = _wrapComponent('SimpleSelect')((_temp2 = _class = function (_Component) {
+  (0, _inherits3.default)(SimpleSelect, _Component);
+
+  function SimpleSelect() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, SimpleSelect);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = SimpleSelect.__proto__ || Object.getPrototypeOf(SimpleSelect)).call.apply(_ref, [this].concat(args))), _this), _this.handleChange = function (e, field) {
+      var changeWarning = _this.props.changeWarning;
+
+
+      var confirm = field.input.value && changeWarning ? window.confirm(changeWarning) : true;
+
+      if (confirm) {
+        field.input.onChange(e.target.value);
+
+        if (_this.props.onChange) {
+          _this.props.onChange(e.target.value);
+        }
+      }
+    }, _this.renderOption = function (field, option) {
+      var _cx, _cx2;
+
+      var _this$props = _this.props,
+          disabled = _this$props.disabled,
+          iconKey = _this$props.iconKey,
+          intl = _this$props.intl,
+          large = _this$props.large,
+          noCapitalize = _this$props.noCapitalize;
+      var _field$meta = field.meta,
+          touched = _field$meta.touched,
+          error = _field$meta.error;
+
+
+      var key = _uuid2.default.v1();
+      var checked = option.value === field.input.value || option.value === parseInt(field.input.value);
+
+      var label = '';
+
+      if (option.id) {
+        var labelValue = intl.formatMessage({
+          id: option.id,
+          defaultMessage: option.defaultMessage
+        });
+
+        label = noCapitalize ? labelValue : (0, _lodash.capitalize)(labelValue);
+      } else {
+        label = noCapitalize ? option.defaultMessage : (0, _lodash.capitalize)(option.defaultMessage);
+      }
+
+      return _react3.default.createElement(
+        'div',
+        {
+          key: key,
+          className: (0, _classnames2.default)((_cx = {}, (0, _defineProperty3.default)(_cx, _simpleSelect2.default.field, true), (0, _defineProperty3.default)(_cx, _simpleSelect2.default.fieldLarge, large), (0, _defineProperty3.default)(_cx, _simpleSelect2.default.fieldDisabled, disabled), _cx))
+        },
+        _react3.default.createElement(
+          'h1',
+          null,
+          'SELECT BOX POKUSNZ'
+        ),
+        _react3.default.createElement('input', (0, _extends3.default)({
+          className: _simpleSelect2.default.input,
+          type: 'radio'
+        }, field.input, {
+          onChange: function onChange(e) {
+            return _this.handleChange(e, field);
+          },
+          value: option.value,
+          id: key,
+          checked: checked,
+          disabled: disabled
+        })),
+        _react3.default.createElement(
+          'div',
+          {
+            className: (0, _classnames2.default)((_cx2 = {}, (0, _defineProperty3.default)(_cx2, _simpleSelect2.default.button, true), (0, _defineProperty3.default)(_cx2, _simpleSelect2.default.checked, checked), (0, _defineProperty3.default)(_cx2, _simpleSelect2.default.hasError, touched && error), (0, _defineProperty3.default)(_cx2, _simpleSelect2.default.disabled, disabled), _cx2)),
+            onClick: function onClick() {
+              return checked && field.input.onChange(null);
+            }
+          },
+          _react3.default.createElement(
+            'label',
+            { htmlFor: key, className: _simpleSelect2.default.label },
+            iconKey && _react3.default.createElement('i', {
+              className: (0, _classnames2.default)('ico ico--' + iconKey + '-' + option.value, _simpleSelect2.default.icon)
+            }),
+            _react3.default.createElement(
+              'span',
+              null,
+              label
+            )
+          )
+        )
+      );
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(SimpleSelect, [{
+    key: 'render',
+
+
+    // renderError = field => {
+    //   const { meta: { touched, error } } = field
+    //
+    //   // if (touched && error) {
+    //   //   return (
+    //   //     <div className={cx('form-control-error', styles.error)}>
+    //   //       <FormattedHTMLMessage {...messages.requiredSelect} />
+    //   //     </div>
+    //   //   )
+    //   // }
+    //
+    //   return <div />
+    // }
+
+    value: function render() {
+      var _this2 = this;
+
+      var _props = this.props,
+          name = _props.name,
+          _props$options = _props.options,
+          options = _props$options === undefined ? ['prvz moynost', 'druha moznost'] : _props$options,
+          style = _props.style;
+
+
+      return _react3.default.createElement(
+        'div',
+        {
+          className: (0, _classnames2.default)({
+            'form-group': true
+          }),
+          style: style
+        },
+        _react3.default.createElement(
+          'div',
+          { className: _simpleSelect2.default.body },
+          _react3.default.createElement(
+            'div',
+            { className: _simpleSelect2.default.buttons },
+            options && options.map(function (option) {
+              return _react3.default.createElement(_reduxForm.Field, {
+                key: option.value,
+                name: name,
+                component: function component(field) {
+                  return _this2.renderOption(field, option);
+                }
+              });
+            })
+          )
+        ),
+        _react3.default.createElement(_reduxForm.Field, { name: name, component: this.renderError })
+      );
+    }
+  }]);
+  return SimpleSelect;
+}(_react2.Component), _class.propTypes = {
+  disabled: _react2.PropTypes.bool,
+  className: _react2.PropTypes.string,
+  wideOptions: _react2.PropTypes.bool,
+  dynamicOptions: _react2.PropTypes.bool,
+  dynamicOnlyOnMobile: _react2.PropTypes.bool,
+  // errors: PropTypes.object,
+  // fields: PropTypes.object,
+  iconKey: _react2.PropTypes.string,
+  intl: _react2.PropTypes.object,
+  label: _react2.PropTypes.shape({
+    id: _react2.PropTypes.string,
+    defaultMessage: _react2.PropTypes.string.isRequired
+  }),
+  large: _react2.PropTypes.bool,
+  name: _react2.PropTypes.string.isRequired,
+  onChange: _react2.PropTypes.func,
+  noCapitalize: _react2.PropTypes.bool,
+  options: _react2.PropTypes.arrayOf(_react2.PropTypes.shape({
+    id: _react2.PropTypes.string,
+    title: _react2.PropTypes.string,
+    defaultMessage: _react2.PropTypes.any,
+    value: _react2.PropTypes.any
+  })),
+  // tooltip: PropTypes.shape({
+  //   id: PropTypes.string,
+  //   defaultMessage: PropTypes.string,
+  // }),
+  style: _react2.PropTypes.object,
+  changeWarning: _react2.PropTypes.string
+}, _temp2));
+
+exports.default = SimpleSelect;
+module.exports = exports['default'];
