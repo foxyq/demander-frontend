@@ -77,14 +77,9 @@ export default class Company extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleSubmit)}>
         <Input label="Company name" name="company_name" />
+        <Input label="Company nice name" name="company_nice_name" />
         <Input label="Company ID" name="company_id" />
         <Input label="Company VAT ID" name="company_vat_id" />
-        {/* <TextArea
-          rows="4"
-          cols="50"
-          label="About company"
-          name="company_about"
-        /> */}
         <TextArea label="About company" name="company_about" />
         <Input label="Description" name="company_description" />
         <Input label="Opening hours" name="company_opening_hours" />
@@ -92,7 +87,13 @@ export default class Company extends Component {
         <Input label="Email" name="contact_email" />
         <Input label="Address" name="contact_address" />
         <Input label="Contact person" name="contact_person" />
-        <Input label="Categorization" name="categorization" />
+        <Input label="GPS location" name="company_gps_location" />
+        <Input label="Logo URL" name="logo_url" />
+        <Input label="Web URL" name="web_url" />
+        <Input label="Facebook URL" name="fb_url" />
+        <Input label="Twitter URL" name="twitter_url" />
+        <Input label="LinkedIn URL" name="linkedin_url" />
+
         <Input label="Slogan" name="slogan" />
         <input type="submit" />
 

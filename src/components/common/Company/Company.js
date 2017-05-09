@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
 // import style from './Company'
+// import Truncate from 'react-truncate'
 
 export default class Company extends React.Component {
   static propTypes = {
@@ -15,6 +16,10 @@ export default class Company extends React.Component {
   }
   render() {
     const { item, isAdmin, controller } = this.props
+
+    let desc = item.company_about
+
+    desc = desc.substring(0, 150)
 
     return (
       <div className="col-xs-12 col-sm-6 col-md-4">
@@ -40,7 +45,10 @@ export default class Company extends React.Component {
               {item.company_vat_id}
             </h6>
             <p className="card-description">
-              {item.company_about}
+
+              {/* ({item.company_about}).substring(0, 15); */}
+              {desc}
+
             </p>
 
             {/* admin buttons */}

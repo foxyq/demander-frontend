@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 import { schema } from 'models/demand'
 
-import { Input, TextArea, SimpleSelect } from 'components/fields'
+import { Input, TextArea } from 'components/fields'
 
 import {
   getDemands,
@@ -39,9 +39,9 @@ export default class Demand extends Component {
     editDemand: PropTypes.func.isRequired,
     createDemand: PropTypes.func.isRequired,
     getCompanies: PropTypes.func.isRequired,
-    companies: PropTypes.array,
+    // companies: PropTypes.array,
     initialValues: PropTypes.array,
-    selectValue: PropTypes.string,
+    //selectValue: PropTypes.string,
     //reformattedOptions: PropTypes.array,
   }
 
@@ -58,11 +58,9 @@ export default class Demand extends Component {
     if (isEditing) {
       this.props.getDemand(demandId)
     }
+    console.log('componentDidMount - PREBEHLO')
+    console.log(this.props.initialValues)
 
-    console.log('value of company is: ', this.props.selectValue)
-    console.log('initialValues: ', this.props.initialValues.company._id)
-    this.props.selectValue = this.props.initialValues.company._id
-    console.log('value of company is: ', this.props.selectValue)
     // console.log(this.props.initialValues.company._id)
 
     // this.props.companies.map(company => {
@@ -122,6 +120,21 @@ export default class Demand extends Component {
         <TextArea label="Description" name="description" />
         <Input label="Responsible person" name="responsible_person" />
         {/* <Input label="Company" name="company" /> */}
+        <div>
+          <label>Společnost</label>
+          <div>
+            <Field name="company" component="select">
+              <option />
+              <option value="58f7f61cff8d4014d7f7730b">
+                Vodafone Czech Republic a.s.
+              </option>
+              <option value="5911c29ef00fa31957f86d9c">CUBYSOFT sro 2</option>
+              <option value="58f7f60fff8d4014d7f7730a">
+                CGI IT Czech Republic s.r.o.
+              </option>
+            </Field>
+          </div>
+        </div>
 
         {/* {
           (reformattedOptions = companies.map(obj => {
@@ -133,10 +146,10 @@ export default class Demand extends Component {
           }))
         } */}
 
-        <SimpleSelect
+        {/* <SimpleSelect
           label="Company"
           name="company"
-          value={null}
+          value="xxx"
           // options={companies}
           options={this.props.companies.map(company => {
             const rObj = {}
@@ -145,7 +158,7 @@ export default class Demand extends Component {
             rObj.label = company.company_name
             return rObj
           })}
-        />
+        /> */}
 
         <input type="submit" />
 

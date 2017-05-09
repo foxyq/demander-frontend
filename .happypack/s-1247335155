@@ -1,0 +1,310 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _class, _class2, _temp2;
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _reactIntl = require('react-intl');
+
+var _reactSelect = require('react-select');
+
+var _reactSelect2 = _interopRequireDefault(_reactSelect);
+
+var _reduxForm = require('redux-form');
+
+var _reactCssModules = require('react-css-modules');
+
+var _reactCssModules2 = _interopRequireDefault(_reactCssModules);
+
+var _select = require('./select.styl');
+
+var _select2 = _interopRequireDefault(_select);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Select: {
+    displayName: 'Select'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/fields/Select/Select.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/fields/Select/Select.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var Select = _wrapComponent('Select')((_dec = (0, _reactCssModules2.default)(_select2.default), _dec(_class = (0, _reactIntl.injectIntl)(_class = (_temp2 = _class2 = function (_Component) {
+  (0, _inherits3.default)(Select, _Component);
+
+  function Select() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, Select);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Select.__proto__ || Object.getPrototypeOf(Select)).call.apply(_ref, [this].concat(args))), _this), _this.handleChange = function (field, obj) {
+      if (_this.props.onSelectChange) {
+        _this.props.onSelectChange(obj.value);
+      }
+      field.input.onChange(obj.value);
+    }, _this.handleInputChange = function (field, obj) {
+      if (_this.props.onInputChange) {
+        _this.props.onInputChange(obj.value);
+      }
+    }, _this.handleClear = function (field) {
+      if (_this.props.onSelectChange) {
+        _this.props.onSelectChange(null);
+      }
+
+      if (_this.props.onClear) {
+        _this.props.onClear();
+      }
+
+      field.input.onChange(null);
+    }, _this.renderField = function (field) {
+      var _cx;
+
+      var _this$props = _this.props,
+          name = _this$props.name,
+          _this$props$options = _this$props.options,
+          options = _this$props$options === undefined ? [] : _this$props$options,
+          autocomplete = _this$props.autocomplete,
+          disabled = _this$props.disabled,
+          placeholder = _this$props.placeholder,
+          loadOptions = _this$props.loadOptions,
+          intl = _this$props.intl,
+          searchable = _this$props.searchable,
+          withoutClear = _this$props.withoutClear;
+
+      var styleNames = _this.props.styles;
+
+      var input = field.input,
+          meta = field.meta;
+      var touched = meta.touched,
+          error = meta.error;
+
+
+      var placeholderValue = placeholder && placeholder.id && intl.formatMessage(placeholder);
+
+      return _react3.default.createElement(
+        'div',
+        {
+          className: (0, _classnames2.default)((_cx = {}, (0, _defineProperty3.default)(_cx, styleNames.controls, true), (0, _defineProperty3.default)(_cx, styleNames.hasError, touched && error), (0, _defineProperty3.default)(_cx, styleNames.clearable, !withoutClear), _cx))
+        },
+        autocomplete && _react3.default.createElement(_reactSelect2.default.Async, (0, _extends3.default)({
+          value: input.value,
+          onChange: function onChange(val) {
+            return _this.handleChange(field, val);
+          },
+          className: 'form-control--select',
+          loadOptions: loadOptions
+        }, _this.props, {
+          placeholder: placeholderValue,
+          searchPromptText: 'Zadaj h\u013Eadan\xFD v\xFDraz.',
+          noResultsText: 'Nena\u0161li sa \u017Eiadne v\xFDsledky',
+          cache: false,
+          id: name,
+          disabled: disabled,
+          searchable: searchable,
+          ignoreAccents: false
+        })),
+        !autocomplete && _react3.default.createElement(_reactSelect2.default, (0, _extends3.default)({
+          value: input.value,
+          onChange: function onChange(val) {
+            return _this.handleChange(field, val);
+          },
+          onInputChange: function onInputChange(val) {
+            return _this.handleInputChange(field, val);
+          },
+          className: 'form-control--select',
+          noResultsText: 'Nena\u0161li sa \u017Eiadne v\xFDsledky',
+          options: options
+        }, _this.props, {
+          placeholder: placeholderValue,
+          id: name,
+          clearable: false,
+          searchable: searchable
+        })),
+        input.value && !disabled && !withoutClear && _react3.default.createElement(
+          'a',
+          {
+            className: styleNames.btnClear,
+            onClick: function onClick() {
+              return _this.handleClear(field);
+            }
+          },
+          _react3.default.createElement('span', { className: 'ico ico--clear ' + styleNames.ico })
+        ),
+        input.value && disabled && _this.props.onClear && _react3.default.createElement(
+          'a',
+          {
+            className: styleNames.btnClear,
+            onClick: function onClick() {
+              return _this.handleClear(field);
+            }
+          },
+          _react3.default.createElement('span', { className: 'ico ico--clear ' + styleNames.ico })
+        ),
+        _react3.default.createElement(
+          'span',
+          { className: styleNames.icoDropdown },
+          _react3.default.createElement('span', { className: 'ico ico--arrow-down ' }),
+          _react3.default.createElement('span', { className: 'ico ico--arrow-down ' })
+        ),
+        meta.touched && meta.error && _react3.default.createElement(
+          'span',
+          { className: 'form-control-error' },
+          _react3.default.createElement(_reactIntl.FormattedMessage, meta.error)
+        )
+      );
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(Select, [{
+    key: 'shouldComponentUpdate',
+    value: function shouldComponentUpdate(nextProps) {
+      var _props = this.props,
+          disabled = _props.disabled,
+          updater = _props.updater,
+          autocomplete = _props.autocomplete;
+
+
+      if (disabled !== nextProps.disabled || updater !== nextProps.updater) {
+        return true;
+      }
+
+      return !autocomplete;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _cx2;
+
+      var _props2 = this.props,
+          label = _props2.label,
+          labelSmall = _props2.labelSmall,
+          name = _props2.name,
+          wrapperClassName = _props2.wrapperClassName,
+          inlineLabel = _props2.inlineLabel;
+
+
+      return _react3.default.createElement(
+        'div',
+        {
+          className: (0, _classnames2.default)((_cx2 = {
+            'form-group': true
+          }, (0, _defineProperty3.default)(_cx2, wrapperClassName, wrapperClassName), (0, _defineProperty3.default)(_cx2, _select2.default.inlineLabel, inlineLabel), _cx2))
+        },
+        label && label.id && _react3.default.createElement(
+          'label',
+          {
+            htmlFor: name,
+            className: (0, _classnames2.default)((0, _defineProperty3.default)({
+              'control-label': true
+            }, _select2.default.labelSmall, labelSmall))
+          },
+          _react3.default.createElement(_reactIntl.FormattedMessage, label)
+        ),
+        _react3.default.createElement(_reduxForm.Field, (0, _extends3.default)({ name: name }, this.props, { component: this.renderField }))
+      );
+    }
+  }]);
+  return Select;
+}(_react2.Component), _class2.propTypes = {
+  autoload: _react3.default.PropTypes.bool,
+  withoutClear: _react3.default.PropTypes.bool,
+  updater: _react3.default.PropTypes.any,
+  options: _react3.default.PropTypes.array,
+  autocomplete: _react3.default.PropTypes.bool,
+  disabled: _react3.default.PropTypes.bool,
+  field: _react3.default.PropTypes.object,
+  onInputChange: _react3.default.PropTypes.func,
+  promise: _react3.default.PropTypes.func,
+  loadOptions: _react3.default.PropTypes.any,
+  labelSmall: _react3.default.PropTypes.bool,
+  intl: _react3.default.PropTypes.object,
+  placeholder: _react3.default.PropTypes.shape({
+    id: _react3.default.PropTypes.string,
+    defaultMessage: _react3.default.PropTypes.string
+  }),
+  onSelectChange: _react3.default.PropTypes.func,
+  onClear: _react3.default.PropTypes.func,
+  styles: _react3.default.PropTypes.object,
+  searchable: _react3.default.PropTypes.bool,
+  label: _react3.default.PropTypes.shape({
+    id: _react3.default.PropTypes.string,
+    defaultMessage: _react3.default.PropTypes.string
+  }),
+  name: _react3.default.PropTypes.string.isRequired,
+  wrapperClassName: _react3.default.PropTypes.string,
+  inlineLabel: _react3.default.PropTypes.bool
+}, _temp2)) || _class) || _class));
+
+exports.default = Select;
+module.exports = exports['default'];

@@ -1,0 +1,215 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp;
+
+var _reactRouter = require('react-router');
+
+var _reactTruncate = require('react-truncate');
+
+var _reactTruncate2 = _interopRequireDefault(_reactTruncate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Company: {
+    displayName: 'Company'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/common/Company/Company.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/common/Company/Company.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+// import style from './Company'
+
+
+var Company = _wrapComponent('Company')((_temp = _class = function (_React$Component) {
+  (0, _inherits3.default)(Company, _React$Component);
+
+  function Company() {
+    (0, _classCallCheck3.default)(this, Company);
+    return (0, _possibleConstructorReturn3.default)(this, (Company.__proto__ || Object.getPrototypeOf(Company)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Company, [{
+    key: 'deleteClick',
+    value: function deleteClick(id) {
+      this.props.onDelete(id);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var _props = this.props,
+          item = _props.item,
+          isAdmin = _props.isAdmin,
+          controller = _props.controller;
+
+
+      return _react3.default.createElement(
+        'div',
+        { className: 'col-xs-12 col-sm-6 col-md-4' },
+        _react3.default.createElement(
+          'div',
+          { className: 'card card-profile card-rotate' },
+          _react3.default.createElement(
+            'div',
+            { className: 'card-image' },
+            _react3.default.createElement(
+              'div',
+              { className: 'front' },
+              _react3.default.createElement(
+                _reactRouter.Link,
+                { to: '/company/' + item._id },
+                _react3.default.createElement('img', {
+                  className: 'img'
+                  // src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-profile7.jpg"
+                  , src: item.logo_url
+                })
+              )
+            )
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'card-content' },
+            _react3.default.createElement(
+              'h4',
+              { className: 'card-title' },
+              _react3.default.createElement(
+                _reactRouter.Link,
+                { to: '/company/' + item._id },
+                item.company_name
+              )
+            ),
+            _react3.default.createElement(
+              'h6',
+              { className: 'category text-gray text-center' },
+              item.company_vat_id
+            ),
+            _react3.default.createElement(
+              'p',
+              { className: 'card-description' },
+              _react3.default.createElement(
+                _reactTruncate2.default,
+                { lines: 3, ellipsis: _react3.default.createElement(
+                    'span',
+                    null,
+                    '...'
+                  ) },
+                item.company_about
+              )
+            ),
+            isAdmin && _react3.default.createElement(
+              'span',
+              null,
+              _react3.default.createElement(
+                _reactRouter.Link,
+                { to: '/' + controller + '/' + item._id },
+                'Upravi\u0165'
+              ),
+              _react3.default.createElement(
+                'button',
+                {
+                  type: 'button',
+                  onClick: function onClick() {
+                    return _this2.deleteClick(item._id);
+                  }
+                },
+                'Delete'
+              )
+            ),
+            _react3.default.createElement(
+              'div',
+              { className: 'footer' },
+              _react3.default.createElement(
+                'a',
+                {
+                  href: '#pablo',
+                  className: 'btn btn-just-icon btn-twitter btn-simple'
+                },
+                _react3.default.createElement('i', { className: 'fa fa-twitter' })
+              ),
+              _react3.default.createElement(
+                'a',
+                {
+                  href: '#pablo',
+                  className: 'btn btn-just-icon btn-linkedin btn-simple'
+                },
+                _react3.default.createElement('i', { className: 'fa fa-linkedin' })
+              ),
+              _react3.default.createElement(
+                'a',
+                {
+                  href: '#pablo',
+                  className: 'btn btn-just-icon btn-dribbble btn-simple'
+                },
+                _react3.default.createElement('i', { className: 'fa fa-dribbble' })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Company;
+}(_react3.default.Component), _class.propTypes = {
+  item: _react2.PropTypes.object.isRequired,
+  isAdmin: _react2.PropTypes.bool.isRequired,
+  controller: _react2.PropTypes.string.isRequired,
+  onDelete: _react2.PropTypes.func
+}, _temp));
+
+exports.default = Company;
+module.exports = exports['default'];

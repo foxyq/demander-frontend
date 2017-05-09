@@ -1,0 +1,21 @@
+SyntaxError: Adjacent JSX elements must be wrapped in an enclosing tag (68:6)
+
+  66 |       // </div>
+  67 |       <option />
+> 68 |       <option value="58f7f61cff8d4014d7f7730b">
+     |       ^
+  69 |         Vodafone Czech Republic a.s.
+  70 |       </option>
+  71 |       <option value="5911c29ef00fa31957f86d9c">CUBYSOFT sro 2</option>
+
+Error
+    at transpile (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/pavel/Development/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/pavel/Development/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

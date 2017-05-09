@@ -1,0 +1,183 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+exports.default = reducer;
+exports.getCategories = getCategories;
+exports.getCompany = getCompany;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var GET_CATEGORIES = 'api/categories/GET_CATEGORIES';
+var GET_CATEGORIES_SUCCESS = 'api/categories/GET_CATEGORIES_SUCCESS';
+var GET_CATEGORIES_FAIL = 'api/categories/GET_CATEGORIES_FAIL';
+
+var GET_CATEGORY = 'api/categories/GET_CATEGORY';
+var GET_CATEGORY_SUCCESS = 'api/categories/GET_CATEGORY_SUCCESS';
+var GET_CATEGORY_FAIL = 'api/categories/GET_CATEGORY_FAIL';
+
+// const CREATE_CATEGORY = 'api/categories/CREATE_CATEGORY'
+// const CREATE_CATEGORY_SUCCESS = 'api/categories/CREATE_CATEGORY_SUCCESS'
+// const CREATE_CATEGORY_FAIL = 'api/categories/CREATE_CATEGORY_FAIL'
+//
+// const EDIT_CATEGORY = 'api/categories/EDIT_CATEGORY'
+// const EDIT_CATEGORY_SUCCESS = 'api/categories/EDIT_CATEGORY_SUCCESS'
+// const EDIT_CATEGORY_FAIL = 'api/categories/EDIT_CATEGORY_FAIL'
+//
+// const DELETE_CATEGORY = 'api/categories/DELETE_CATEGORY'
+// const DELETE_CATEGORY_SUCCESS = 'api/categories/DELETE_CATEGORY_SUCCESS'
+// const DELETE_CATEGORY_FAIL = 'api/categories/DELETE_CATEGORY_FAIL'
+
+var initialState = {
+  getCategories: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: []
+  },
+  getCompany: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: []
+  }
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    // ------------------------------------
+    // GET ALL COMPANIES
+    // ------------------------------------
+    case GET_CATEGORIES:
+      return (0, _extends3.default)({}, state, {
+        getCategories: (0, _extends3.default)({}, state.getCategories, {
+          isLoading: true,
+          data: []
+        })
+      });
+    case GET_CATEGORIES_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getCategories: (0, _extends3.default)({}, state.getCategories, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_CATEGORIES_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getCategories: (0, _extends3.default)({}, state.getCategories, {
+          isLoading: false,
+          error: 'ERR GET_CATEGORIES'
+        })
+      });
+    // ------------------------------------
+    // GET CATEGORY
+    // ------------------------------------
+    case GET_CATEGORY:
+      return (0, _extends3.default)({}, state, {
+        getCompany: (0, _extends3.default)({}, state.getCompany, {
+          isLoading: true,
+          data: []
+        })
+      });
+    case GET_CATEGORY_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getCompany: (0, _extends3.default)({}, state.getCompany, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_CATEGORY_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getCompany: (0, _extends3.default)({}, state.getCompany, {
+          isLoading: false,
+          error: 'ERR GET_CATEGORY'
+        })
+      });
+    default:
+      return state;
+  }
+}
+// ------------------------------------
+// CREATE CATEGORY
+// ------------------------------------
+//     case CREATE_CATEGORY:
+//       return {
+//         ...state,
+//         createCompany: {
+//           ...state.createCompany,
+//           isSubmitting: true,
+//         },
+//       }
+//
+//     case CREATE_CATEGORY_SUCCESS:
+//       return {
+//         ...state,
+//         createCompany: {
+//           ...state.createCompany,
+//           isSubmitting: false,
+//           success: true,
+//         },
+//       }
+//
+//     case CREATE_CATEGORY_FAIL:
+//       return {
+//         ...state,
+//         createCompany: {
+//           ...state.createCompany,
+//           isSubmitting: false,
+//           error: 'ERR POST CREATE_CATEGORY',
+//         },
+//       }
+//     default:
+//       return state
+//   }
+// }
+
+function getCategories() {
+  return {
+    types: [GET_CATEGORIES, GET_CATEGORIES_SUCCESS, GET_CATEGORIES_FAIL],
+    promise: function promise(client) {
+      return client.get('api/categories');
+    }
+  };
+}
+
+function getCompany(id) {
+  return {
+    types: [GET_CATEGORY, GET_CATEGORY_SUCCESS, GET_CATEGORY_FAIL],
+    promise: function promise(client) {
+      return client.get('api/categories/' + id);
+    }
+  };
+}
+//
+// export function createCompany(data) {
+//   return {
+//     types: [CREATE_CATEGORY, CREATE_CATEGORY_SUCCESS, CREATE_CATEGORY_FAIL],
+//     promise: client => client.post('api/categories', { data }),
+//   }
+// }
+//
+// export function editCompany(data, companyId) {
+//   return {
+//     types: [EDIT_CATEGORY, EDIT_CATEGORY_SUCCESS, EDIT_CATEGORY_FAIL],
+//     promise: client => client.put(`api/categories/${companyId}`, { data }),
+//   }
+// }
+//
+// export function deleteCompany(companyId) {
+//   return {
+//     types: [DELETE_CATEGORY, DELETE_CATEGORY_SUCCESS, DELETE_CATEGORY_FAIL],
+//     promise: client => client.del(`api/categories/${companyId}`),
+//   }

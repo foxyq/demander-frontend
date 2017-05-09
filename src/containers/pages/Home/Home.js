@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { get } from 'lodash'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 // import 'antd/dist/antd.less'
 
 import { getUsers } from 'redux/modules/api/users'
@@ -32,8 +33,8 @@ export default class Home extends Component {
     services: PropTypes.array,
   }
   componentDidMount() {
-    this.props.getDemands()
-    this.props.getServices()
+    this.props.getDemands('sort=-created_date&limit=3')
+    this.props.getServices('sort=-created_date&limit=3')
   }
 
   render() {
@@ -107,13 +108,29 @@ export default class Home extends Component {
         </ContentStripe>
 
         {/* demands */}
-        <ContentStripe title="Nejnovější poptávky" isColored="gray">
+        <ContentStripe
+          title="Nejnovější poptávky"
+          titlelink="/demands"
+          isColored="gray"
+          additionalClasses="text-center"
+        >
           <Listing items={demands} controller="demands" isAdmin={false} />
+
+          <Link to={'/companies/new'} className="btn btn-lg btn-success">
+            Přidat poptávku
+          </Link>
         </ContentStripe>
 
         {/* sluzby */}
-        <ContentStripe title="Nejnovější nabídky služeb">
+        <ContentStripe
+          title="Nejnovější nabídky služeb"
+          titlelink="/services"
+          additionalClasses="text-center"
+        >
           <Listing items={services} controller="services" isAdmin />
+          <Link to={'/companies/new'} className="btn btn-lg btn-success ">
+            Nabídnout službu
+          </Link>
         </ContentStripe>
 
       </div>

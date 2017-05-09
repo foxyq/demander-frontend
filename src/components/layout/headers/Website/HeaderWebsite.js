@@ -53,13 +53,6 @@ export default class HeaderWebsite extends React.Component {
                   Kontakt
                 </Link>
               </li>
-              {/* <li>
-                <Link to="/users" activeClassName="active">Použivatelé</Link>
-              </li> */}
-
-              {/* <li>
-                <Link to="/fancy" activeClassName="active">Test</Link>
-              </li> */}
 
             </ul>
 

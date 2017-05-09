@@ -42,6 +42,8 @@ var _reduxConnect = require('redux-connect');
 
 var _auth = require('redux/modules/auth');
 
+var _reactIntl = require('react-intl');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _components = {
@@ -62,6 +64,11 @@ function _wrapComponent(id) {
     return _reactTransformCatchErrors2(Component, id);
   };
 }
+
+// import cs from 'react-intl/dist/locale-data/cs'
+// import cs from 'react-intl/lib/locale-data/cs-CZ'
+
+// addLocaleData(cs)
 
 var App = _wrapComponent('App')((_dec = (0, _reduxConnect.asyncConnect)([{
   promise: function promise(_ref) {
@@ -89,15 +96,19 @@ var App = _wrapComponent('App')((_dec = (0, _reduxConnect.asyncConnect)([{
     key: 'render',
     value: function render() {
       var children = this.props.children;
-
+      // const { messages } = this.getIntl()
 
       return _react3.default.createElement(
-        'div',
-        null,
-        process.env.NODE_ENV === 'production' ? { children: children } : _react3.default.createElement(
+        _reactIntl.IntlProvider,
+        { key: 'intl', locale: 'en' },
+        _react3.default.createElement(
           'div',
           null,
-          children
+          process.env.NODE_ENV === 'production' ? { children: children } : _react3.default.createElement(
+            'div',
+            null,
+            children
+          )
         )
       );
     }

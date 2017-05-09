@@ -1,0 +1,119 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp;
+
+var _ListingItem = require('components/common/ListingItem/ListingItem');
+
+var _ListingItem2 = _interopRequireDefault(_ListingItem);
+
+var _Company = require('components/common/Company/Company');
+
+var _Company2 = _interopRequireDefault(_Company);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Listing: {
+    displayName: 'Listing'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: 'src/components/common/Listing/Listing.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(Component, id);
+  };
+}
+
+var Listing = _wrapComponent('Listing')((_temp = _class = function (_Component) {
+  (0, _inherits3.default)(Listing, _Component);
+
+  function Listing() {
+    (0, _classCallCheck3.default)(this, Listing);
+    return (0, _possibleConstructorReturn3.default)(this, (Listing.__proto__ || Object.getPrototypeOf(Listing)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Listing, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          items = _props.items,
+          controller = _props.controller,
+          onDelete = _props.onDelete,
+          isAdmin = _props.isAdmin,
+          isCompany = _props.isCompany;
+
+
+      return _react3.default.createElement(
+        'div',
+        { className: 'row' },
+        items && !isCompany && items.length > 0 && items.map(function (item) {
+          return _react3.default.createElement(_ListingItem2.default, {
+            key: item._id,
+            item: item,
+            controller: controller,
+            onDelete: onDelete,
+            isAdmin: isAdmin
+          });
+        }),
+        items && isCompany && items.length > 0 && items.map(function (item) {
+          return _react3.default.createElement(_Company2.default, {
+            key: item._id,
+            item: item,
+            controller: controller,
+            onDelete: onDelete,
+            isAdmin: isAdmin
+          });
+        })
+      );
+    }
+  }]);
+  return Listing;
+}(_react2.Component), _class.propTypes = {
+  items: _react2.PropTypes.array.isRequired,
+  controller: _react2.PropTypes.string.isRequired,
+  onDelete: _react2.PropTypes.func,
+  isAdmin: _react2.PropTypes.bool.isRequired,
+  isCompany: _react2.PropTypes.bool
+}, _temp));
+
+exports.default = Listing;
+module.exports = exports['default'];

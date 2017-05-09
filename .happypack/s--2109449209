@@ -1,0 +1,34 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.schema = undefined;
+
+var _lodash = require('lodash');
+
+var schema = exports.schema = function schema(model) {
+  var values = {};
+
+  values.company_name = (0, _lodash.get)(model, 'company_name');
+  values.company_nice_name = (0, _lodash.get)(model, 'company_nice_name');
+  values.company_id = (0, _lodash.get)(model, 'company_id');
+  values.company_vat_id = (0, _lodash.get)(model, 'company_vat_id');
+  values.company_about = (0, _lodash.get)(model, 'company_about');
+  values.company_description = (0, _lodash.get)(model, 'company_description');
+  values.company_opening_hours = (0, _lodash.get)(model, 'company_opening_hours');
+  values.contact_telephone = (0, _lodash.get)(model, 'contact_telephone');
+  values.contact_email = (0, _lodash.get)(model, 'contact_email');
+  values.contact_address = (0, _lodash.get)(model, 'contact_address');
+  values.contact_person = (0, _lodash.get)(model, 'contact_person');
+  values.company_gps_location = (0, _lodash.get)(model, 'company_gps_location');
+  values.logo_url = (0, _lodash.get)(model, 'logo_url');
+  values.web_url = (0, _lodash.get)(model, 'web_url');
+  values.fb_url = (0, _lodash.get)(model, 'fb_url');
+  values.twitter_url = (0, _lodash.get)(model, 'twitter_url');
+  values.linkedin_url = (0, _lodash.get)(model, 'linkedin_url');
+
+  values.slogan = (0, _lodash.get)(model, 'slogan');
+
+  return values;
+};

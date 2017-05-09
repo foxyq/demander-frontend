@@ -108,8 +108,8 @@ var Company = _wrapComponent('Company')((_dec = (0, _reactRedux.connect)(functio
       action(values, companyId).then(_this.handleSuccess).catch(_this.handleError);
     }, _this.handleSuccess = function () {
       _this.props.getCompanies();
-
-      _reactRouter.browserHistory.push('/companies');
+      _reactRouter.browserHistory.goBack();
+      // browserHistory.push('/companies')
     }, _this.handleError = function (error) {
       return _this.setState({ error: error });
     }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
@@ -140,7 +140,18 @@ var Company = _wrapComponent('Company')((_dec = (0, _reactRedux.connect)(functio
       return _react3.default.createElement(
         'form',
         { onSubmit: handleSubmit(this.handleSubmit) },
-        _react3.default.createElement(_fields.Input, { label: 'company_name', name: 'company_name' }),
+        _react3.default.createElement(_fields.Input, { label: 'Company name', name: 'company_name' }),
+        _react3.default.createElement(_fields.Input, { label: 'Company ID', name: 'company_id' }),
+        _react3.default.createElement(_fields.Input, { label: 'Company VAT ID', name: 'company_vat_id' }),
+        _react3.default.createElement(_fields.TextArea, { label: 'About company', name: 'company_about' }),
+        _react3.default.createElement(_fields.Input, { label: 'Description', name: 'company_description' }),
+        _react3.default.createElement(_fields.Input, { label: 'Opening hours', name: 'company_opening_hours' }),
+        _react3.default.createElement(_fields.Input, { label: 'Telephone', name: 'contact_telephone' }),
+        _react3.default.createElement(_fields.Input, { label: 'Email', name: 'contact_email' }),
+        _react3.default.createElement(_fields.Input, { label: 'Address', name: 'contact_address' }),
+        _react3.default.createElement(_fields.Input, { label: 'Contact person', name: 'contact_person' }),
+        _react3.default.createElement(_fields.Input, { label: 'Categorization', name: 'categorization' }),
+        _react3.default.createElement(_fields.Input, { label: 'Slogan', name: 'slogan' }),
         _react3.default.createElement('input', { type: 'submit' }),
         isSubmitting && _react3.default.createElement(
           'div',
@@ -159,7 +170,7 @@ var Company = _wrapComponent('Company')((_dec = (0, _reactRedux.connect)(functio
 }(_react2.Component), _class2.propTypes = {
   // This is from redux form
   handleSubmit: _react2.PropTypes.func.isRequired,
-  isSubmitting: _react2.PropTypes.bool.isRequired,
+  isSubmitting: _react2.PropTypes.bool,
   getCompanies: _react2.PropTypes.func.isRequired,
   getCompany: _react2.PropTypes.func.isRequired,
   editCompany: _react2.PropTypes.func.isRequired,

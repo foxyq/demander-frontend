@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getCompanies, deleteCompany } from 'redux/modules/api/companies'
 
-import Listing from 'components/common/Listing/Listing'
+import { Listing, Loading } from 'components/common'
 
 @connect(
   ({ api }) => ({
@@ -20,7 +20,7 @@ export default class List extends Component {
     companies: PropTypes.array.isRequired,
   }
   componentDidMount() {
-    this.props.getCompanies()
+    this.props.getCompanies('sort=-created_date')
   }
 
   handleDeleteCompany = companyId => {
@@ -38,21 +38,21 @@ export default class List extends Component {
 
     return (
       <div>
+        {isLoading && <Loading />}
         <div className="row">
-          <Link to={'/companies/new'} className="btn btn-success ">
-            Přidat společnost
-          </Link>
           <div className="profile">
-
             <div className="name">
               <h3 className="title">Seznam společností</h3>
-              <h6>společnosti registrované v systému Demander</h6>
+              <h6>Společnosti registrované v systému Demander</h6>
+            </div>
+            <div className="text-center">
+              <Link to={'/companies/new'} className="btn btn-success btn-lg">
+                Přidat společnost<div className="ripple-container" />
+              </Link>
             </div>
           </div>
-
         </div>
 
-        {isLoading && <span>IS LOADING </span>}
         <Listing
           items={companies}
           controller="companies"
@@ -60,45 +60,6 @@ export default class List extends Component {
           isCompany
           isAdmin
         />
-
-        <div className="row pull-left">
-          <div className="profile">
-
-            {/* <div className="text-left">
-              {isLoading && <span>IS LOADING </span>}
-              {companies &&
-                companies.length > 0 &&
-                companies.map(company => (
-                  <div key={company._id}>
-                    <div className="ripple-container" />
-
-                    <Link
-                      to={`/company/${company._id}`}
-                      className="btn btn-primary"
-                    >
-                      {company.company_name}
-                    </Link>
-
-                    <Link
-                      to={`/companies/${company._id}`}
-                      className="btn btn-info"
-                    >
-                      Edit
-                    </Link>
-
-                    <button
-                      type="button"
-                      className="btn btn-danger "
-                      onClick={() => this.handleDeleteCompany(company._id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                ))}
-
-            </div> */}
-          </div>
-        </div>
       </div>
     )
   }

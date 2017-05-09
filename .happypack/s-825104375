@@ -1,0 +1,27 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.schema = undefined;
+
+var _lodash = require('lodash');
+
+var schema = exports.schema = function schema(model) {
+  var values = {};
+
+  values.company_name = (0, _lodash.get)(model, 'company_name');
+  values.company_id = (0, _lodash.get)(model, 'company_id');
+  values.company_vat_id = (0, _lodash.get)(model, 'company_vat_id');
+  values.company_about = (0, _lodash.get)(model, 'company_about');
+  values.company_description = (0, _lodash.get)(model, 'company_description');
+  values.company_opening_hours = (0, _lodash.get)(model, 'company_opening_hours');
+  values.contact_telephone = (0, _lodash.get)(model, 'contact_telephone');
+  values.contact_email = (0, _lodash.get)(model, 'contact_email');
+  values.contact_address = (0, _lodash.get)(model, 'contact_address');
+  values.contact_person = (0, _lodash.get)(model, 'contact_person');
+  values.categorization = (0, _lodash.get)(model, 'categorization');
+  values.slogan = (0, _lodash.get)(model, 'slogan');
+
+  return values;
+};

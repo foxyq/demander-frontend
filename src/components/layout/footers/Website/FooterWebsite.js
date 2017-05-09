@@ -12,33 +12,39 @@ export default class FooterWebsite extends React.Component {
             <ul className="pull-left">
               <li>
 
-                <a href="#">
+                <a href="/">
                   DOMŮ
                   <div className="ripple-container" />
                 </a>
               </li>
               {'|'}
               <li>
-                <a href="#">
-                  SPOLEČNOSTI
-                </a>
-              </li>
-              {'|'}
-              <li>
-                <a href="#">
-                  POUŽIVATELÉ
-                </a>
-              </li>
-              {'|'}
-              <li>
-                <a href="#">
+                <a href="/demands">
                   POPTÁVKY
                 </a>
               </li>
               {'|'}
               <li>
                 <a href="#">
-                  NABÍDKY
+                  SLUŽBY
+                </a>
+              </li>
+              {'|'}
+              <li>
+                <a href="/companies">
+                  DODAVATELÉ
+                </a>
+              </li>
+              {'|'}
+              <li>
+                <a href="/howitworks">
+                  JAK TO FUNGUJE?
+                </a>
+              </li>
+              {'|'}
+              <li>
+                <a href="/contact">
+                  KONTAKT
                 </a>
               </li>
 

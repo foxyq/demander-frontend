@@ -1,0 +1,21 @@
+SyntaxError: Unterminated string constant (45:66)
+
+  43 |     this.props.getCompany(companyId)
+  44 |     this.props.getDemands('sort=-created_date&company=' + companyId)
+> 45 |     this.props.getServices('sort=-created_date&company=' + company')
+     |                                                                   ^
+  46 |   }
+  47 | 
+  48 |   componentWillUnmount() {
+
+Error
+    at transpile (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
