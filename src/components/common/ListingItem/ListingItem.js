@@ -26,18 +26,15 @@ export default class ListingItem extends Component {
           <div className="card-content">
             {/*  category clas color, category name */}
             <h6 className="category text-success">{item._id}</h6>
-            <br />
             <h4 className={`${style.heading} card-title`}>
               <a href="#pablo">
                 {/* nech je nadpis do 2 riadkov max - obmedzenie na znaky */}
                 {item.title}
               </a>
             </h4>
-            <br />
+
             <p className="card-description">
-              {/*  description */}
-              tu bude popisok <br />
-              kludne aj dvojriadkovy :){' '}
+              {item.goal}
             </p>
             <br />
 

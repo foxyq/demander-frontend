@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 import cx from 'classnames'
 
 import * as Header from 'components/layout/headers'
@@ -76,13 +77,14 @@ export default class HomeLayout extends Component {
                     </div>
 
                     <div className={style.baseMarginTop}>
-                      <button
+                      <Link
+                        to={'/demands/new'}
                         className={cx('btn btn-lg', cigan.brandbutton)}
-                        href="/services/new"
                       >
                         Přidat poptávku<div className="ripple-container" />
-                      </button>
-                      <button
+                      </Link>
+                      <Link
+                        to={'/services'}
                         className={cx(
                           'btn btn-primary btn-lg',
                           cigan.brandbutton,
@@ -90,7 +92,7 @@ export default class HomeLayout extends Component {
                       >
                         Najít službu
                         <div className="ripple-container" />
-                      </button>
+                      </Link>
                     </div>
 
                   </div>

@@ -1,0 +1,254 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _headers = require('components/layout/headers/');
+
+var _headers2 = _interopRequireDefault(_headers);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  Timeline: {
+    displayName: 'Timeline'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/elements/Timeline/Timeline.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/components/elements/Timeline/Timeline.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+// import style from './Timeline.scss'
+
+var Timeline = _wrapComponent('Timeline')(function (_Component) {
+  (0, _inherits3.default)(Timeline, _Component);
+
+  function Timeline() {
+    (0, _classCallCheck3.default)(this, Timeline);
+    return (0, _possibleConstructorReturn3.default)(this, (Timeline.__proto__ || Object.getPrototypeOf(Timeline)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(Timeline, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        'section',
+        { id: 'cd-timeline', className: 'cd-container' },
+        _react3.default.createElement(
+          'div',
+          { className: 'cd-timeline-block' },
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-img cd-picture' },
+            _react3.default.createElement(_headers2.default, null)
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-content' },
+            _react3.default.createElement(
+              'h2',
+              null,
+              'Title of section 1'
+            ),
+            _react3.default.createElement(
+              'p',
+              null,
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.'
+            ),
+            _react3.default.createElement(
+              'a',
+              { href: '#0', className: 'cd-read-more' },
+              'Read more'
+            ),
+            _react3.default.createElement(
+              'span',
+              { className: 'cd-date' },
+              'Jan 14'
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'cd-timeline-block' },
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-img cd-movie' },
+            _react3.default.createElement(_headers2.default, null)
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-content' },
+            _react3.default.createElement(
+              'h2',
+              null,
+              'Title of section 2'
+            ),
+            _react3.default.createElement(
+              'p',
+              null,
+              'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?'
+            ),
+            _react3.default.createElement(
+              'a',
+              { href: '#0', className: 'cd-read-more' },
+              'Read more'
+            ),
+            _react3.default.createElement(
+              'span',
+              { className: 'cd-date' },
+              'Jan 18'
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'cd-timeline-block' },
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-img cd-picture' },
+            _react3.default.createElement(_headers2.default, null)
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-content' },
+            _react3.default.createElement(
+              'p',
+              null,
+              'Prost\u0159ednictv\xEDm LTE roamingu jsme za\u010Dali nab\xEDzet p\u0159ipojen\xED k LTE na\u0161im z\xE1kazn\xEDk\u016Fm i v zahrani\u010D\xED, stejn\u011B tak cizinc\u016Fm v \u010Cesk\xE9 republice.'
+            ),
+            _react3.default.createElement(
+              'span',
+              { className: 'cd-date' },
+              '2014'
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'cd-timeline-block' },
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-img cd-location' },
+            _react3.default.createElement(_headers2.default, null)
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-content' },
+            _react3.default.createElement(
+              'p',
+              null,
+              'P\u0159edstavili jsme Turbo Internet a pl\xE1ny na pokryt\xED rychl\xFDm mobiln\xEDm internetem pro rok 2014.'
+            ),
+            _react3.default.createElement(
+              'span',
+              { className: 'cd-date' },
+              '2013'
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'cd-timeline-block' },
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-img cd-location' },
+            _react3.default.createElement(_headers2.default, null)
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-content' },
+            _react3.default.createElement('h2', null),
+            _react3.default.createElement(
+              'p',
+              null,
+              'Jako prvn\xED oper\xE1tor na \u010Desk\xE9m trhu \xFA\u010Dtujeme hovory na\u0161ich z\xE1kazn\xEDk\u016F ji\u017E od po\u010D\xE1tku po sekund\xE1ch.'
+            ),
+            _react3.default.createElement(
+              'span',
+              { className: 'cd-date' },
+              '2012'
+            )
+          )
+        ),
+        _react3.default.createElement(
+          'div',
+          { className: 'cd-timeline-block' },
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-img cd-movie' },
+            _react3.default.createElement(_headers2.default, null)
+          ),
+          _react3.default.createElement(
+            'div',
+            { className: 'cd-timeline-content' },
+            _react3.default.createElement('h2', null),
+            _react3.default.createElement(
+              'p',
+              null,
+              'Ve v\xEDce ne\u017E 40 m\u011Bstech jsme spustili nejv\xFDkonn\u011Bj\u0161\xED 3G technologii s n\xE1zvem HSPA+ DC.'
+            ),
+            _react3.default.createElement(
+              'span',
+              { className: 'cd-date' },
+              '2012'
+            )
+          )
+        )
+      );
+    }
+  }]);
+  return Timeline;
+}(_react2.Component));
+
+exports.default = Timeline;
+module.exports = exports['default'];

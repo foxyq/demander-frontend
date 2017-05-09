@@ -1,0 +1,194 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+exports.default = reducer;
+exports.getServices = getServices;
+exports.getService = getService;
+exports.createService = createService;
+exports.editService = editService;
+exports.deleteService = deleteService;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var GET_SERVICES = 'api/services/GET_SERVICES';
+var GET_SERVICES_SUCCESS = 'api/services/GET_SERVICES_SUCCESS';
+var GET_SERVICES_FAIL = 'api/services/GET_SERVICES_FAIL';
+
+var GET_SERVICE = 'api/services/GET_SERVICE';
+var GET_SERVICE_SUCCESS = 'api/services/GET_SERVICE_SUCCESS';
+var GET_SERVICE_FAIL = 'api/services/GET_SERVICE_FAIL';
+
+var CREATE_SERVICE = 'api/services/CREATE_SERVICE';
+var CREATE_SERVICE_SUCCESS = 'api/services/CREATE_SERVICE_SUCCESS';
+var CREATE_SERVICE_FAIL = 'api/services/CREATE_SERVICE_FAIL';
+
+var EDIT_SERVICE = 'api/services/EDIT_SERVICE';
+var EDIT_SERVICE_SUCCESS = 'api/services/EDIT_SERVICE_SUCCESS';
+var EDIT_SERVICE_FAIL = 'api/services/EDIT_SERVICE_FAIL';
+
+var DELETE_SERVICE = 'api/services/DELETE_SERVICE';
+var DELETE_SERVICE_SUCCESS = 'api/services/DELETE_SERVICE_SUCCESS';
+var DELETE_SERVICE_FAIL = 'api/services/DELETE_SERVICE_FAIL';
+
+var initialState = {
+  getServices: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: []
+  },
+  getService: {
+    success: false,
+    isLoading: false,
+    error: null,
+    data: null
+  },
+  editService: {
+    success: false,
+    isLoading: false,
+    error: null
+  },
+  createService: {
+    success: false,
+    isLoading: false,
+    error: null
+  }
+};
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+  switch (action.type) {
+    // ------------------------------------
+    // GET ALL SERVICES
+    // ------------------------------------
+    case GET_SERVICES:
+      return (0, _extends3.default)({}, state, {
+        getServices: (0, _extends3.default)({}, state.getServices, {
+          isLoading: true,
+          data: []
+        })
+      });
+    case GET_SERVICES_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getServices: (0, _extends3.default)({}, state.getServices, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_SERVICES_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getServices: (0, _extends3.default)({}, state.getServices, {
+          isLoading: false,
+          error: 'ERR GET_SERVICES'
+        })
+      });
+    // ------------------------------------
+    // GET SERVICE
+    // ------------------------------------
+    case GET_SERVICE:
+      return (0, _extends3.default)({}, state, {
+        getService: (0, _extends3.default)({}, state.getService, {
+          isLoading: true,
+          data: null
+        })
+      });
+    case GET_SERVICE_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        getService: (0, _extends3.default)({}, state.getService, {
+          isLoading: false,
+          success: true,
+          data: action.result
+        })
+      });
+    case GET_SERVICE_FAIL:
+      return (0, _extends3.default)({}, state, {
+        getService: (0, _extends3.default)({}, state.getService, {
+          isLoading: false,
+          error: 'ERR GET_SERVICE'
+        })
+      });
+    // ------------------------------------
+    // CREATE SERVICE
+    // ------------------------------------
+    case CREATE_SERVICE:
+      return (0, _extends3.default)({}, state, {
+        createService: (0, _extends3.default)({}, state.createService, {
+          isSubmitting: true
+        })
+      });
+
+    case CREATE_SERVICE_SUCCESS:
+      return (0, _extends3.default)({}, state, {
+        createService: (0, _extends3.default)({}, state.createService, {
+          isSubmitting: false,
+          success: true
+        })
+      });
+
+    case CREATE_SERVICE_FAIL:
+      return (0, _extends3.default)({}, state, {
+        createService: (0, _extends3.default)({}, state.createService, {
+          isSubmitting: false,
+          error: 'ERR POST CREATE_SERVICE'
+        })
+      });
+
+    default:
+      return state;
+  }
+}
+
+function getServices(args) {
+  return {
+    types: [GET_SERVICES, GET_SERVICES_SUCCESS, GET_SERVICES_FAIL],
+    promise: function promise(client) {
+      return client.get('api/services' + args);
+    }
+  };
+}
+
+function getService(id) {
+  return {
+    types: [GET_SERVICE, GET_SERVICE_SUCCESS, GET_SERVICE_FAIL],
+    promise: function promise(client) {
+      return client.get('api/services/' + id);
+    }
+  };
+}
+
+function createService(data) {
+  return {
+    types: [CREATE_SERVICE, CREATE_SERVICE_SUCCESS, CREATE_SERVICE_FAIL],
+    promise: function promise(client) {
+      return client.post('api/services', { data: data });
+    }
+  };
+}
+
+function editService(data, serviceId) {
+  return {
+    types: [EDIT_SERVICE, EDIT_SERVICE_SUCCESS, EDIT_SERVICE_FAIL],
+    promise: function promise(client) {
+      return client.put('api/services/' + serviceId, { data: data });
+    }
+  };
+}
+
+function deleteService(serviceId) {
+  return {
+    types: [DELETE_SERVICE, DELETE_SERVICE_SUCCESS, DELETE_SERVICE_FAIL],
+    promise: function promise(client) {
+      return client.del('api/services/' + serviceId);
+    }
+  };
+}

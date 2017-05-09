@@ -15,7 +15,9 @@ export default class Tabs extends React.Component {
                     data-toggle="tab"
                     aria-expanded="false"
                   >
-                    <i className="material-icons">flip_to_back</i>
+                    {/* <i className="material-icons">flip_to_back</i> */}
+                    <i className="fa fa-facebook" aria-hidden="true" />
+
                     Facebook
                   </a>
                 </li>
@@ -26,7 +28,8 @@ export default class Tabs extends React.Component {
                     data-toggle="tab"
                     aria-expanded="true"
                   >
-                    <i className="material-icons">computer</i>
+                    {/* <i className="material-icons">computer</i> */}
+                    <i className="fa fa-twitter" aria-hidden="true" />
                     Twitter
                   </a>
                 </li>
@@ -37,13 +40,15 @@ export default class Tabs extends React.Component {
                     data-toggle="tab"
                     aria-expanded="false"
                   >
-                    <i className="material-icons">attach_money</i>
+                    {/* <i className="material-icons">attach_money</i> */}
+                    <i className="fa fa-linkedin" aria-hidden="true" />
                     LinkedIn
                   </a>
                 </li>
               </ul>
             </div>
           </div>
+
         </div>
       </div>
     )

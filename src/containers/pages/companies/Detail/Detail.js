@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getCompany } from 'redux/modules/api/companies'
 import { Listing, ContentStripe } from 'components/common'
 import { Timeline } from 'components/elements'
+
 import { Tabs } from 'components/pages/Company'
 
 import Scrollchor from 'react-scrollchor'
@@ -41,8 +42,8 @@ export default class Detail extends Component {
     const companyId = this.props.params.id
 
     this.props.getCompany(companyId)
-    this.props.getDemands()
-    this.props.getServices()
+    this.props.getDemands('sort=-created_date&limit=3&company=' + companyId)
+    this.props.getServices('sort=-created_date&limit=3&company=' + companyId)
   }
 
   componentWillUnmount() {
@@ -207,17 +208,19 @@ export default class Detail extends Component {
         </div>
         {/* /main-raised */}
 
-        <ContentStripe title="Nabídka služeb" id="nabidka_sluzeb">
-          <Listing items={services} controller="demands" isAdmin={false} />
-        </ContentStripe>
+        {services.length > 0 &&
+          <ContentStripe title="Nabídka služeb" id="nabidka_sluzeb">
+            <Listing items={services} controller="demands" isAdmin={false} />
+          </ContentStripe>}
 
-        <ContentStripe
-          title="Aktuálně poptáváme"
-          id="poptavky"
-          isColored="gray"
-        >
-          <Listing items={demands} controller="demands" isAdmin={false} />
-        </ContentStripe>
+        {demands.length > 0 &&
+          <ContentStripe
+            title="Aktuálně poptáváme"
+            id="poptavky"
+            isColored="gray"
+          >
+            <Listing items={demands} controller="demands" isAdmin={false} />
+          </ContentStripe>}
 
         <ContentStripe title="Historie společnosti" id="historie">
           <Timeline />
@@ -228,7 +231,7 @@ export default class Detail extends Component {
         </ContentStripe>
 
         <ContentStripe title="Galerie" id="galerie">
-          galerie
+          {/* <Gallery /> */} galerie
         </ContentStripe>
 
         <ContentStripe title="Kontakt" id="kontakt" isColored="gray">

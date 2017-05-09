@@ -13,7 +13,7 @@ import {
   editDemand,
 } from 'redux/modules/api/demands'
 
-// import { getCompanies } from 'redux/modules/api/companies'
+import { getCompanies } from 'redux/modules/api/companies'
 
 import validate from './demand.validation'
 
@@ -22,7 +22,7 @@ import validate from './demand.validation'
     isSubmitting: api.demands.createDemand.isSubmitting,
     initialValues: params.id !== 'new' && api.demands.getDemand.data,
   }),
-  { createDemand, getDemands, getDemand, editDemand },
+  { createDemand, getDemands, getDemand, editDemand, getCompanies },
 )
 @reduxForm({
   form: 'Demand',
@@ -37,6 +37,7 @@ export default class Demand extends Component {
     getDemand: PropTypes.func.isRequired,
     editDemand: PropTypes.func.isRequired,
     createDemand: PropTypes.func.isRequired,
+    getCompanies: PropTypes.func.isRequired,
   }
 
   state = {

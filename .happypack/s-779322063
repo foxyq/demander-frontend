@@ -1,0 +1,21 @@
+SyntaxError: Invalid left-hand side in assignment expression (8:2)
+
+   6 |   values.company_name = get(model, 'company_name')
+   7 |   values.company_id = get(model, 'company_id')
+>  8 |   values.company-vat-id = get(model, 'company_vat_id')
+     |   ^
+   9 |   values.company_about = get(model, 'company_about')
+  10 |   values.company_description = get(model, 'company_description')
+  11 |   values.company_opening_hours = get(model, 'company_opening_hours')
+
+Error
+    at transpile (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:52:13)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/babel-loader/lib/index.js:133:12)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:274:9
+    at /Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:330:17
+    at Object.callback (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/fnOncePedantic.js:10:15)
+    at Object.module.exports (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/eslint-loader/index.js:182:8)
+    at applySyncOrAsync (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:341:21)
+    at apply (/Users/foxyq/Documents/Coding/react/demander/demander-frontend/node_modules/happypack/lib/applyLoaders.js:268:5)

@@ -74,6 +74,7 @@
     }
   },
   "dependencies": {
+    "@expo/react-native-read-more-text": "^1.1.0",
     "antd": "^2.9.1",
     "babel-cli": "6.22.2",
     "babel-core": "6.22.1",
@@ -128,6 +129,7 @@
     "react-fontawesome": "^1.5.0",
     "react-helmet": "3.3.0",
     "react-icons": "^2.2.3",
+    "react-images": "^0.5.2",
     "react-intl": "^2.2.3",
     "react-notification-system": "^0.2.13",
     "react-redux": "5.0.2",
@@ -138,6 +140,8 @@
     "react-scrollchor": "^2.2.0",
     "react-select": "^1.0.0-rc.3",
     "react-tap-event-plugin": "^2.0.1",
+    "react-truncate": "^2.1.1",
+    "react-twitter-embedded-timeline": "^0.3.3",
     "redis": "2.6.5",
     "redux": "3.6.0",
     "redux-connect": "5.0.0",

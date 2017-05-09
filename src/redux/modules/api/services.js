@@ -144,10 +144,10 @@ export default function reducer(state = initialState, action = {}) {
   }
 }
 
-export function getServices() {
+export function getServices(args) {
   return {
     types: [GET_SERVICES, GET_SERVICES_SUCCESS, GET_SERVICES_FAIL],
-    promise: client => client.get('api/services'),
+    promise: client => client.get(`api/services?${args}`),
   }
 }
 
