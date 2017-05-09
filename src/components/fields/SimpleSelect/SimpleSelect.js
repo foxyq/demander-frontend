@@ -4,14 +4,14 @@ import Select from 'react-select'
 export default class SimpleSelect extends Component {
   static propTypes = {
     label: React.PropTypes.string,
-    value: React.PropTypes.bool,
+    value: React.PropTypes.string,
     options: React.PropTypes.array,
   }
 
   constructor(props) {
     super(props)
-    this.state = { label: this.props.label }
-    this.state = { options: this.props.options }
+    // this.state = { label: this.props.label }
+    // this.state = { options: this.props.options }
     this.state = { value: this.props.value }
     // this.state = { value: false }
     this.handleChange = this.handleChange.bind(this)
@@ -46,7 +46,17 @@ export default class SimpleSelect extends Component {
           options={options}
           onChange={this.handleChange}
         />
-
+        {/*
+        <select>
+          <option value="volvo">Volvo</option>
+        </select> */}
+        {/* <select>
+          {options.map(option => (
+            <option key={option._id} value={option._id}>
+              {option.company_name}
+            </option>
+          ))}
+        </select> */}
         <div className="hint">This example uses simple boolean values</div>
       </div>
     )

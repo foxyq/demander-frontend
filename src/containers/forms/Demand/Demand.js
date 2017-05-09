@@ -13,7 +13,7 @@ import {
   editDemand,
 } from 'redux/modules/api/demands'
 
-// import { getCompanies } from 'redux/modules/api/companies'
+import { getCompanies } from 'redux/modules/api/companies'
 
 import validate from './demand.validation'
 
@@ -21,8 +21,9 @@ import validate from './demand.validation'
   ({ api }, { params }) => ({
     isSubmitting: api.demands.createDemand.isSubmitting,
     initialValues: params.id !== 'new' && api.demands.getDemand.data,
+    companies: api.companies.getCompanies.data,
   }),
-  { createDemand, getDemands, getDemand, editDemand },
+  { createDemand, getDemands, getDemand, editDemand, getCompanies },
 )
 @reduxForm({
   form: 'Demand',
@@ -37,6 +38,11 @@ export default class Demand extends Component {
     getDemand: PropTypes.func.isRequired,
     editDemand: PropTypes.func.isRequired,
     createDemand: PropTypes.func.isRequired,
+    getCompanies: PropTypes.func.isRequired,
+    companies: PropTypes.array,
+    initialValues: PropTypes.array,
+    selectValue: PropTypes.string,
+    //reformattedOptions: PropTypes.array,
   }
 
   state = {
@@ -47,9 +53,37 @@ export default class Demand extends Component {
     const demandId = this.props.params.id
     const isEditing = demandId !== 'new'
 
+    this.props.getCompanies()
+
     if (isEditing) {
       this.props.getDemand(demandId)
     }
+
+    console.log('value of company is: ', this.props.selectValue)
+    console.log('initialValues: ', this.props.initialValues.company._id)
+    this.props.selectValue = this.props.initialValues.company._id
+    console.log('value of company is: ', this.props.selectValue)
+    // console.log(this.props.initialValues.company._id)
+
+    // this.props.companies.map(company => {
+    //   console.log(company._id)
+    // })
+    // console.log(this.props.companies)
+    // console.log(this.props.reformattedOptions)
+    // console.log(this.props.reformattedOptions)
+
+    // const pomocna = this.props.companies.map(company => {
+    //   const rObj = {}
+    //
+    //   rObj.value = company._id
+    //   rObj.label = company.company_name
+    //   return rObj
+    // })
+
+    // this.props.reformattedOptions = pomocna
+
+    // console.log('toto je pomocna: ', pomocna)
+    // console.log('toto je pomocna 2: ', this.props.reformattedOptions)
   }
 
   // This is the actual submit method called on successful form submit
@@ -72,13 +106,15 @@ export default class Demand extends Component {
   handleError = error => this.setState({ error })
 
   render() {
+    // const { handleSubmit, isSubmitting, companies } = this.props
     const { handleSubmit, isSubmitting } = this.props
+
     const { error } = this.state
 
     return (
       <form onSubmit={handleSubmit(this.handleSubmit)}>
         <Input label="Demand title" name="title" />
-        <TextArea label="Goal" name="goal" rows="10" />
+        <TextArea label="Goal" name="goal" rows="5" />
         <TextArea label="Input" name="input" />
         <TextArea label="Output" name="output" />
         <TextArea label="Timeplan" name="timeplan" />
@@ -87,14 +123,28 @@ export default class Demand extends Component {
         <Input label="Responsible person" name="responsible_person" />
         {/* <Input label="Company" name="company" /> */}
 
+        {/* {
+          (reformattedOptions = companies.map(obj => {
+            var rObj = {}
+
+            rObj[obj.value] = obj._id
+            rObj[obj.label] = obj.company_name
+            return rObj
+          }))
+        } */}
+
         <SimpleSelect
-          label="MOJ NADPIS SELECTU"
-          value
+          label="Company"
           name="company"
-          options={[
-            { value: true, label: 'Yes' },
-            { value: false, label: 'No' },
-          ]}
+          value={null}
+          // options={companies}
+          options={this.props.companies.map(company => {
+            const rObj = {}
+
+            rObj.value = company._id
+            rObj.label = company.company_name
+            return rObj
+          })}
         />
 
         <input type="submit" />
