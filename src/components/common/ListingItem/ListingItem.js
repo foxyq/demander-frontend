@@ -25,7 +25,9 @@ export default class ListingItem extends Component {
 
           <div className="card-content">
             {/*  category clas color, category name */}
-            <h6 className="category text-success">{item._id}</h6>
+            <h6 className="category text-success">
+              {/* {item.category.title} */}
+            </h6>
             <h4 className={`${style.heading} card-title`}>
               <a href="#pablo">
                 {/* nech je nadpis do 2 riadkov max - obmedzenie na znaky */}
@@ -55,15 +57,15 @@ export default class ListingItem extends Component {
 
             <div className="footer">
               <div className="author">
-                <a href="#pablo">
+                <a href={`/company/${item.company._id}`}>
                   {/*  company IMG */}
                   <img
-                    src="http://demander.cz/images/live/logo-csob.png"
+                    src={item.company.logo_url}
                     alt="..."
                     className="avatar img-raised"
                   />
                   {/*  company name */}
-                  <span>CSOB</span>
+                  <span>{item.company.company_nice_name}</span>
                 </a>
               </div>
               <div className="stats">

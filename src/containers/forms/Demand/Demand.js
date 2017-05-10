@@ -112,6 +112,46 @@ export default class Demand extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleSubmit)}>
         <Input label="Demand title" name="title" />
+        <div>
+          <label>Category</label>
+          <div>
+            <Field name="category" component="select">
+              <option value="590ee92404e3b306921354ad">
+                Zemědelství
+              </option>
+              <option value="590eeaa404e3b306921354ae">
+                Lesnictví
+              </option>
+              <option value="5911936c918f35178a5bfc6f">
+                Průmysl
+              </option>
+              <option value="59119427918f35178a5bfc70">
+                Energetika
+              </option>
+              <option value="591194b5918f35178a5bfc71">
+                Voda
+              </option>
+              <option value="59119538918f35178a5bfc72">
+                Stavebnictví
+              </option>
+              <option value="591195c6918f35178a5bfc73">
+                Obchod
+              </option>
+              <option value="59119676918f35178a5bfc74">
+                Doprava
+              </option>
+              <option value="5911970b918f35178a5bfc75">
+                Restauraterství
+              </option>
+              <option value="5911977f918f35178a5bfc76">
+                IT
+              </option>
+              <option value="5911985b918f35178a5bfc77">
+                Finance
+              </option>
+            </Field>
+          </div>
+        </div>
         <TextArea label="Goal" name="goal" rows="5" />
         <TextArea label="Input" name="input" />
         <TextArea label="Output" name="output" />
@@ -121,16 +161,23 @@ export default class Demand extends Component {
         <Input label="Responsible person" name="responsible_person" />
         {/* <Input label="Company" name="company" /> */}
         <div>
-          <label>Společnost</label>
+          <label>Company</label>
           <div>
             <Field name="company" component="select">
-              <option />
               <option value="58f7f61cff8d4014d7f7730b">
                 Vodafone Czech Republic a.s.
               </option>
-              <option value="5911c29ef00fa31957f86d9c">CUBYSOFT sro 2</option>
+              <option value="58f7f61fff8d4014d7f7730c">
+                Československá obchodní banka, a. s.
+              </option>
               <option value="58f7f60fff8d4014d7f7730a">
                 CGI IT Czech Republic s.r.o.
+              </option>
+              <option value="58f7f63eff8d4014d7f7730d">
+                PARCO Consulting s.r.o.
+              </option>
+              <option value="58f7f645ff8d4014d7f7730f">
+                Komerční banka, a.s.
               </option>
             </Field>
           </div>

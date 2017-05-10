@@ -7,6 +7,7 @@ export const schema = model => {
   values.company_nice_name = get(model, 'company_nice_name')
   values.company_id = get(model, 'company_id')
   values.company_vat_id = get(model, 'company_vat_id')
+  values.category = get(model, 'category')
   values.company_about = get(model, 'company_about')
   values.company_description = get(model, 'company_description')
   values.company_opening_hours = get(model, 'company_opening_hours')

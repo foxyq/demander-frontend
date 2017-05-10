@@ -27,6 +27,7 @@ export default class List extends Component {
   componentDidMount() {
     this.props.getDemands('sort=-created_date')
     this.props.getCategories()
+    console.log(this.props.demands)
   }
 
   handleDeleteDemand = demandId => {

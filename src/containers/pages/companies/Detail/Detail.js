@@ -74,6 +74,8 @@ export default class Detail extends Component {
           style={{
             transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
             backgroundImage: 'url(http://www.triplepoint.co.uk/storage/images-processed/w-1200_h-482_m-cover_s-any__internet-technology-concept.jpg)',
+            // backgroundImage: `url(${company.category.cover_photo_url}`,
+
             backgroundSize: '100%',
           }}
         >

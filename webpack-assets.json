@@ -1,7 +1,7 @@
 {
   "javascript": {
-    "main": "http://192.168.0.136:3001/dist/main-eb1027a8b75db35a006c.js",
-    "vendor": "http://192.168.0.136:3001/dist/vendor-eb1027a8b75db35a006c.js"
+    "main": "http://192.168.0.136:3001/dist/main-f1bf9916c0a5d0b33c78.js",
+    "vendor": "http://192.168.0.136:3001/dist/vendor-f1bf9916c0a5d0b33c78.js"
   },
   "styles": {},
   "assets": {
