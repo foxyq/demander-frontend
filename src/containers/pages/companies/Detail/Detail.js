@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { getCompany } from 'redux/modules/api/companies'
-import { Listing, ContentStripe } from 'components/common'
+import { Listing, ContentStripe, Loading } from 'components/common'
 import { Timeline } from 'components/elements'
 
 import { Tabs } from 'components/pages/Company'
@@ -20,6 +20,7 @@ import style from './detail.styl'
     company: api.companies.getCompany.data,
     demands: api.demands.getDemands.data,
     services: api.services.getServices.data,
+    isLoading: api.companies.getCompany.isLoading,
   }),
   { getCompany, getDemands, getServices },
 )
@@ -28,7 +29,7 @@ export default class Detail extends Component {
     getCompany: PropTypes.func.isRequired,
     getDemands: PropTypes.func.isRequired,
     getServices: PropTypes.func.isRequired,
-    // isLoading: PropTypes.bool,
+    isLoading: PropTypes.bool,
     company: PropTypes.any,
     demands: PropTypes.array,
     services: PropTypes.array,
@@ -64,18 +65,19 @@ export default class Detail extends Component {
   }
 
   render() {
-    const { company, demands, services } = this.props
+    const { company, demands, services, isLoading } = this.props
+
+    // console.log(company.category.cover_photo_url)
 
     return (
       <div>
-
         <div
           className="header header-filter"
           style={{
             transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
             backgroundImage: 'url(http://www.triplepoint.co.uk/storage/images-processed/w-1200_h-482_m-cover_s-any__internet-technology-concept.jpg)',
             // backgroundImage: `url(${company.category.cover_photo_url}`,
-
+            // backgroundImage: 'url(' + company.category.cover_photo_url + ')',
             backgroundSize: '100%',
           }}
         >
@@ -89,6 +91,9 @@ export default class Detail extends Component {
             <div className="container">
 
               <div className="row">
+
+                {isLoading && <Loading />}
+
                 <div className="profile">
                   <div className="avatar img-rounded">
                     <img
@@ -212,7 +217,7 @@ export default class Detail extends Component {
 
         {services.length > 0 &&
           <ContentStripe title="Nabídka služeb" id="nabidka_sluzeb">
-            <Listing items={services} controller="demands" isAdmin={false} />
+            <Listing items={services} controller="demands" isAdmin />
           </ContentStripe>}
 
         {demands.length > 0 &&
@@ -221,7 +226,7 @@ export default class Detail extends Component {
             id="poptavky"
             isColored="gray"
           >
-            <Listing items={demands} controller="demands" isAdmin={false} />
+            <Listing items={demands} controller="demands" isAdmin />
           </ContentStripe>}
 
         <ContentStripe title="Historie společnosti" id="historie">
@@ -232,12 +237,22 @@ export default class Detail extends Component {
           <Tabs />
         </ContentStripe>
 
-        <ContentStripe title="Galerie" id="galerie">
-          {/* <Gallery /> */} galerie
-        </ContentStripe>
+        {/* <ContentStripe title="Galerie" id="galerie">
+           <Gallery />  galerie
+        </ContentStripe> */}
 
-        <ContentStripe title="Kontakt" id="kontakt" isColored="gray">
-          kontakt
+        <ContentStripe
+          title="Kontakt"
+          id="kontakt"
+          additionalClasses="text-center"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d327864.24120414926!2d14.18544508487069!3d50.05933245499073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b939c0970798b%3A0x400af0f66164090!2sPrague!5e0!3m2!1sen!2scz!4v1494406654719"
+            width="90%"
+            height="450"
+            frameBorder="0"
+            allowFullScreen
+          />
         </ContentStripe>
 
         <Scrollchor

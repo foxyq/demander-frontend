@@ -1,0 +1,26 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.schema = undefined;
+
+var _lodash = require('lodash');
+
+var schema = exports.schema = function schema(model) {
+  var values = {};
+
+  values.title = (0, _lodash.get)(model, 'title');
+  // POKUS
+  values.goal = (0, _lodash.get)(model, 'goal');
+  values.input = (0, _lodash.get)(model, 'input');
+  values.output = (0, _lodash.get)(model, 'output');
+  values.timeplan = (0, _lodash.get)(model, 'timeplan');
+  values.budget = (0, _lodash.get)(model, 'budget');
+  values.description = (0, _lodash.get)(model, 'description');
+  values.responsible_person = (0, _lodash.get)(model, 'responsible_person');
+  values.company = (0, _lodash.get)(model, 'company');
+  values.category = (0, _lodash.get)(model, 'category');
+
+  return values;
+};

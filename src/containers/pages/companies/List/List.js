@@ -24,7 +24,7 @@ export default class List extends Component {
     categories: PropTypes.array.isRequired,
   }
   componentDidMount() {
-    this.props.getCompanies('sort=-created_date')
+    this.props.getCompanies('category=5asasdasdasae')
     this.props.getCategories()
   }
 
@@ -33,9 +33,16 @@ export default class List extends Component {
 
     if (confirmed) {
       this.props.deleteCompany(companyId).then(() => {
-        this.props.getCompanies()
+        this.props.getCompanies('sort=-created_date')
       })
     }
+  }
+
+  filterCategory = id => {
+    console.log(id)
+    id !== undefined &&
+      this.props.getCompanies('category=590eeaa404e3b306921354ae')
+    id === undefined && this.props.getCompanies('sort=-created_date')
   }
 
   render() {
@@ -52,18 +59,19 @@ export default class List extends Component {
             </div>
             <div className="text-center">
               <Link to={'/companies/new'} className="btn btn-success btn-lg">
-                Přidat společnost<div className="ripple-container" />
+                Registrovat společnost<div className="ripple-container" />
               </Link>
             </div>
           </div>
         </div>
 
-        <Tabs items={categories} />
+        <Tabs items={categories} onFilter={this.filterCategory} />
 
         <Listing
           items={companies}
           controller="companies"
           onDelete={this.handleDeleteCompany}
+          onFilter={this.filterCategory}
           additionalClasses="tabs-padding-top"
           id="company-list"
           isCompany

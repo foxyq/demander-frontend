@@ -114,7 +114,7 @@ export default class Home extends Component {
           isColored="gray"
           additionalClasses="text-center"
         >
-          <Listing items={demands} controller="demands" isAdmin={false} />
+          <Listing items={demands} controller="demands" isAdmin />
 
           <Link to={'/companies/new'} className="btn btn-lg btn-success">
             Přidat poptávku

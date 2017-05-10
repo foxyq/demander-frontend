@@ -40,6 +40,12 @@ export default class List extends Component {
     }
   }
 
+  filterCategory = id => {
+    console.log(id)
+    id !== undefined && this.props.getDemands('category=' + id)
+    id === undefined && this.props.getDemands('sort=-created_date')
+  }
+
   render() {
     const { demands, isLoading, categories } = this.props
 
@@ -62,13 +68,14 @@ export default class List extends Component {
         </div>
 
         {/* filtering tabs with categories */}
-        <Tabs items={categories} />
+        <Tabs items={categories} onFilter={this.filterCategory} />
 
         {/* demands in cards in form of listing  */}
         <Listing
           items={demands}
           controller="demands"
           onDelete={this.handleDeleteDemand}
+          onFilter={this.filterCategory}
           isAdmin
         />
 

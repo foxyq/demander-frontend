@@ -1,7 +1,7 @@
 {
   "javascript": {
-    "main": "http://192.168.0.248:3001/dist/main-ad452ea5e124cc2bc93a.js",
-    "vendor": "http://192.168.0.248:3001/dist/vendor-ad452ea5e124cc2bc93a.js"
+    "main": "http://192.168.0.248:3001/dist/main-1586f51cee59534a323c.js",
+    "vendor": "http://192.168.0.248:3001/dist/vendor-1586f51cee59534a323c.js"
   },
   "styles": {},
   "assets": {
@@ -44,7 +44,8 @@
     },
     "./src/components/common/ListingItem/ListingItem.styl": {
       "heading": "ListingItem__heading___FdWGv",
-      "_style": ".ListingItem__heading___FdWGv {\n  min-height: 60px;\n}\n"
+      "bottomfeeder": "ListingItem__bottomfeeder___mamVV",
+      "_style": ".ListingItem__heading___FdWGv {\n  min-height: 60px;\n}\n.ListingItem__bottomfeeder___mamVV {\n  position: absolute;\n  bottom: 20px;\n  width: 84%;\n}\n"
     },
     "./src/components/fields/Input/input.styl": {
       "_style": ".form-group {\n  margin-bottom: 20px;\n}\n.control-label {\n  font-size: 14px;\n  display: inline-block;\n  padding-bottom: 8px;\n  color: #4a4a4a;\n}\n.form-control {\n  width: 100%;\n  padding: 10px;\n  box-shadow: none;\n  border: 1px solid #ddd;\n  border-radius: 4px;\n  background-color: #fff;\n  max-height: 40px;\n}\n.form-control-error {\n  display: inline-block;\n  color: #b71c1c;\n  font-size: 14px;\n  padding-top: 4px;\n}\n"
@@ -95,7 +96,8 @@
       "headerfix": "Company__headerfix___21LeJ",
       "logo": "Company__logo___3OL6Y",
       "company_card": "Company__company_card___1R8KV",
-      "_style": ".Company__headerfix___21LeJ {\n  height: auto !important;\n  line-height: 1 !important;\n  padding: 5px 0px !important;\n}\n.Company__logo___3OL6Y {\n  height: 95px;\n}\n#Company__company_card___1R8KV {\n  margin-bottom: 30px;\n}\n"
+      "bottomfeeder": "Company__bottomfeeder___3Hxye",
+      "_style": ".Company__headerfix___21LeJ {\n  height: auto !important;\n  line-height: 1 !important;\n  padding: 5px 0px !important;\n}\n.Company__logo___3OL6Y {\n  height: 95px;\n}\n#Company__company_card___1R8KV {\n  margin-bottom: 30px;\n}\n.Company__bottomfeeder___3Hxye {\n  position: absolute;\n  bottom: 20px;\n  width: 84%;\n}\n"
     }
   }
 }

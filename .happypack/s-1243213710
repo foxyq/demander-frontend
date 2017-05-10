@@ -1,0 +1,111 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp;
+
+var _headers = require('components/layout/headers');
+
+var Header = _interopRequireWildcard(_headers);
+
+var _footers = require('components/layout/footers');
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  DemandLayout: {
+    displayName: 'DemandLayout'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/layouts/Demand/Demand.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/layouts/Demand/Demand.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var DemandLayout = _wrapComponent('DemandLayout')((_temp = _class = function (_Component) {
+  (0, _inherits3.default)(DemandLayout, _Component);
+
+  function DemandLayout() {
+    (0, _classCallCheck3.default)(this, DemandLayout);
+    return (0, _possibleConstructorReturn3.default)(this, (DemandLayout.__proto__ || Object.getPrototypeOf(DemandLayout)).apply(this, arguments));
+  }
+
+  (0, _createClass3.default)(DemandLayout, [{
+    key: 'render',
+    value: function render() {
+      return _react3.default.createElement(
+        'div',
+        null,
+        _react3.default.createElement(
+          'div',
+          { id: 'top', className: 'profile-page' },
+          _react3.default.createElement(Header.HeaderWebsite, { logo: _react3.default.createElement(Header.Logo, null) }),
+          _react3.default.createElement(
+            'div',
+            { className: 'wrapper' },
+            this.props.children
+          ),
+          _react3.default.createElement(_footers.FooterWebsite, null)
+        )
+      );
+    }
+  }]);
+  return DemandLayout;
+}(_react2.Component), _class.propTypes = {
+  children: _react2.PropTypes.object
+}, _temp));
+
+exports.default = DemandLayout;
+module.exports = exports['default'];

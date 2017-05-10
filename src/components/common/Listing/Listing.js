@@ -9,6 +9,7 @@ export default class Listing extends Component {
     items: PropTypes.array.isRequired,
     controller: PropTypes.string.isRequired,
     onDelete: PropTypes.func,
+    onFilter: PropTypes.func,
     isAdmin: PropTypes.bool.isRequired,
     isCompany: PropTypes.bool,
     additionalClasses: PropTypes.string,
@@ -20,6 +21,7 @@ export default class Listing extends Component {
       items,
       controller,
       onDelete,
+      onFilter,
       isAdmin,
       isCompany,
       additionalClasses,
@@ -38,6 +40,7 @@ export default class Listing extends Component {
               controller={controller}
               onDelete={onDelete}
               isAdmin={isAdmin}
+              onFilter={onFilter}
             />
           ))}
 
@@ -51,6 +54,7 @@ export default class Listing extends Component {
               controller={controller}
               onDelete={onDelete}
               isAdmin={isAdmin}
+              onFilter={onFilter}
             />
           ))}
 

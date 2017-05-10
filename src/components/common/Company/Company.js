@@ -10,11 +10,16 @@ export default class Company extends React.Component {
     isAdmin: PropTypes.bool.isRequired,
     controller: PropTypes.string.isRequired,
     onDelete: PropTypes.func,
+    onFilter: PropTypes.func,
   }
 
   deleteClick(id) {
     this.props.onDelete(id)
   }
+  filterClick(id) {
+    this.props.onFilter(id)
+  }
+
   render() {
     const { item, isAdmin, controller } = this.props
 
@@ -23,7 +28,10 @@ export default class Company extends React.Component {
     // desc = desc.substring(0, 150)
 
     return (
-      <div id={style.company_card} className="col-xs-12 col-sm-6 col-md-4">
+      <div
+        id={style.company_card}
+        className="col-xs-12 col-sm-6 col-md-4 text-center"
+      >
         <div className="card card-signup">
           <div
             className={cx('header header-primary text-center', style.headerfix)}
@@ -31,15 +39,39 @@ export default class Company extends React.Component {
             <h4>{item.company_nice_name}</h4>
 
             <div className="social-line">
-              <a href="#pablo" className="btn btn-simple btn-just-icon">
-                <i className="fa fa-facebook-square" />
-              </a>
-              <a href="#pablo" className="btn btn-simple btn-just-icon">
-                <i className="fa fa-twitter" />
-              </a>
-              <a href="#pablo" className="btn btn-simple btn-just-icon">
-                <i className="fa fa-google-plus" />
-              </a>
+              {item.fb_url &&
+                <a
+                  href={item.fb_url}
+                  className="btn btn-simple btn-just-icon"
+                  target="_blank"
+                >
+                  <i className="fa fa-facebook-square" />
+                </a>}
+              {item.twitter_url &&
+                <a
+                  href={item.twitter_url}
+                  className="btn btn-simple btn-just-icon"
+                  target="_blank"
+                >
+                  <i className="fa fa-twitter" />
+                </a>}
+              {item.linkedin_url &&
+                <a
+                  href={item.linkedin_url}
+                  className="btn btn-simple btn-just-icon"
+                  target="_blank"
+                >
+                  <i className="fa fa-linkedin-square" aria-hidden="true" />
+                </a>}
+              {item.web_url &&
+                <a
+                  href={item.web_url}
+                  className="btn btn-simple btn-just-icon"
+                  target="_blank"
+                >
+                  <i className="fa fa-dribbble" />
+                </a>}
+
             </div>
           </div>
 
@@ -53,7 +85,10 @@ export default class Company extends React.Component {
                 />
               </Link>
             </h4>
-            <h6 className="category text-gray text-center">
+            <h6
+              className="category text-gray text-center"
+              onClick={() => this.filterClick(item.category._id)}
+            >
               {/* {item.company_vat_id} */}
               {item.category.title}
             </h6>
@@ -61,20 +96,26 @@ export default class Company extends React.Component {
               {item.slogan}
             </p>
 
-            {/* admin buttons */}
-            {isAdmin &&
-              <span>
-                <Link to={`/${controller}/${item._id}`}>
-                  Upraviť
-                </Link>
-                <button
-                  type="button"
-                  onClick={() => this.deleteClick(item._id)}
-                >
-                  Delete
-                </button>
-              </span>}
-            {/* admin buttons */}
+            <div className={style.bottomfeeder}>
+              {/* admin buttons */}
+              {isAdmin &&
+                <span>
+                  <Link
+                    to={`/${controller}/${item._id}`}
+                    className="btn btn-info btn-xs"
+                  >
+                    Upraviť
+                  </Link>
+                  <button
+                    type="button"
+                    className="btn btn-danger btn-xs"
+                    onClick={() => this.deleteClick(item._id)}
+                  >
+                    Delete
+                  </button>
+                </span>}
+              {/* admin buttons */}
+            </div>
 
             {/* <div className="footer">
               <a
