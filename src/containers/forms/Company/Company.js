@@ -65,7 +65,6 @@ export default class Company extends Component {
   handleSuccess = () => {
     this.props.getCompanies()
     browserHistory.goBack()
-    // browserHistory.push('/companies')
   }
 
   handleError = error => this.setState({ error })

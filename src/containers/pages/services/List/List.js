@@ -5,15 +5,17 @@ import {
   getServices,
   deleteService,
 } from 'redux/modules/api/services' /* , deleteService*/
+import { getCategories } from 'redux/modules/api/categories'
 
-import { Listing, Loading } from 'components/common'
+import { Listing, Loading, Tabs } from 'components/common'
 
 @connect(
   ({ api }) => ({
     services: api.services.getServices.data,
+    categories: api.categories.getCategories.data,
     isLoading: api.services.getServices.isLoading,
   }),
-  { getServices, deleteService },
+  { getServices, deleteService, getCategories },
 )
 export default class List extends Component {
   static propTypes = {
@@ -21,10 +23,13 @@ export default class List extends Component {
     deleteService: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
     services: PropTypes.array,
+    categories: PropTypes.array,
+    getCategories: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
     this.props.getServices('sort=-created_date')
+    this.props.getCategories()
   }
 
   handleDeleteService = serviceId => {
@@ -38,7 +43,7 @@ export default class List extends Component {
   }
 
   render() {
-    const { services, isLoading } = this.props
+    const { services, isLoading, categories } = this.props
 
     return (
       <div>
@@ -58,61 +63,7 @@ export default class List extends Component {
           </div>
         </div>
 
-        {/* row with tabs */}
-        <div className="row">
-          <div className="col-md-8 col-md-offset-2">
-            <div className="profile-tabs">
-              <div className="nav-align-center">
-                <ul className="nav nav-pills" role="tablist">
-                  <li className="">
-                    <a
-                      href="#studio"
-                      role="tab"
-                      data-toggle="tab"
-                      aria-expanded="false"
-                    >
-                      <i className="material-icons">flip_to_back</i>
-                      Textil
-                    </a>
-                  </li>
-                  <li className="active">
-                    <a
-                      href="#work"
-                      role="tab"
-                      data-toggle="tab"
-                      aria-expanded="true"
-                    >
-                      <i className="material-icons">build</i>
-                      Služby
-                    </a>
-                  </li>
-                  <li className="">
-                    <a
-                      href="#shows"
-                      role="tab"
-                      data-toggle="tab"
-                      aria-expanded="false"
-                    >
-                      <i className="material-icons">attach_money</i>
-                      Finance
-                    </a>
-                  </li>
-                  <li className="">
-                    <a
-                      href="#shows"
-                      role="tab"
-                      data-toggle="tab"
-                      aria-expanded="false"
-                    >
-                      <i className="material-icons">computer</i>
-                      IT
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Tabs items={categories} />
 
         <div className="container">
           <Listing

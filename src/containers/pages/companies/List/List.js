@@ -2,25 +2,30 @@ import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { getCompanies, deleteCompany } from 'redux/modules/api/companies'
+import { getCategories } from 'redux/modules/api/categories'
 
-import { Listing, Loading } from 'components/common'
+import { Listing, Loading, Tabs } from 'components/common'
 
 @connect(
   ({ api }) => ({
     companies: api.companies.getCompanies.data,
+    categories: api.categories.getCategories.data,
     isLoading: api.companies.getCompanies.isLoading,
   }),
-  { getCompanies, deleteCompany },
+  { getCompanies, deleteCompany, getCategories },
 )
 export default class List extends Component {
   static propTypes = {
     getCompanies: PropTypes.func.isRequired,
+    getCategories: PropTypes.func.isRequired,
     deleteCompany: PropTypes.func.isRequired,
     isLoading: PropTypes.bool,
     companies: PropTypes.array.isRequired,
+    categories: PropTypes.array.isRequired,
   }
   componentDidMount() {
     this.props.getCompanies('sort=-created_date')
+    this.props.getCategories()
   }
 
   handleDeleteCompany = companyId => {
@@ -34,7 +39,7 @@ export default class List extends Component {
   }
 
   render() {
-    const { companies, isLoading } = this.props
+    const { companies, isLoading, categories } = this.props
 
     return (
       <div>
@@ -53,10 +58,14 @@ export default class List extends Component {
           </div>
         </div>
 
+        <Tabs items={categories} />
+
         <Listing
           items={companies}
           controller="companies"
           onDelete={this.handleDeleteCompany}
+          additionalClasses="tabs-padding-top"
+          id="company-list"
           isCompany
           isAdmin
         />

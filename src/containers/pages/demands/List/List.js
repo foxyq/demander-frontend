@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { getDemands, deleteDemand } from 'redux/modules/api/demands'
 import { getCategories } from 'redux/modules/api/categories'
 
-import { Listing, Loading } from 'components/common'
+import { Listing, Loading, Tabs } from 'components/common'
 
 @connect(
   ({ api }) => ({
@@ -60,54 +60,10 @@ export default class List extends Component {
           </div>
         </div>
 
-        {/* row with tabs */}
-        <div className="row">
-          <div className="col-md-12">
-            <div className="profile-tabs">
-              <div className="nav-align-center">
-                <ul className="nav nav-pills" role="tablist">
+        {/* filtering tabs with categories */}
+        <Tabs items={categories} />
 
-                  {categories &&
-                    categories.length > 0 &&
-                    categories.map(category => (
-                      <li className="">
-                        <a
-                          href="#studio"
-                          role="tab"
-                          data-toggle="tab"
-                          aria-expanded="false"
-                        >
-                          <i className="material-icons">{category.icon}</i>
-                          {category.title}
-                        </a>
-                      </li>
-                    ))}
-
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* <li className="active">
-          <a href="#work" role="tab" data-toggle="tab" aria-expanded="true">
-            <i className="material-icons">build</i>
-            Služby
-          </a>
-        </li>
-        <li className="">
-          <a href="#shows" role="tab" data-toggle="tab" aria-expanded="false">
-            <i className="material-icons">attach_money</i>
-            Finance
-          </a>
-        </li>
-        <li className="">
-          <a href="#shows" role="tab" data-toggle="tab" aria-expanded="false">
-            <i className="material-icons">computer</i>
-            IT
-          </a>
-        </li> */}
-
+        {/* demands in cards in form of listing  */}
         <Listing
           items={demands}
           controller="demands"

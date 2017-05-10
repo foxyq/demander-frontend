@@ -1,94 +1,10 @@
-.card_profile, .card_testimonial
-  margin-top 30px
-  text-align center
+.headerfix
+  height auto!important
+  line-height 1!important
+  padding 5px 0px!important
 
-.rotating_card_container
-  -webkit-perspective 800px
-  -moz-perspective 800px
-  -o-perspective 800px
-  -ms-perspective 800px
-  perspective 800px
-  .card-image
-    overflow visible
-    .back
-      .card-title
-        position relative
-        bottom 0
-        left 0
+.logo
+  height 95px
 
-.rotating_card_container .card, .rotating_card_container .card_image
-  -webkit-transition transform 1s cubic-bezier(.34,1.45,.7,1)
-  -moz-transition transform 1s cubic-bezier(.34,1.45,.7,1)
-  -o-transition transform 1s cubic-bezier(.34,1.45,.7,1)
-  -ms-transition transform 1s cubic-bezier(.34,1.45,.7,1)
-  transition transform 1s cubic-bezier(.34,1.45,.7,1)
-  -webkit-transform-style preserve-3d
-  -moz-transform-style preserve-3d
-  -o-transform-style preserve-3d
-  -ms-transform-style preserve-3d
-  transform-style preserve-3d
-  position relative
-
-.card_profile
-  .rotating_card_container
-    .front
-      text-align left
-
-.rotating_card_container .card .front, .rotating_card_container .card_image .front
-  position relative
-  z-index 2
-
-.rotating_card_container .card .back, .rotating_card_container .card .front, .rotating_card_container .card_image .back, .rotating_card_container .card_image .front
-  -webkit-backface-visibility hidden
-  -moz-backface-visibility hidden
-  -o-backface-visibility hidden
-  -ms-backface-visibility hidden
-  backface-visibility hidden
-  position absolute
-  top 0
-  left 0
-
-.card
-  .card_image
-    .colored_shadow
-      transform scale(.94)
-      top 12px
-      filter blur(12px)
-      position absolute
-      width 100%
-      height 100%
-      background-size cover
-      z-index -1
-      transition opacity .45s
-      opacity 0
-
-.rotating_card_container .card .back, .rotating_card_container .card_image .back
-  -webkit-transform rotateY(180deg)
-  -moz-transform rotateY(180deg)
-  -o-transform rotateY(180deg)
-  -ms-transform rotateY(180deg)
-  transform rotateY(180deg)
-  z-index 3
-  background-color #FFF
-  border-radius 6px
-  text-align center
-  width 100%
-  height 100%
-  display flex
-  align-items center
-  justify-content center
-
-.back_background
-  .card-content
-    min-height auto
-    padding-top 15px
-    padding-bottom 15px
-
-.back_background .card_content, .card_background .card_content
-  position relative
-  z-index 2
-  min-height 280px
-  padding-top 40px
-  padding-bottom 40px
-  max-width 440px
-  margin 0 auto
+#company_card
+  margin-bottom 30px

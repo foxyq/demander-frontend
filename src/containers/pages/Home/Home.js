@@ -128,7 +128,7 @@ export default class Home extends Component {
           additionalClasses="text-center"
         >
           <Listing items={services} controller="services" isAdmin />
-          <Link to={'/companies/new'} className="btn btn-lg btn-success ">
+          <Link to={'/services/new'} className="btn btn-lg btn-success ">
             Nabídnout službu
           </Link>
         </ContentStripe>

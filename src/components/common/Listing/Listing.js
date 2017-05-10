@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import cx from 'classnames'
+
 import ListingItem from 'components/common/ListingItem/ListingItem'
 import Company from 'components/common/Company/Company'
 
@@ -9,14 +11,23 @@ export default class Listing extends Component {
     onDelete: PropTypes.func,
     isAdmin: PropTypes.bool.isRequired,
     isCompany: PropTypes.bool,
+    additionalClasses: PropTypes.string,
+    id: PropTypes.string,
   }
 
   render() {
-    const { items, controller, onDelete, isAdmin, isCompany } = this.props
+    const {
+      items,
+      controller,
+      onDelete,
+      isAdmin,
+      isCompany,
+      additionalClasses,
+      id,
+    } = this.props
 
     return (
-      <div className={'row'}>
-
+      <div className={cx('row', additionalClasses)} id={id}>
         {items &&
           !isCompany &&
           items.length > 0 &&

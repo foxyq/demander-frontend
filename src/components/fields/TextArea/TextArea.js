@@ -8,7 +8,7 @@ export default class Input extends Component {
     onInputChange: React.PropTypes.func,
     label: React.PropTypes.string.isRequired,
     name: React.PropTypes.string.isRequired,
-    type: React.PropTypes.string,
+    // type: React.PropTypes.string,
   }
 
   // shouldComponentUpdate() {
@@ -45,7 +45,7 @@ export default class Input extends Component {
             // className="form-control `${style.textArea}`"
             className={cx('form-control', style.textArea)}
             // className={style.container}
-            rows={5}
+            rows={3}
             {...input}
             // type={'textarea'}
             onChange={e => this.handleChange(e, field)}

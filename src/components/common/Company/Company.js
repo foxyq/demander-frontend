@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router'
-// import style from './Company'
+import cx from 'classnames'
+import style from './Company.styl'
 // import Truncate from 'react-truncate'
 
 export default class Company extends React.Component {
@@ -17,38 +18,47 @@ export default class Company extends React.Component {
   render() {
     const { item, isAdmin, controller } = this.props
 
-    let desc = item.company_about
-
-    desc = desc.substring(0, 150)
+    // let desc = item.company_about
+    //
+    // desc = desc.substring(0, 150)
 
     return (
-      <div className="col-xs-12 col-sm-6 col-md-4">
-        <div className="card card-profile card-rotate">
+      <div id={style.company_card} className="col-xs-12 col-sm-6 col-md-4">
+        <div className="card card-signup">
+          <div
+            className={cx('header header-primary text-center', style.headerfix)}
+          >
+            <h4>{item.company_nice_name}</h4>
 
-          <div className="card-image">
-            <div className="front">
-              <Link to={`/company/${item._id}`}>
-                <img
-                  className="img"
-                  // src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-profile7.jpg"
-                  src={item.logo_url}
-                />
-              </Link>
+            <div className="social-line">
+              <a href="#pablo" className="btn btn-simple btn-just-icon">
+                <i className="fa fa-facebook-square" />
+              </a>
+              <a href="#pablo" className="btn btn-simple btn-just-icon">
+                <i className="fa fa-twitter" />
+              </a>
+              <a href="#pablo" className="btn btn-simple btn-just-icon">
+                <i className="fa fa-google-plus" />
+              </a>
             </div>
           </div>
 
           <div className="card-content">
-            <h4 className="card-title">
-              <Link to={`/company/${item._id}`}>{item.company_name}</Link>
+            <h4 className="card-title text-center">
+              <Link to={`/company/${item._id}`}>
+                <img
+                  className={style.logo}
+                  // src="http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-profile7.jpg"
+                  src={item.logo_url}
+                />
+              </Link>
             </h4>
             <h6 className="category text-gray text-center">
-              {item.company_vat_id}
+              {/* {item.company_vat_id} */}
+              {item.category.title}
             </h6>
             <p className="card-description">
-
-              {/* ({item.company_about}).substring(0, 15); */}
-              {desc}
-
+              {item.slogan}
             </p>
 
             {/* admin buttons */}
@@ -66,7 +76,7 @@ export default class Company extends React.Component {
               </span>}
             {/* admin buttons */}
 
-            <div className="footer">
+            {/* <div className="footer">
               <a
                 href="#pablo"
                 className="btn btn-just-icon btn-twitter btn-simple"
@@ -85,7 +95,7 @@ export default class Company extends React.Component {
               >
                 <i className="fa fa-dribbble" />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
