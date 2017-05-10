@@ -1,47 +1,51 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = require("babel-runtime/helpers/createClass");
+var _createClass2 = require('babel-runtime/helpers/createClass');
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = require("babel-runtime/helpers/inherits");
+var _inherits2 = require('babel-runtime/helpers/inherits');
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
-var _redboxReact2 = require("redbox-react");
+var _redboxReact2 = require('redbox-react');
 
 var _redboxReact3 = _interopRequireDefault(_redboxReact2);
 
-var _react2 = require("react");
+var _react2 = require('react');
 
 var _react3 = _interopRequireDefault(_react2);
 
-var _reactTransformCatchErrors3 = require("react-transform-catch-errors");
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
 
 var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp;
+
+var _reactRouter = require('react-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _components = {
   HeaderWebsite: {
-    displayName: "HeaderWebsite"
+    displayName: 'HeaderWebsite'
   }
 };
 
 var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
-  filename: "src/components/layout/headers/Website/HeaderWebsite.js",
+  filename: 'src/components/layout/headers/Website/HeaderWebsite.js',
   components: _components,
   locals: [],
   imports: [_react3.default, _redboxReact3.default]
@@ -53,11 +57,9 @@ function _wrapComponent(id) {
   };
 }
 
-// import { Link, IndexLink } from 'react-router'
 // import { connect } from 'react-redux'
-// require('./header-website.scss')
 
-var HeaderWebsite = _wrapComponent("HeaderWebsite")(function (_React$Component) {
+var HeaderWebsite = _wrapComponent('HeaderWebsite')((_temp = _class = function (_React$Component) {
   (0, _inherits3.default)(HeaderWebsite, _React$Component);
 
   function HeaderWebsite() {
@@ -66,167 +68,161 @@ var HeaderWebsite = _wrapComponent("HeaderWebsite")(function (_React$Component) 
   }
 
   (0, _createClass3.default)(HeaderWebsite, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react3.default.createElement(
-        "nav",
-        { className: "navbar navbar-fixed-top navbar-color-on-scroll" },
+        'nav',
+        { className: 'navbar navbar-fixed-top navbar-color-on-scroll navbar-transparent' },
         _react3.default.createElement(
-          "div",
-          { className: "container" },
+          'div',
+          { className: 'container' },
           _react3.default.createElement(
-            "div",
-            { className: "navbar-header" },
+            'div',
+            { className: 'navbar-header' },
             _react3.default.createElement(
-              "button",
+              'button',
               {
-                type: "button",
-                className: "navbar-toggle",
-                "data-toggle": "collapse",
-                "data-target": "#navigation-index"
+                type: 'button',
+                className: 'navbar-toggle',
+                'data-toggle': 'collapse',
+                'data-target': '#navigation-index'
               },
               _react3.default.createElement(
-                "span",
-                { className: "sr-only" },
-                "Toggle navigation"
+                'span',
+                { className: 'sr-only' },
+                'Navigace'
               ),
-              _react3.default.createElement("span", { className: "icon-bar" }),
-              _react3.default.createElement("span", { className: "icon-bar" }),
-              _react3.default.createElement("span", { className: "icon-bar" })
+              _react3.default.createElement('span', { className: 'icon-bar' }),
+              _react3.default.createElement('span', { className: 'icon-bar' }),
+              _react3.default.createElement('span', { className: 'icon-bar' })
             ),
-            _react3.default.createElement(
-              "a",
-              { href: "http://www.creative-tim.com" },
-              _react3.default.createElement(
-                "div",
-                { className: "logo-container" },
-                _react3.default.createElement(
-                  "div",
-                  { className: "logo" },
-                  _react3.default.createElement("img", {
-                    src: "assets/img/logo.png",
-                    alt: "Creative Tim Logo",
-                    rel: "tooltip",
-                    title: "",
-                    "data-placement": "bottom",
-                    "data-html": "true",
-                    "data-original-title": "<b>Material Kit</b> was Designed & Coded with care by the staff from <b>Creative Tim</b>"
-                  })
-                ),
-                _react3.default.createElement(
-                  "div",
-                  { className: "brand" },
-                  "Creative Tim"
-                )
-              )
-            )
+            this.props.logo
           ),
           _react3.default.createElement(
-            "div",
-            { className: "collapse navbar-collapse", id: "navigation-index" },
+            'div',
+            { className: 'collapse navbar-collapse', id: 'navigation-index' },
             _react3.default.createElement(
-              "ul",
-              { className: "nav navbar-nav navbar-right" },
+              'ul',
+              { className: 'nav navbar-nav navbar-left' },
               _react3.default.createElement(
-                "li",
+                'li',
                 null,
                 _react3.default.createElement(
-                  "a",
-                  { href: "components-documentation.html", target: "_blank" },
-                  _react3.default.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "dashboard"
-                  ),
-                  " Components"
+                  _reactRouter.IndexLink,
+                  { to: '/', activeClassName: 'active' },
+                  'Dom\u016F'
                 )
               ),
               _react3.default.createElement(
-                "li",
+                'li',
                 null,
                 _react3.default.createElement(
-                  "a",
-                  { href: "#s", onClick: "scrollToDownload()" },
-                  _react3.default.createElement(
-                    "i",
-                    { className: "material-icons" },
-                    "cloud_download"
-                  ),
-                  " Download"
+                  _reactRouter.Link,
+                  { to: '/demands', activeClassName: 'active' },
+                  'Popt\xE1vky'
                 )
               ),
               _react3.default.createElement(
-                "li",
+                'li',
                 null,
                 _react3.default.createElement(
-                  "a",
+                  _reactRouter.Link,
+                  { to: '/services', activeClassName: 'active' },
+                  'Slu\u017Eby'
+                )
+              ),
+              _react3.default.createElement(
+                'li',
+                null,
+                _react3.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/companies', activeClassName: 'active' },
+                  'Dodavatel\xE9'
+                )
+              ),
+              _react3.default.createElement(
+                'li',
+                null,
+                _react3.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/howitworks', activeClassName: 'active' },
+                  'Jak to funguje?'
+                )
+              ),
+              _react3.default.createElement(
+                'li',
+                null,
+                _react3.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/contact', activeClassName: 'active' },
+                  'Kontakt'
+                )
+              )
+            ),
+            _react3.default.createElement(
+              'ul',
+              { className: 'nav navbar-nav navbar-right' },
+              _react3.default.createElement(
+                'li',
+                null,
+                _react3.default.createElement(
+                  'a',
                   {
-                    rel: "tooltip",
-                    title: "",
-                    "data-placement": "bottom",
-                    href: "https://twitter.com/CreativeTim",
-                    target: "_blank",
-                    className: "btn btn-white btn-simple btn-just-icon",
-                    "data-original-title": "Follow us on Twitter"
+                    rel: 'tooltip',
+                    title: '',
+                    'data-placement': 'bottom',
+                    href: '#',
+                    target: '_blank',
+                    className: 'btn btn-white btn-simple btn-just-icon',
+                    'data-original-title': 'Follow us on Twitter'
                   },
-                  _react3.default.createElement("i", { className: "fa fa-twitter" })
+                  _react3.default.createElement('i', { className: 'fa fa-twitter' })
                 )
               ),
               _react3.default.createElement(
-                "li",
+                'li',
                 null,
                 _react3.default.createElement(
-                  "a",
+                  'a',
                   {
-                    rel: "tooltip",
-                    title: "",
-                    "data-placement": "bottom",
-                    href: "https://www.facebook.com/CreativeTim",
-                    target: "_blank",
-                    className: "btn btn-white btn-simple btn-just-icon",
-                    "data-original-title": "Like us on Facebook"
+                    rel: 'tooltip',
+                    title: '',
+                    'data-placement': 'bottom',
+                    href: '#',
+                    target: '_blank',
+                    className: 'btn btn-white btn-simple btn-just-icon',
+                    'data-original-title': 'Like us on Facebook'
                   },
-                  _react3.default.createElement("i", { className: "fa fa-facebook-square" })
+                  _react3.default.createElement('i', { className: 'fa fa-facebook-square' })
                 )
               ),
               _react3.default.createElement(
-                "li",
+                'li',
                 null,
                 _react3.default.createElement(
-                  "a",
+                  'a',
                   {
-                    rel: "tooltip",
-                    title: "",
-                    "data-placement": "bottom",
-                    href: "https://www.instagram.com/CreativeTimOfficial",
-                    target: "_blank",
-                    className: "btn btn-white btn-simple btn-just-icon",
-                    "data-original-title": "Follow us on Instagram"
+                    rel: 'tooltip',
+                    title: '',
+                    'data-placement': 'bottom',
+                    href: '#',
+                    target: '_blank',
+                    className: 'btn btn-white btn-simple btn-just-icon',
+                    'data-original-title': 'Follow us on Instagram'
                   },
-                  _react3.default.createElement("i", { className: "fa fa-instagram" })
+                  _react3.default.createElement('i', { className: 'fa fa-instagram' })
                 )
               )
             )
           )
         )
       );
-
-      //
-      // // <IndexLink to="/" activeClassName="active">Home</IndexLink>
-      // {' | '}
-      // <Link to="/companies" activeClassName="active">Companies</Link>
-      // {' | '}
-      // <Link to="/users" activeClassName="active">Users</Link>
-      // {' | '}
-      // <Link to="/demands" activeClassName="active">Demands</Link>
-      // {' | '}
-      // <Link to="/services" activeClassName="active">Services</Link>
-      // {' | '}
-      // <Link to="/fancy" activeClassName="active">Test page</Link>
     }
   }]);
   return HeaderWebsite;
-}(_react3.default.Component));
+}(_react3.default.Component), _class.PropTypes = {
+  logo: _react3.default.PropTypes.object
+}, _temp));
 
 exports.default = HeaderWebsite;
-module.exports = exports["default"];
+module.exports = exports['default'];

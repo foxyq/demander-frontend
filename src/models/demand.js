@@ -13,6 +13,7 @@ export const schema = model => {
   values.description = get(model, 'description')
   values.responsible_person = get(model, 'responsible_person')
   values.company = get(model, 'company')
+  values.category = get(model, 'category')
 
   return values
 }

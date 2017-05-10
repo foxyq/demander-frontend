@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form'
+import { reduxForm, Field } from 'redux-form'
 import { schema } from 'models/company'
 
 import { Input, TextArea } from 'components/fields'
@@ -76,14 +76,49 @@ export default class Company extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleSubmit)}>
         <Input label="Company name" name="company_name" />
+        <Input label="Company nice name" name="company_nice_name" />
+        <div>
+          <label>Category</label>
+          <div>
+            <Field name="category" component="select">
+              <option value="590ee92404e3b306921354ad">
+                Zemědelství
+              </option>
+              <option value="590eeaa404e3b306921354ae">
+                Lesnictví
+              </option>
+              <option value="5911936c918f35178a5bfc6f">
+                Průmysl
+              </option>
+              <option value="59119427918f35178a5bfc70">
+                Energetika
+              </option>
+              <option value="591194b5918f35178a5bfc71">
+                Voda
+              </option>
+              <option value="59119538918f35178a5bfc72">
+                Stavebnictví
+              </option>
+              <option value="591195c6918f35178a5bfc73">
+                Obchod
+              </option>
+              <option value="59119676918f35178a5bfc74">
+                Doprava
+              </option>
+              <option value="5911970b918f35178a5bfc75">
+                Restauraterství
+              </option>
+              <option value="5911977f918f35178a5bfc76">
+                IT
+              </option>
+              <option value="5911985b918f35178a5bfc77">
+                Finance
+              </option>
+            </Field>
+          </div>
+        </div>
         <Input label="Company ID" name="company_id" />
         <Input label="Company VAT ID" name="company_vat_id" />
-        {/* <TextArea
-          rows="4"
-          cols="50"
-          label="About company"
-          name="company_about"
-        /> */}
         <TextArea label="About company" name="company_about" />
         <Input label="Description" name="company_description" />
         <Input label="Opening hours" name="company_opening_hours" />
@@ -91,7 +126,13 @@ export default class Company extends Component {
         <Input label="Email" name="contact_email" />
         <Input label="Address" name="contact_address" />
         <Input label="Contact person" name="contact_person" />
-        <Input label="Categorization" name="categorization" />
+        <Input label="GPS location" name="company_gps_location" />
+        <Input label="Logo URL" name="logo_url" />
+        <Input label="Web URL" name="web_url" />
+        <Input label="Facebook URL" name="fb_url" />
+        <Input label="Twitter URL" name="twitter_url" />
+        <Input label="LinkedIn URL" name="linkedin_url" />
+
         <Input label="Slogan" name="slogan" />
         <input type="submit" />
 

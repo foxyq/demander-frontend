@@ -57,6 +57,12 @@ export default store => {
         <Route path=":id" component={Pages.Companies.Detail} />
       </Route>
 
+      {/* DEMAND DETAIL */}
+      {/* <Route path="demand" component={Layout.Company}>
+        {/* <IndexRoute component={Pages.Companies.List} /> */}
+      {/* <Route path=":id" component={Pages.Companies.Detail} />
+      </Route> */}
+
       {/*  STANDARD LAYOUT */}
       <Route component={Layout.Standard}>
         <Route path="users">
@@ -66,6 +72,11 @@ export default store => {
 
         <Route path="demands">
           <IndexRoute component={Pages.Demands.List} />
+          <Route path=":id" component={Pages.Demands.Form} />
+        </Route>
+
+        <Route path="demand">
+          {/* <IndexRoute component={Pages.Companies.List} /> */}
           <Route path=":id" component={Pages.Demands.Detail} />
         </Route>
 

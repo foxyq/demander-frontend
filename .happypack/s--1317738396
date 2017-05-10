@@ -1,0 +1,230 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof2 = require("babel-runtime/helpers/typeof");
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require("babel-runtime/helpers/createClass");
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _stringify = require("babel-runtime/core-js/json/stringify");
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
+var _keys = require("babel-runtime/core-js/object/keys");
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _reactTransformHmr3 = require("react-transform-hmr");
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require("redbox-react");
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require("react");
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require("react-transform-catch-errors");
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _class, _temp;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  SimpleSelect: {
+    displayName: "SimpleSelect"
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: "/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js",
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: "/Users/pavel/Development/demander/demander-frontend/src/components/fields/SimpleSelect/SimpleSelect.js",
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+// import Select from 'react-select'
+
+var SimpleSelect = _wrapComponent("SimpleSelect")((_temp = _class = function (_Component) {
+  (0, _inherits3.default)(SimpleSelect, _Component);
+
+  function SimpleSelect(props) {
+    (0, _classCallCheck3.default)(this, SimpleSelect);
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (SimpleSelect.__proto__ || Object.getPrototypeOf(SimpleSelect)).call(this, props));
+
+    _this.state = { label: _this.props.label };
+    _this.state = { options: _this.props.options };
+    _this.state = { value: _this.props.value };
+    // this.state = { value: false }
+    _this.handleChange = _this.handleChange.bind(_this);
+
+    if (!(typeof _this.handleChange === 'function')) {
+      throw new TypeError("Value of \"this.handleChange\" violates contract.\n\nExpected:\n(any) => any\n\nGot:\n" + _inspect(_this.handleChange));
+    }
+
+    return _this;
+  }
+
+  // getInitialState() {
+  //   return {
+  //     options: [{ value: true, label: 'Yes' }, { value: false, label: 'No' }],
+  //     value: null,
+  //   }
+  // }
+
+  // onChange(value) => {
+  //   console.log(value.value)
+  //   this.setState({
+  //     value: value.value,
+  //   })
+  // }
+
+  (0, _createClass3.default)(SimpleSelect, [{
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.setState({ value: event.value });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          label = _props.label,
+          options = _props.options;
+
+
+      return _react3.default.createElement(
+        "div",
+        { className: "section" },
+        _react3.default.createElement(
+          "h4",
+          { className: "section-heading" },
+          label
+        ),
+        _react3.default.createElement(
+          "select",
+          null,
+          options.map(function (option) {
+            return _react3.default.createElement(
+              "option",
+              { key: option._id, value: option._id },
+              option.company_name
+            );
+          })
+        ),
+        _react3.default.createElement(
+          "div",
+          { className: "hint" },
+          "This example uses simple boolean values"
+        )
+      );
+    }
+  }]);
+  return SimpleSelect;
+}(_react2.Component), _class.propTypes = {
+  label: _react3.default.PropTypes.string,
+  value: _react3.default.PropTypes.bool,
+  options: _react3.default.PropTypes.array
+}, _temp));
+
+exports.default = SimpleSelect;
+
+function _inspect(input, depth) {
+  var maxDepth = 4;
+  var maxKeys = 15;
+
+  if (depth === undefined) {
+    depth = 0;
+  }
+
+  depth += 1;
+
+  if (input === null) {
+    return 'null';
+  } else if (input === undefined) {
+    return 'void';
+  } else if (typeof input === 'string' || typeof input === 'number' || typeof input === 'boolean') {
+    return typeof input === "undefined" ? "undefined" : (0, _typeof3.default)(input);
+  } else if (Array.isArray(input)) {
+    if (input.length > 0) {
+      if (depth > maxDepth) return '[...]';
+
+      var first = _inspect(input[0], depth);
+
+      if (input.every(function (item) {
+        return _inspect(item, depth) === first;
+      })) {
+        return first.trim() + '[]';
+      } else {
+        return '[' + input.slice(0, maxKeys).map(function (item) {
+          return _inspect(item, depth);
+        }).join(', ') + (input.length >= maxKeys ? ', ...' : '') + ']';
+      }
+    } else {
+      return 'Array';
+    }
+  } else {
+    var keys = (0, _keys2.default)(input);
+
+    if (!keys.length) {
+      if (input.constructor && input.constructor.name && input.constructor.name !== 'Object') {
+        return input.constructor.name;
+      } else {
+        return 'Object';
+      }
+    }
+
+    if (depth > maxDepth) return '{...}';
+    var indent = '  '.repeat(depth - 1);
+    var entries = keys.slice(0, maxKeys).map(function (key) {
+      return (/^([A-Z_$][A-Z0-9_$]*)$/i.test(key) ? key : (0, _stringify2.default)(key)) + ': ' + _inspect(input[key], depth) + ';';
+    }).join('\n  ' + indent);
+
+    if (keys.length >= maxKeys) {
+      entries += '\n  ' + indent + '...';
+    }
+
+    if (input.constructor && input.constructor.name && input.constructor.name !== 'Object') {
+      return input.constructor.name + ' {\n  ' + indent + entries + '\n' + indent + '}';
+    } else {
+      return '{\n  ' + indent + entries + '\n' + indent + '}';
+    }
+  }
+}
+
+module.exports = exports["default"];
