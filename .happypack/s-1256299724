@@ -1,0 +1,192 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _reactTransformHmr3 = require('react-transform-hmr');
+
+var _reactTransformHmr4 = _interopRequireDefault(_reactTransformHmr3);
+
+var _redboxReact2 = require('redbox-react');
+
+var _redboxReact3 = _interopRequireDefault(_redboxReact2);
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _reactTransformCatchErrors3 = require('react-transform-catch-errors');
+
+var _reactTransformCatchErrors4 = _interopRequireDefault(_reactTransformCatchErrors3);
+
+var _dec, _class, _class2, _temp2;
+
+var _reactRouter = require('react-router');
+
+var _reactRedux = require('react-redux');
+
+var _companies = require('redux/modules/api/companies');
+
+var _categories = require('redux/modules/api/categories');
+
+var _common = require('components/common');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _components = {
+  List: {
+    displayName: 'List'
+  }
+};
+
+var _reactTransformCatchErrors2 = (0, _reactTransformCatchErrors4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/companies/List/List.js',
+  components: _components,
+  locals: [],
+  imports: [_react3.default, _redboxReact3.default]
+});
+
+var _reactTransformHmr2 = (0, _reactTransformHmr4.default)({
+  filename: '/Users/foxyq/Documents/Coding/react/demander/demander-frontend/src/containers/pages/companies/List/List.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _reactTransformCatchErrors2(_reactTransformHmr2(Component, id), id);
+  };
+}
+
+var List = _wrapComponent('List')((_dec = (0, _reactRedux.connect)(function (_ref) {
+  var api = _ref.api;
+  return {
+    companies: api.companies.getCompanies.data,
+    categories: api.categories.getCategories.data,
+    isLoading: api.companies.getCompanies.isLoading
+  };
+}, { getCompanies: _companies.getCompanies, deleteCompany: _companies.deleteCompany, getCategories: _categories.getCategories }), _dec(_class = (_temp2 = _class2 = function (_Component) {
+  (0, _inherits3.default)(List, _Component);
+
+  function List() {
+    var _ref2;
+
+    var _temp, _this, _ret;
+
+    (0, _classCallCheck3.default)(this, List);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref2 = List.__proto__ || Object.getPrototypeOf(List)).call.apply(_ref2, [this].concat(args))), _this), _this.handleDeleteCompany = function (companyId) {
+      var confirmed = confirm('Are you sure?');
+
+      if (confirmed) {
+        _this.props.deleteCompany(companyId).then(function () {
+          _this.props.getCompanies('sort=-created_date');
+        });
+      }
+    }, _this.filterCategory = function (id) {
+      console.log(id);
+      id !== undefined && _this.props.getCompanies('category=' + id);
+      id === undefined && _this.props.getCompanies('sort=-created_date');
+    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+  }
+
+  (0, _createClass3.default)(List, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.props.getCompanies();
+      this.props.getCategories();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          companies = _props.companies,
+          isLoading = _props.isLoading,
+          categories = _props.categories;
+
+      // console.log(categories)
+
+      return _react3.default.createElement(
+        'div',
+        null,
+        isLoading && _react3.default.createElement(_common.Loading, null),
+        _react3.default.createElement(
+          'div',
+          { className: 'row' },
+          _react3.default.createElement(
+            'div',
+            { className: 'profile' },
+            _react3.default.createElement(
+              'div',
+              { className: 'name' },
+              _react3.default.createElement(
+                'h3',
+                { className: 'title' },
+                'Seznam spole\u010Dnost\xED'
+              ),
+              _react3.default.createElement(
+                'h6',
+                null,
+                'Spole\u010Dnosti registrovan\xE9 v syst\xE9mu Demander'
+              )
+            ),
+            _react3.default.createElement(
+              'div',
+              { className: 'text-center' },
+              _react3.default.createElement(
+                _reactRouter.Link,
+                { to: '/companies/new', className: 'btn btn-success btn-lg' },
+                'Registrovat spole\u010Dnost',
+                _react3.default.createElement('div', { className: 'ripple-container' })
+              )
+            )
+          )
+        ),
+        _react3.default.createElement(_common.Tabs, { items: categories, onFilter: this.filterCategory }),
+        _react3.default.createElement(_common.Listing, {
+          items: companies,
+          controller: 'companies',
+          onDelete: this.handleDeleteCompany,
+          onFilter: this.filterCategory,
+          additionalClasses: 'tabs-padding-top',
+          id: 'company-list',
+          isCompany: true,
+          isAdmin: true
+        })
+      );
+    }
+  }]);
+  return List;
+}(_react2.Component), _class2.propTypes = {
+  getCompanies: _react2.PropTypes.func.isRequired,
+  getCategories: _react2.PropTypes.func.isRequired,
+  deleteCompany: _react2.PropTypes.func.isRequired,
+  isLoading: _react2.PropTypes.bool,
+  companies: _react2.PropTypes.array.isRequired,
+  categories: _react2.PropTypes.array.isRequired
+}, _temp2)) || _class));
+
+exports.default = List;
+module.exports = exports['default'];

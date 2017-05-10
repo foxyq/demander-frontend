@@ -80,7 +80,11 @@ export default class User extends Component {
         <Input label="email" name="email" />
         <Input label="password" name="password" />
 
-        <input type="submit" />
+        <input
+          type="submit"
+          className="btn btn-lg btn-success"
+          value="Přidat"
+        />
 
         {isSubmitting && <div>Submitting...</div>}
 

@@ -80,8 +80,8 @@ export default class Service extends Component {
         <Input label="Service title" name="title" />
         <div>
           <label>Category</label>
-          <div>
-            <Field name="category" component="select">
+          <div className="form-group">
+            <Field name="category" component="select" className="form-control">
               <option value="590ee92404e3b306921354ad">
                 Zemědelství
               </option>
@@ -120,10 +120,10 @@ export default class Service extends Component {
         </div>
         <Input label="Location" name="location" />
         <TextArea label="Description" name="description" rows="5" />
-        <div>
+        <div className="form-group">
           <label>Company</label>
           <div>
-            <Field name="company" component="select">
+            <Field name="company" component="select" className="form-control">
               <option value="58f7f61cff8d4014d7f7730b">
                 Vodafone Czech Republic a.s.
               </option>
@@ -143,7 +143,7 @@ export default class Service extends Component {
           </div>
         </div>
 
-        <input type="submit" />
+        <input type="submit" className="btn btn-lg btn-success" />
 
         {isSubmitting && <div>Submitting...</div>}
 

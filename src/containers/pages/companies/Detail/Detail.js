@@ -71,20 +71,21 @@ export default class Detail extends Component {
 
     return (
       <div>
-        <div
-          className="header header-filter"
-          style={{
-            transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
-            backgroundImage: 'url(http://www.triplepoint.co.uk/storage/images-processed/w-1200_h-482_m-cover_s-any__internet-technology-concept.jpg)',
-            // backgroundImage: `url(${company.category.cover_photo_url}`,
-            // backgroundImage: 'url(' + company.category.cover_photo_url + ')',
-            backgroundSize: '100%',
-          }}
-        >
-          <div className={style.mottowrapper}>
-            <div className={style.mottotext}>{company.company_about}</div>
-          </div>
-        </div>
+        {!isLoading &&
+          <div
+            className="header header-filter"
+            style={{
+              transform: 'translate3d(0px,' + this.state.transform + 'px, 0px)',
+              backgroundImage: 'url(http://www.triplepoint.co.uk/storage/images-processed/w-1200_h-482_m-cover_s-any__internet-technology-concept.jpg)',
+              // backgroundImage: `url(${company.category.cover_photo_url}`,
+              // backgroundImage: 'url(' + company.category.cover_photo_url + ')',
+              backgroundSize: '100%',
+            }}
+          >
+            <div className={style.mottowrapper}>
+              <div className={style.mottotext}>{company.company_about}</div>
+            </div>
+          </div>}
 
         <div className="main main-raised">
           <div className="profile-content">
@@ -262,7 +263,7 @@ export default class Detail extends Component {
         >
           <i className="material-icons">keyboard_arrow_up</i>
           <div className="ripple-container" />
-        </Scrollchor>
+        </Scrollchor>)
 
       </div>
     )

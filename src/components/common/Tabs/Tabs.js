@@ -4,7 +4,6 @@ export default class Tabs extends React.Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
     onFilter: PropTypes.func,
-    // controller: PropTypes.string,
   }
   filterClick(id) {
     this.props.onFilter(id)

@@ -24,7 +24,6 @@ export default class Company extends React.Component {
     const { item, isAdmin, controller } = this.props
 
     // let desc = item.company_about
-    //
     // desc = desc.substring(0, 150)
 
     return (

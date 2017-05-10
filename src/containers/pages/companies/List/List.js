@@ -24,7 +24,7 @@ export default class List extends Component {
     categories: PropTypes.array.isRequired,
   }
   componentDidMount() {
-    this.props.getCompanies('category=5asasdasdasae')
+    this.props.getCompanies()
     this.props.getCategories()
   }
 
@@ -40,9 +40,10 @@ export default class List extends Component {
 
   filterCategory = id => {
     console.log(id)
-    id !== undefined &&
-      this.props.getCompanies('category=590eeaa404e3b306921354ae')
-    id === undefined && this.props.getCompanies('sort=-created_date')
+    this.props.getCompanies('category=' + id)
+    console.log(this.props.companies)
+    // id !== undefined && this.props.getCompanies('category=' + id)
+    // id === undefined && this.props.getCompanies('sort=-created_date')
   }
 
   render() {

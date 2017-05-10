@@ -77,10 +77,10 @@ export default class Company extends Component {
       <form onSubmit={handleSubmit(this.handleSubmit)}>
         <Input label="Company name" name="company_name" />
         <Input label="Company nice name" name="company_nice_name" />
-        <div>
+        <div className="form-group">
           <label>Category</label>
           <div>
-            <Field name="category" component="select">
+            <Field name="category" component="select" className="form-control">
               <option value="590ee92404e3b306921354ad">
                 Zemědelství
               </option>
@@ -134,7 +134,11 @@ export default class Company extends Component {
         <Input label="LinkedIn URL" name="linkedin_url" />
 
         <Input label="Slogan" name="slogan" />
-        <input type="submit" />
+        <input
+          type="submit"
+          className="btn btn-lg btn-success"
+          value="Přidat"
+        />
 
         {isSubmitting && <div>Submitting...</div>}
 

@@ -112,10 +112,10 @@ export default class Demand extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleSubmit)}>
         <Input label="Demand title" name="title" />
-        <div>
+        <div className="form-group">
           <label>Category</label>
           <div>
-            <Field name="category" component="select">
+            <Field name="category" component="select" className="form-control">
               <option value="590ee92404e3b306921354ad">
                 Zemědelství
               </option>
@@ -160,10 +160,10 @@ export default class Demand extends Component {
         <TextArea label="Description" name="description" />
         <Input label="Responsible person" name="responsible_person" />
         {/* <Input label="Company" name="company" /> */}
-        <div>
+        <div className="form-group">
           <label>Company</label>
           <div>
-            <Field name="company" component="select">
+            <Field name="company" component="select" className="form-control">
               <option value="58f7f61cff8d4014d7f7730b">
                 Vodafone Czech Republic a.s.
               </option>
@@ -207,7 +207,11 @@ export default class Demand extends Component {
           })}
         /> */}
 
-        <input type="submit" />
+        <input
+          type="submit"
+          className="btn btn-lg btn-success"
+          value="Přidat"
+        />
 
         {isSubmitting && <div>Submitting...</div>}
 
